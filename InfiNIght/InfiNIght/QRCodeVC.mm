@@ -16,6 +16,7 @@
 
 @implementation QRCodeVC
 @synthesize QRCode;
+@synthesize nameLbl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,13 +31,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    NSLog(@"asdfasdf%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"name"]);
+    self.nameLbl.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"name"];
     [self generateQRCode];
 }
 
 - (void)viewDidUnload
 {
     [self setQRCode:nil];
+    [self setNameLbl:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -46,7 +49,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     //the qrcode is square. now we make it 250 pixels wide
-    int qrcodeImageDimension = 250;
+    int qrcodeImageDimension = 200;
     
     //the string can be very long
     NSString* codeString = [NSString stringWithFormat: @"%@#%@#%@#%@", [defaults stringForKey:@"name"], [defaults stringForKey:@"matricule"], [defaults stringForKey:@"groupe"],[defaults stringForKey:@"year"]];

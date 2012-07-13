@@ -31,7 +31,7 @@
     
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"activities_navBar.png"] forBarMetrics:UIBarMetricsDefault];
-    if([[[NSUserDefaults standardUserDefaults] stringForKey:@"first_time"] isEqualToString:@"YES"]) {
+    if([[[NSUserDefaults standardUserDefaults] stringForKey:@"first_time"] isEqualToString:@"NO"]) {
         HECRegisterVC *reg = [[HECRegisterVC alloc] initWithNibName:@"HECRegisterVC" bundle:[NSBundle mainBundle]];
     
         double delayInSeconds = 0.1;
@@ -85,7 +85,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.textLabel.text = [events objectAtIndex:0];
+    cell.textLabel.text = [events objectAtIndex:indexPath.section];
     
     count++;
     return cell;
