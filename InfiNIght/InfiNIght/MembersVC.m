@@ -7,7 +7,8 @@
 //
 
 #import "MembersVC.h"
-
+#import "HECMemberDetailVC.h"
+#import "HECAdminVC.h"
 @interface MembersVC ()
 
 @end
@@ -63,7 +64,7 @@
     UIImageView *samuel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"samuelProfileFinal.png"]];
     samuel.frame = CGRectMake(8, 840, 148, 200);
     
-    UIImageView *admin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MemberField.png"]];
+    UIImageView *admin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"settings.png"]];
     admin.frame = CGRectMake(164, 840, 148, 200);
     
     frank.tag = 0;
@@ -110,20 +111,6 @@
         [spec addGestureRecognizer:singleTap];
     }
     
-//    [self.scrollView addGestureRecognizer:singleTap];
-    
-    
-    
-//    [frank addGestureRecognizer:singleTap];
-//    [karl addGestureRecognizer:singleTap];
-//    [annie addGestureRecognizer:singleTap];
-//    [stephanie addGestureRecognizer:singleTap];
-//    [nicolas addGestureRecognizer:singleTap];
-//    [genevieve addGestureRecognizer:singleTap];
-//    [catherine addGestureRecognizer:singleTap];
-//    [gabrielle addGestureRecognizer:singleTap];
-//    [samuel addGestureRecognizer:singleTap];
-//    [admin addGestureRecognizer:singleTap];
 
 }
 
@@ -140,9 +127,49 @@
 }
 
 -(void) handleSingleTap: (UIGestureRecognizer *) sender {
-  //  NSLog(@"sender: %d", sender.tag);
-    NSLog(@"hello...");
-    NSLog(@"sender: %d", sender.view.tag);
+
+    //instantiate the profileDetailController
+    HECMemberDetailVC *profileDetail = [[HECMemberDetailVC alloc] initWithNibName:@"HECMemberDetailVC" bundle:[NSBundle mainBundle]];
+    switch (sender.view.tag) {
+        case 0:
+            //assign the data to the controller
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;      
+        case 9:
+            break;
+        default:
+            //should never reach
+            break;
+    } 
+    if(sender.view.tag < 9)
+        [self presentModalViewController:profileDetail animated:YES];
+    else {
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Mot de passe" message:@"ici, il faudra rentrer un mot de passe pour pouvoir acceder a la prochaine page. Vous pourrez ajouter un evenement ou party dans cette page. " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+      
+        [self.scrollView addSubview:myAlertView];
+        [myAlertView show];
+    }
+
+    //push the profileDetailController
+}
+- (void)willPresentAlertView:(UIAlertView *)alertView; 
+{
+    alertView.frame=CGRectMake(10, 150, 300 , 230);
 }
 
 @end

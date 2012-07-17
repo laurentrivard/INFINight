@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZBarSDK.h"
 #import "MBProgressHUD.h"
+#import <AudioToolBox/AudioToolbox.h>
 
 @interface ReadQRCodeVC : UIViewController <ZBarReaderDelegate, MBProgressHUDDelegate> {
     UIView *_confirmation;
@@ -16,5 +17,4 @@
     MBProgressHUD *_progressHUD;
 }
 
-- (IBAction)launchScanner:(UIButton *)sender;
 @end

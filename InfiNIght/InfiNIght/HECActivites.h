@@ -10,7 +10,6 @@
 
 @interface HECActivites : UITableViewController {
     NSArray *dates, *events;
-    int count;
 }
 
 @end

@@ -27,10 +27,27 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-  
-}
 
+}
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    // the user clicked one of the OK/Cancel buttons
+    if (buttonIndex == 0)
+    {
+        NSLog(@"Cancel");
+        
+    }
+    else
+    {
+        [self launchScanner];
+    }
+}
+-(void) viewDidAppear:(BOOL)animated {
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bar Scanner" message:@"ici, le bar pourra cliquer sur son image et apres avoir entrer un mot de passe, pourra scanner le QR code. Cliquez sur OK pour scanner" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Scan", nil];
+    
+    [alert show];
+}
 - (void) imagePickerController: (UIImagePickerController*) reader
  didFinishPickingMediaWithInfo: (NSDictionary*) info
 {
@@ -45,8 +62,11 @@
     
     //look to give confirmation on the screen instead of dismissing everytime
     NSLog(@"symbol data: %@", symbol.data);    
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 
+    UIAlertView *alert  = [[UIAlertView alloc] initWithTitle:@"info" message:[NSString stringWithFormat: @"voici l'info que le scanner a lu : %@ \n je vais pouvoir séparer l'information pour update la base de donnée", symbol.data] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     
+    [alert show];
     // [info objectForKey: UIImagePickerControllerOriginalImage];
     
     // ADD symbol.data to their list for the night which will be updated to the server at 3 AM ?
@@ -54,9 +74,9 @@
     
     
     // ADD: dismiss the controller (NB dismiss from the *reader*!)
-    [reader dismissModalViewControllerAnimated: YES];
+  //  [reader dismissModalViewControllerAnimated: YES];
 }
-- (IBAction)launchScanner:(UIButton *)sender {
+- (void)launchScanner {
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
     reader.readerDelegate = self;
     reader.supportedOrientationsMask = ZBarOrientationMaskAll;

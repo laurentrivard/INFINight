@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TestFlight.h"
 
 @implementation AppDelegate
 
@@ -25,6 +26,9 @@
         [defaultValues setObject:@"" forKey:@"groupe"];
         [defaultValues setObject:@"" forKey:@"year"];
     }
+    
+    //TestFlight settings
+    [TestFlight takeOff:@"b2dce0d88734556c24efff16b2a69f8b_MTEwMTkxMjAxMi0wNy0xNSAxMjo1NToyNS42MDQ0NTA"];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults registerDefaults:defaultValues];
