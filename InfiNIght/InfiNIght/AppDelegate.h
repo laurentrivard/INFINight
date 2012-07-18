@@ -15,4 +15,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navigationController;
 
++ (NSString *) device_id;
+
 @end

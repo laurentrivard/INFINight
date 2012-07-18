@@ -44,7 +44,7 @@
 -(void) viewDidAppear:(BOOL)animated {
     
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bar Scanner" message:@"ici, le bar pourra cliquer sur son image et apres avoir entrer un mot de passe, pourra scanner le QR code. Cliquez sur OK pour scanner" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Scan", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bar Scanner" message:@"ici, le bar pourra cliquer sur son image et apres avoir entrer un mot de passe, pourra scanner le QR code. Cliquez sur OK pour scanner" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Scan", nil];
     
     [alert show];
 }

@@ -31,7 +31,7 @@
 
 }
 -(void) viewDidAppear:(BOOL)animated {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Classements des groupes" message:@"ici, on verra le classement des groupes. Ca peux ressembler a la page d'activités, ou ca peut ausi etre different" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK" , nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Classements des groupes" message:@"ici, on verra le classement des groupes. Ca peux ressembler a la page d'activités, ou ca peut ausi etre different" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
     [alert show];
 }

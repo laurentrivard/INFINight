@@ -8,6 +8,9 @@
 //
 #import "HECRegisterVC.h"
 #import "HECRegisterCell.h"
+#import "AFNetworking.h"
+#import "AppDelegate.h"
+
 @interface HECRegisterVC ()
 
 @end
@@ -190,10 +193,12 @@
 //}
 
 - (IBAction)go:(UIButton *)sender {
-    
+
     [self saveInfoToUserDefaults];
+    [self addUserToDatabase];
     [self dismissModalViewControllerAnimated:YES];
 }
+
 -(BOOL) checkAllLoginFields {
     return YES;
 }
@@ -210,5 +215,41 @@
     
     [defaults synchronize];
     
+}
+- (void) addUserToDatabase {
+    NSLog(@"join tapped" );
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
+    
+    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
+    [httpClient defaultValueForHeader:@"Accept"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *uuid = [AppDelegate device_id];
+    NSLog(@"uuid: %@", uuid);
+    [params setObject:[currentDefaults objectForKey:@"name"] forKey:@"name"];
+    [params setObject:@"join" forKey:@"cmd"];
+    [params setObject:[currentDefaults objectForKey:@"matricule"] forKey:@"matricule"];
+    [params setObject:[currentDefaults objectForKey:@"groupe"] forKey:@"groupe"];
+    [params setObject:[currentDefaults objectForKey:@"year"] forKey:@"grad_year"];
+    [params setObject:uuid forKey:@"udid"];
+    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
+    
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *response = [operation responseString];
+        NSLog(@"response: [%@]",response);
+        NSLog(@"responseobject: %@", responseObject);
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error: %@", [operation error]);
+        
+    }];
+    
+    [operation start];
 }
 @end

@@ -16,6 +16,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Let the device know we want to receive push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
     
     if(!defaultValues) {
         defaultValues = [[NSMutableDictionary alloc] init ];
@@ -35,7 +39,41 @@
     // Override point for customization after application launch.
     return YES;
 }
-							
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	NSLog(@"My token is: %@", deviceToken);
+    
+    
+    NSString* newToken = [deviceToken description];
+	newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+	newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    [[NSUserDefaults standardUserDefaults] setObject:newToken forKey:@"device_token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++ (NSString *) device_id {
+    
+    NSString* uuid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uuid"];
+    if (!uuid) {
+        CFUUIDRef theUUID = CFUUIDCreate(NULL);
+        CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+        CFRelease(theUUID);
+        
+        NSString *inBetween = (__bridge NSString *) string;
+        NSLog(@"in between: %@", inBetween);
+        inBetween = [inBetween stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        NSLog(@"inbetween after: %@", inBetween);
+        [[NSUserDefaults standardUserDefaults] setObject:inBetween forKey:@"uuid"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        uuid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uuid"];
+    }
+    
+    return uuid;
+    
+}
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

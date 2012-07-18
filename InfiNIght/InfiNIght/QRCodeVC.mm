@@ -8,6 +8,8 @@
 
 #import "QRCodeVC.h"
 #import "QREncoder.h"
+#import "AFNetworking.h"
+#import "AppDelegate.h"
 
 
 @interface QRCodeVC ()
@@ -31,7 +33,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSLog(@"asdfasdf%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"name"]);
+    NSLog(@"name: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"name"]);
+    NSLog(@"matricule: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"matricule"]);
+    NSLog(@"groupe: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"groupe"]);
+    NSLog(@"year: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"year"]);
+    NSLog(@"Device token: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"device_token"]);
+    
+    
     self.nameLbl.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"name"];
     [self generateQRCode];
 }
@@ -64,5 +72,36 @@
     //set the image as the QR Code
     QRCode.image = qrcodeImage;
 
+}
+- (IBAction)join:(id)sender {
+    NSLog(@"join tapped" );
+        NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
+        
+        AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
+        [httpClient defaultValueForHeader:@"Accept"];
+
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+
+        [params setObject:@"add_event" forKey:@"cmd"];
+        [params setObject:@"event title" forKey:@"title"];
+        [params setObject:@"my first event!" forKey:@"description"];
+        [params setObject:@"tomorrow" forKey:@"date"];
+        [params setObject:@"Eliot Courtyard" forKey:@"location"];        
+        
+        NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
+        
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        
+        [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSString *response = [operation responseString];
+            NSLog(@"response: [%@]",response);
+            NSLog(@"responseobject: %@", responseObject);
+        }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"error: %@", [operation error]);
+            
+        }];
+        
+        [operation start];
 }
 @end

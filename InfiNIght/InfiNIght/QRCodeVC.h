@@ -11,5 +11,6 @@
 @interface QRCodeVC : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *QRCode;
 @property (strong, nonatomic) IBOutlet UILabel *nameLbl;
+- (IBAction)join:(id)sender;
 
 @end
