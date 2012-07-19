@@ -9,6 +9,8 @@
 #import "HECActivites.h"
 #import "HECRegisterVC.h"
 #import "HECPartyDetailVC.h"
+#import "AFNetworking.h"
+#import "MBProgressHUD.h"
 
 @interface HECActivites ()
 
@@ -33,7 +35,8 @@
     //on first load, show the register page
     
     [self.navigationController setNavigationBarHidden:NO];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshActivities:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshActivities)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"activities_navBar.png"] forBarMetrics:UIBarMetricsDefault];
     if([[[NSUserDefaults standardUserDefaults] stringForKey:@"first_time"] isEqualToString:@"YES"]) {
@@ -46,8 +49,13 @@
         });
     }
 //////////////////////////////////////////////////
-     events = [[NSArray alloc] initWithObjects:@"Mega Bash Summer", @"Soiree au bar officiel!", @"Party HEC", @"Party Fin de Session", @"4 a 7!", @"Fin de session a l'Ecurie",  @"4 a 7!", @"Bar Officiel apres le 4 a 7!",nil];
-    dates = [[NSArray alloc] initWithObjects:@"1er Juillet", @"24 Juin", @"31 Mai", @"17 Avril", @"22 Mars", @"21 Decembre", @"12 Decembre", @"7 Decembre", nil];
+    if(!_events) {
+        _events = [[NSMutableArray alloc] init];
+        [self refreshActivities];
+    }
+
+    if(!_dates)
+        _dates = [[NSMutableArray alloc] init];
 }
 
 - (void)viewDidUnload
@@ -60,7 +68,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 
 {
-    return [dates objectAtIndex:section];
+    return [[_events objectAtIndex:section] valueForKey:@"event_date"];
 }
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
@@ -71,7 +79,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [dates count];
+    return [_events count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -89,7 +97,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.textLabel.text = [events objectAtIndex:indexPath.section];
+    cell.textLabel.text = [[_events objectAtIndex:indexPath.section] valueForKey:@"event_title"];
     
     return cell;
     
@@ -102,6 +110,73 @@
 {
     HECPartyDetailVC *partyDetail = [[HECPartyDetailVC alloc] initWithNibName:@"HECPartyDetailVC" bundle:[NSBundle mainBundle]];
     [self.navigationController pushViewController:partyDetail animated:YES];
+}
+
+-(void) refreshActivities {
+    NSLog(@"refresh tapped");
+    
+    MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hub.dimBackground = YES;
+    hub.labelText = @"Chargement des évènements...";
+    
+    id last = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastActivityFetched"];
+    NSLog(@"last : %@", last);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://10.11.1.59:8888/get/get_events"];
+    
+    //////////////////////
+        //////////////////////
+        //////////////////////
+        //////////////////////
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];    //GOOD CODE!
+
+        //////////////////////
+        //////////////////////
+        //////////////////////
+        //////////////////////
+    ///////////////////////////////////////////////////
+
+  /////////////////////////////////////////// code below to delete if request doesn't work  
+    
+    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:url];
+//    [httpClient defaultValueForHeader:@"Accept"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    [params setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"lastActivityFetched"] forKey:@"last"];
+ 
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:params];
+    ///////////////////////////////////////////////////
+
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"Public Timeline: %@", JSON);
+        [self parseJSON:JSON];
+        [hub hide:YES];
+    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
+        NSLog(@"Failed: %@",[error localizedDescription]);        
+    }];
+    [operation start];
+}
+-(void) parseJSON: (NSArray *) json {
+    
+    //parsing results gotten from web server
+    for(NSDictionary *dic in json) {
+        [_events addObject:dic];
+//        [_dates addObject:[dic valueForKey:@"date_created"]];
+    }
+    //getting the last created event's date
+    int count = [_events count] -1;
+    [[NSUserDefaults standardUserDefaults] setObject: [[_events objectAtIndex:count] valueForKey:@"date_created"] forKey:@"lastActivityFetched"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@"last date : %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"lastActivityFetched"]);
+    //we got the elements, so updating the tableview 
+    [self.tableView reloadData];
+}
+
+-(void) orderDates: (NSMutableArray *) dates {
+    
 }
 
 @end

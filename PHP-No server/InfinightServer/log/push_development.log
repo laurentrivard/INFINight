@@ -1,0 +1,150 @@
+2012-07-18T14:11:41-04:00 Push script started (development mode)
+2012-07-18T14:11:41-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:82
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(82): PDO->__construct('mysql:host=loca...', 'pushchat', 'd]682\#%yI1nb3', Array)
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T16:41:38-04:00 Push script started (development mode)
+2012-07-18T16:41:38-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:82
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(82): PDO->__construct('mysql:host=loca...', 'infinight2', 'infinight@hec.c...', Array)
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T16:43:21-04:00 Push script started (development mode)
+2012-07-18T16:43:21-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:82
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(82): PDO->__construct('mysql:host=loca...', 'infinight2', 'infinight@hec.c...', Array)
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T16:48:43-04:00 Push script started (development mode)
+2012-07-18T16:48:43-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:82
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(82): PDO->__construct('mysql:host=loca...', 'infinight2', 'infinight@hec.c...', Array)
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T16:52:50-04:00 Push script started (development mode)
+2012-07-18T16:52:50-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:81
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(81): PDO->__construct('mysql:host=loca...', 'infinight2', 'infinight@hec.c...')
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T16:58:30-04:00 Push script started (development mode)
+2012-07-18T16:58:30-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:82
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(82): PDO->__construct('mysql:host=loca...', 'infinight2', 'infinight@hec.c...', Array)
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T17:14:46-04:00 Push script started (development mode)
+2012-07-18T17:14:46-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:82
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(82): PDO->__construct('mysql:host=loca...', 'infinight2', 'infinight@hec.c...', Array)
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T17:15:27-04:00 Push script started (development mode)
+2012-07-18T17:15:27-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:82
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(82): PDO->__construct('mysql:host=loca...', 'infinight2', 'infinight@hec.c...', Array)
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T17:15:48-04:00 Push script started (development mode)
+2012-07-18T17:15:48-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:82
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(82): PDO->__construct('mysql:host=loca...', 'infinight2', 'infinight@hec.c...', Array)
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T17:15:56-04:00 Push script started (development mode)
+2012-07-18T17:15:56-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:82
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(82): PDO->__construct('mysql:host=loca...', 'infinight2', 'infinight@hec.c...', Array)
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T17:16:09-04:00 Push script started (development mode)
+2012-07-18T17:16:09-04:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No such file or directory' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:82
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(82): PDO->__construct('mysql:host=loca...', 'infinight2', 'infinight@hec.c...', Array)
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(36): APNS_Push->__construct(Array)
+#2 {main}
+2012-07-18T23:24:16+02:00 Push script started (development mode)
+2012-07-18T23:24:16+02:00 Connecting to gateway.sandbox.push.apple.com:2195
+2012-07-18T23:24:17+02:00 Connection OK
+2012-07-18T23:24:17+02:00 Message 1 has invalid device token
+2012-07-18T23:24:17+02:00 Message 2 has invalid device token
+2012-07-18T23:24:17+02:00 Message 3 has invalid device token
+2012-07-18T23:24:17+02:00 Sending message 4 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-18T23:24:18+02:00 Message successfully delivered
+2012-07-18T23:24:18+02:00 Sending message 5 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-18T23:24:18+02:00 Message successfully delivered
+2012-07-18T23:25:03+02:00 Sending message 6 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-18T23:25:03+02:00 Message successfully delivered
+2012-07-18T23:26:08+02:00 Sending message 7 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-18T23:26:08+02:00 Message successfully delivered
+2012-07-19T00:21:57+02:00 Push script started (development mode)
+2012-07-19T00:21:57+02:00 Connecting to gateway.sandbox.push.apple.com:2195
+2012-07-19T00:21:59+02:00 Connection OK
+2012-07-19T00:23:34+02:00 Sending message 8 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T00:23:34+02:00 Message successfully delivered
+2012-07-19T00:30:24+02:00 Sending message 9 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T00:30:24+02:00 Message successfully delivered
+2012-07-19T00:33:19+02:00 Sending message 10 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T00:33:19+02:00 Message successfully delivered
+2012-07-19T00:33:19+02:00 Sending message 11 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T00:33:19+02:00 Message successfully delivered
+2012-07-19T01:46:04+02:00 Sending message 12 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T01:46:04+02:00 Message successfully delivered
+2012-07-19T01:46:05+02:00 Sending message 13 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T01:46:05+02:00 Message successfully delivered
+2012-07-19T01:47:00+02:00 Sending message 14 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T01:47:00+02:00 Message not delivered
+2012-07-19T01:47:00+02:00 Reconnecting to gateway.sandbox.push.apple.com:2195, attempt 1
+2012-07-19T01:47:01+02:00 Connection OK
+2012-07-19T01:47:01+02:00 Sending message 15 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T01:47:01+02:00 Message successfully delivered
+2012-07-19T01:47:06+02:00 Sending message 14 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T01:47:06+02:00 Message successfully delivered
+2012-07-19T01:50:51+02:00 Sending message 16 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T01:50:51+02:00 Message successfully delivered
+2012-07-19T01:50:51+02:00 Sending message 17 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T01:50:51+02:00 Message successfully delivered
+2012-07-19T01:52:16+02:00 Sending message 18 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T01:52:16+02:00 Message successfully delivered
+2012-07-19T01:52:16+02:00 Sending message 19 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T01:52:16+02:00 Message successfully delivered
+2012-07-19T04:28:08+02:00 Push script started (development mode)
+2012-07-19T04:28:08+02:00 Connecting to gateway.sandbox.push.apple.com:2195
+2012-07-19T04:28:10+02:00 Connection OK
+2012-07-19T04:33:20+02:00 Sending message 20 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"small party: ","sound":"default"}}'
+2012-07-19T04:33:20+02:00 Message successfully delivered
+2012-07-19T04:33:20+02:00 Sending message 21 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"small party: ","sound":"default"}}'
+2012-07-19T04:33:20+02:00 Message successfully delivered
+2012-07-19T15:20:33+02:00 Push script started (development mode)
+2012-07-19T15:20:33+02:00 Connecting to gateway.sandbox.push.apple.com:2195
+2012-07-19T15:20:35+02:00 Connection OK
+2012-07-19T15:20:35+02:00 Sending message 22 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"fasdf: ","sound":"default"}}'
+2012-07-19T15:20:35+02:00 Message successfully delivered
+2012-07-19T15:20:35+02:00 Sending message 23 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"fasdf: ","sound":"default"}}'
+2012-07-19T15:20:35+02:00 Message successfully delivered
+2012-07-19T15:20:35+02:00 Sending message 24 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T15:20:35+02:00 Message successfully delivered
+2012-07-19T15:20:35+02:00 Sending message 25 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"This is my message!!: ","sound":"default"}}'
+2012-07-19T15:20:35+02:00 Message successfully delivered
+2012-07-19T15:20:35+02:00 Sending message 26 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"TEST PARTY: ","sound":"default"}}'
+2012-07-19T15:20:35+02:00 Message successfully delivered
+2012-07-19T15:20:35+02:00 Sending message 27 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"TEST PARTY: ","sound":"default"}}'
+2012-07-19T15:20:35+02:00 Message successfully delivered
+2012-07-19T15:20:35+02:00 Sending message 28 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"TEST PARTY: ","sound":"default"}}'
+2012-07-19T15:20:35+02:00 Message successfully delivered
+2012-07-19T15:20:35+02:00 Sending message 29 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"TEST PARTY: ","sound":"default"}}'
+2012-07-19T15:20:35+02:00 Message successfully delivered
+2012-07-19T15:20:45+02:00 Sending message 30 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"TEST PARTY: ","sound":"default"}}'
+2012-07-19T15:20:45+02:00 Message successfully delivered
+2012-07-19T15:20:45+02:00 Sending message 31 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"TEST PARTY: ","sound":"default"}}'
+2012-07-19T15:20:45+02:00 Message successfully delivered
+2012-07-19T15:23:01+02:00 Sending message 32 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"christy tell me if u: ","sound":"default"}}'
+2012-07-19T15:23:01+02:00 Message successfully delivered
+2012-07-19T15:23:01+02:00 Sending message 33 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"christy tell me if u: ","sound":"default"}}'
+2012-07-19T15:23:01+02:00 Message successfully delivered
+2012-07-19T17:15:31+02:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:110
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(110): PDOStatement->execute()
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(37): APNS_Push->start()
+#2 {main}

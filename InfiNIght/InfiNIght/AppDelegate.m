@@ -29,6 +29,7 @@
         [defaultValues setObject:@"" forKey:@"matricule"];
         [defaultValues setObject:@"" forKey:@"groupe"];
         [defaultValues setObject:@"" forKey:@"year"];
+        [defaultValues setObject:[NSDate date] forKey:@"lastActivityFetched"];
     }
     
     //TestFlight settings

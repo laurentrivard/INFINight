@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface HECActivites : UITableViewController {
-    NSArray *dates, *events;
+    NSMutableArray *_dates, *_events;
+
 }
 
 @end
