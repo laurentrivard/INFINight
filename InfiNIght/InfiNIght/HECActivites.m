@@ -28,9 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //////////////////////////////////////////////////
     //on first load, show the register page
     
     [self.navigationController setNavigationBarHidden:NO];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshActivities:)];
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"activities_navBar.png"] forBarMetrics:UIBarMetricsDefault];
     if([[[NSUserDefaults standardUserDefaults] stringForKey:@"first_time"] isEqualToString:@"YES"]) {
         HECRegisterVC *reg = [[HECRegisterVC alloc] initWithNibName:@"HECRegisterVC" bundle:[NSBundle mainBundle]];
@@ -41,6 +45,7 @@
             [self presentModalViewController:reg animated:YES];
         });
     }
+//////////////////////////////////////////////////
      events = [[NSArray alloc] initWithObjects:@"Mega Bash Summer", @"Soiree au bar officiel!", @"Party HEC", @"Party Fin de Session", @"4 a 7!", @"Fin de session a l'Ecurie",  @"4 a 7!", @"Bar Officiel apres le 4 a 7!",nil];
     dates = [[NSArray alloc] initWithObjects:@"1er Juillet", @"24 Juin", @"31 Mai", @"17 Avril", @"22 Mars", @"21 Decembre", @"12 Decembre", @"7 Decembre", nil];
 }

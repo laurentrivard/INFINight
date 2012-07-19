@@ -227,7 +227,7 @@
     NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
 
     
-    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://192.168.1.103:8888"];
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
     [httpClient defaultValueForHeader:@"Accept"];

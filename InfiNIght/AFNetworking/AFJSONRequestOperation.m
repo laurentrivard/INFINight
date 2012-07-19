@@ -59,6 +59,7 @@ static dispatch_queue_t json_request_operation_processing_queue() {
     return requestOperation;
 }
 
+
 - (void)dealloc {
     [_responseJSON release];
     [_JSONError release];
@@ -92,7 +93,7 @@ static dispatch_queue_t json_request_operation_processing_queue() {
 #pragma mark - AFHTTPRequestOperation
 
 + (NSSet *)acceptableContentTypes {
-    return [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
+    return [NSSet setWithObjects: @"application/json", @"text/json", @"text/javascript", nil];
 }
 
 + (BOOL)canProcessRequest:(NSURLRequest *)request {

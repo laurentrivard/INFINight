@@ -125,7 +125,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 	hud.labelText = @"Ajout de l'évènement";
     hud.dimBackground = YES;
     
-    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://192.168.1.103:8888"];
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
     [httpClient defaultValueForHeader:@"Accept"];
@@ -181,7 +181,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 	hud.labelText = @"Envoi...";
     hud.dimBackground = YES;
     
-    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://192.168.1.103:8888"];
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
     [httpClient defaultValueForHeader:@"Accept"];

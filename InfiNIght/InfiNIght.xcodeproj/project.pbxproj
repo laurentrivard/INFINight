@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D70CD18315B790490017AC5F /* HECAddEventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D70CD18115B790490017AC5F /* HECAddEventVC.m */; };
 		D70CD18415B790490017AC5F /* HECAddEventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D70CD18215B790490017AC5F /* HECAddEventVC.xib */; };
-		D735420015B7426400011349 /* handleNewEvent.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D73541FF15B7426400011349 /* handleNewEvent.rtf */; };
+		D735420015B7426400011349 /* getEvents.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D73541FF15B7426400011349 /* getEvents.rtf */; };
 		D735420215B761B100011349 /* handleMessage.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D735420115B761B100011349 /* handleMessage.rtf */; };
 		D743E10F15B0A24000E043C7 /* imageTEST.png in Resources */ = {isa = PBXBuildFile; fileRef = D743E10E15B0A24000E043C7 /* imageTEST.png */; };
 		D753CB3015ACB65400F6B2FC /* HECActivites.m in Sources */ = {isa = PBXBuildFile; fileRef = D753CB2F15ACB65400F6B2FC /* HECActivites.m */; };
@@ -109,7 +109,7 @@
 		D70CD18015B790480017AC5F /* HECAddEventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HECAddEventVC.h; path = ../HECAddEventVC.h; sourceTree = "<group>"; };
 		D70CD18115B790490017AC5F /* HECAddEventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HECAddEventVC.m; path = ../HECAddEventVC.m; sourceTree = "<group>"; };
 		D70CD18215B790490017AC5F /* HECAddEventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HECAddEventVC.xib; path = ../HECAddEventVC.xib; sourceTree = "<group>"; };
-		D73541FF15B7426400011349 /* handleNewEvent.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = handleNewEvent.rtf; sourceTree = "<group>"; };
+		D73541FF15B7426400011349 /* getEvents.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = getEvents.rtf; sourceTree = "<group>"; };
 		D735420115B761B100011349 /* handleMessage.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = handleMessage.rtf; sourceTree = "<group>"; };
 		D743E10E15B0A24000E043C7 /* imageTEST.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageTEST.png; sourceTree = "<group>"; };
 		D753CB2E15ACB65400F6B2FC /* HECActivites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECActivites.h; sourceTree = "<group>"; };
@@ -450,7 +450,7 @@
 			children = (
 				D7C56DB415ADE5A900160C99 /* QRCodeVC.h */,
 				D7C56DB515ADE5A900160C99 /* QRCodeVC.mm */,
-				D73541FF15B7426400011349 /* handleNewEvent.rtf */,
+				D73541FF15B7426400011349 /* getEvents.rtf */,
 				D735420115B761B100011349 /* handleMessage.rtf */,
 			);
 			name = "QR Code";
@@ -700,7 +700,7 @@
 				D791453415B5D87100C261B2 /* annieoutline.png in Resources */,
 				D791453B15B5DE7100C261B2 /* HECAdminVC.xib in Resources */,
 				D791454715B5EB3700C261B2 /* HECPartyDetailVC.xib in Resources */,
-				D735420015B7426400011349 /* handleNewEvent.rtf in Resources */,
+				D735420015B7426400011349 /* getEvents.rtf in Resources */,
 				D735420215B761B100011349 /* handleMessage.rtf in Resources */,
 				D70CD18415B790490017AC5F /* HECAddEventVC.xib in Resources */,
 			);

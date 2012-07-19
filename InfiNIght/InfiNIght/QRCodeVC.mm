@@ -74,33 +74,17 @@
 
 }
 - (IBAction)join:(id)sender {
-    NSLog(@"join tapped" );
+    NSLog(@"join tapped");
     
-        NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://192.168.1.103:8888"];
-        
-        AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
-        [httpClient defaultValueForHeader:@"Accept"];
+    NSURL *url = [NSURL URLWithString:@"http://10.11.1.59:8888/get/get_events"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+ //   [request setValue:[NSString stringWithFormat:@"application/json"] forHTTPHeaderField:@"Accept"];
 
-        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-
-        [params setObject:@"getEvents" forKey:@"cmd"];
-        [params setObject:@"This is my message!!" forKey:@"text"];
-    
-        
-        NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
-        
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        
-        [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSString *response = [operation responseString];
-            NSLog(@"response: [%@]",response);
-            NSLog(@"responseobject: %@", responseObject);
-        }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"error: %@", [operation error]);
-            
-        }];
-        
-        [operation start];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"Public Timeline: %@", JSON);
+    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
+        NSLog(@"Failed: %@",[error localizedDescription]);        
+    }];
+    [operation start];
 }
 @end
