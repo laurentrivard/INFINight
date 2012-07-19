@@ -10,6 +10,7 @@
 #import "HECRegisterCell.h"
 #import "AFNetworking.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 
 @interface HECRegisterVC ()
 
@@ -107,8 +108,11 @@
             break;
         case 3:
           
-           if([self checkAllLoginFields])
-               [self go:nil];
+            if([self checkAllLoginFields]){
+                [textField resignFirstResponder];
+                [self go:nil];
+            }
+
            else {
                //ALRETVIEWWWSSSSSS
            }
@@ -193,10 +197,8 @@
 //}
 
 - (IBAction)go:(UIButton *)sender {
-
     [self saveInfoToUserDefaults];
     [self addUserToDatabase];
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(BOOL) checkAllLoginFields {
@@ -217,16 +219,26 @@
     
 }
 - (void) addUserToDatabase {
-    NSLog(@"join tapped" );
-    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
+    
+    MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+	hud.labelText = @"Création du compte";
+    hud.dimBackground = YES;
+    
+    NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+
+    
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://192.168.1.103:8888"];
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
     [httpClient defaultValueForHeader:@"Accept"];
-    
+//    NSLog(@"name: %@", [currentDefaults objectForKey:@"name"]);
+//    NSLog(@"year: %@", [currentDefaults objectForKey:@"year"]);
+//    NSLog(@"mat: %@", [currentDefaults objectForKey:@"matricule"]);
+//    NSLog(@"group: %@", [currentDefaults objectForKey:@"groupe"]);
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
     NSString *uuid = [AppDelegate device_id];
-    NSLog(@"uuid: %@", uuid);
+//    NSLog(@"uuid: %@", uuid);
+    
     [params setObject:[currentDefaults objectForKey:@"name"] forKey:@"name"];
     [params setObject:@"join" forKey:@"cmd"];
     [params setObject:[currentDefaults objectForKey:@"matricule"] forKey:@"matricule"];
@@ -242,11 +254,20 @@
     
     [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [hud hide:YES];
         NSString *response = [operation responseString];
         NSLog(@"response: [%@]",response);
         NSLog(@"responseobject: %@", responseObject);
+        
+        
+        [self dismissModalViewControllerAnimated:YES];
+
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@", [operation error]);
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [alert show];
         
     }];
     

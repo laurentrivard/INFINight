@@ -75,18 +75,17 @@
 }
 - (IBAction)join:(id)sender {
     NSLog(@"join tapped" );
-        NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
+    
+        NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://192.168.1.103:8888"];
         
         AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
         [httpClient defaultValueForHeader:@"Accept"];
 
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
 
-        [params setObject:@"add_event" forKey:@"cmd"];
-        [params setObject:@"event title" forKey:@"title"];
-        [params setObject:@"my first event!" forKey:@"description"];
-        [params setObject:@"tomorrow" forKey:@"date"];
-        [params setObject:@"Eliot Courtyard" forKey:@"location"];        
+        [params setObject:@"getEvents" forKey:@"cmd"];
+        [params setObject:@"This is my message!!" forKey:@"text"];
+    
         
         NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
         

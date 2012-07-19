@@ -9,6 +9,8 @@
 #import "MembersVC.h"
 #import "HECMemberDetailVC.h"
 #import "HECAdminVC.h"
+#import "HECAddEventVC.h"
+
 @interface MembersVC ()
 
 @end
@@ -162,7 +164,12 @@
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Mot de passe" message:@"ici, il faudra rentrer un mot de passe pour pouvoir acceder a la prochaine page. Vous pourrez ajouter un evenement ou party dans cette page. " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
       
         [self.scrollView addSubview:myAlertView];
-        [myAlertView show];
+     //   [myAlertView show];
+        
+        HECAddEventVC *addEvent = [[HECAddEventVC alloc] initWithNibName:@"HECAddEventVC" bundle:[NSBundle mainBundle]];
+        
+        [self presentModalViewController:addEvent animated:YES];
+        
     }
 
     //push the profileDetailController
