@@ -92,19 +92,19 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // Navigation logic may go here. Create and push another view controller.
+//    /*
+//     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+//     // ...
+//     // Pass the selected object to the new view controller.
+//     [self.navigationController pushViewController:detailViewController animated:YES];
+//     */
+//}
 
 -(void) getRankings{
-    NSLog(@"getting events");
+    NSLog(@"getting rankings");
     
     MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hub.dimBackground = YES;
@@ -128,6 +128,8 @@
         [hub hide:YES];
     } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
         NSLog(@"Failed: %@",[error localizedDescription]);   
+        UIAlertView *failed = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Une erreur est survenue. Essayez de nouveau" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [failed show];
         [hub hide:YES];
     }];
     [operation start];

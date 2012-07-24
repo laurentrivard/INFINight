@@ -24,6 +24,9 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 @synthesize titleTF;
 @synthesize descriptionTF;
 @synthesize locationTF;
+@synthesize titleCharacterCount;
+@synthesize descriptionCharacterCount;
+@synthesize locationCharacterCount;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,22 +43,52 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     // Do any additional setup after loading the view from its nib.
 
     
-    
+        //uitextviewdelegate
     self.titleTF.delegate = self;
     self.descriptionTF.delegate = self;
     self.locationTF.delegate = self;
     
     [self.titleTF becomeFirstResponder];
     
+    self.titleCharacterCount.text = @"50";
+    self.descriptionCharacterCount.text = @"250";
+    self.locationCharacterCount.text =@"50";
+     
+    
 }
 
-
+-(void) textViewDidChange:(UITextView *)textView {
+    //title
+    self.titleCharacterCount.text = [NSString stringWithFormat:@"%d", 50 - self.titleTF.text.length];
+    if(self.titleTF.text.length >=40)
+        [self.titleCharacterCount setTextColor:[UIColor yellowColor]];
+    if(self.titleTF.text.length >50)
+        [self.titleCharacterCount setTextColor:[UIColor redColor]];
+    
+    //description
+    self.descriptionCharacterCount.text = [NSString stringWithFormat:@"%d", 250 - self.descriptionTF.text.length];
+    if(self.descriptionTF.text.length >= 235)
+        [self.descriptionCharacterCount setTextColor:[UIColor yellowColor]];
+    if(self.descriptionTF.text.length > 250)
+        [self.descriptionCharacterCount setTextColor:[UIColor redColor]];
+    
+    //location
+    self.locationCharacterCount.text = [NSString stringWithFormat:@"%d", 50 - self.locationTF.text.length];
+    if(self.locationTF.text.length >= 45)
+        [self.locationCharacterCount setTextColor:[UIColor yellowColor]];
+    if(self.locationTF.text.length > 50)
+        [self.locationCharacterCount setTextColor:[UIColor redColor]];
+    
+}
 
 - (void)viewDidUnload
 {
     [self setTitleTF:nil];
     [self setDescriptionTF:nil];
     [self setLocationTF:nil];
+    [self setTitleCharacterCount:nil];
+    [self setDescriptionCharacterCount:nil];
+    [self setLocationCharacterCount:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

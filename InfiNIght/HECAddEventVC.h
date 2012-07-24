@@ -9,16 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "HECAddEventTimeVC.h"
 
-@interface HECAddEventVC : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, TimeProtocol, UIScrollViewDelegate> {
+@interface HECAddEventVC : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, TimeProtocol, UIScrollViewDelegate, UITextViewDelegate> {
     CGFloat animatedDistance;
     NSDate *_newEventDate;
     NSString *_dateString;
     CGRect _field;
 }
 
-@property (strong, nonatomic) IBOutlet UITextField *titleTF;
-@property (strong, nonatomic) IBOutlet UITextField *descriptionTF;
-@property (strong, nonatomic) IBOutlet UITextField *locationTF;
+@property (strong, nonatomic) IBOutlet UITextView *titleTF;
+@property (strong, nonatomic) IBOutlet UITextView *descriptionTF;
+@property (strong, nonatomic) IBOutlet UITextView *locationTF;
+@property (strong, nonatomic) IBOutlet UILabel *titleCharacterCount;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionCharacterCount;
+@property (strong, nonatomic) IBOutlet UILabel *locationCharacterCount;
 
 - (IBAction)addEvent:(id)sender;
 -(IBAction)didCancelEvent:(id)sender;

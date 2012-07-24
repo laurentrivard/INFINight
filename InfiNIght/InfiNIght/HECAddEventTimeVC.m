@@ -50,7 +50,7 @@
 }
 -(void) dateDidChange {
     dateString = [NSDateFormatter localizedStringFromDate:self.datePicker.date 
-                                                dateStyle:NSDateFormatterMediumStyle 
+                                                dateStyle:NSDateFormatterLongStyle 
                                                 timeStyle:NSDateFormatterMediumStyle];
    _eventDate = self.datePicker.date;
     _dic = [[NSDictionary alloc] initWithObjectsAndKeys:_eventDate, @"event_date", dateString, @"event_date_string", nil ];
