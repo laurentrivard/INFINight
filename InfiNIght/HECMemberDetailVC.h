@@ -11,6 +11,13 @@
 #import <MessageUI/MFMessageComposeViewController.h>
 
 @interface HECMemberDetailVC : UIViewController <MFMailComposeViewControllerDelegate>
+@property (strong, nonatomic) NSDictionary *memberInfo;
+@property (strong, nonatomic) IBOutlet UITextView *name;
+@property (strong, nonatomic) IBOutlet UITextView *position;
+@property (strong, nonatomic) IBOutlet UITextView *age;
+@property (strong, nonatomic) IBOutlet UITextView *school;
+@property (strong, nonatomic) IBOutlet UITextView *job;
+@property (strong, nonatomic) IBOutlet UITextView *paragraph;
 
 - (IBAction)composeMail:(id)sender;
 - (IBAction) back: (id) sender;

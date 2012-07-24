@@ -1,11 +1,3 @@
-//
-//
-//
-// Copyright Promo InfiNIght
-// By Laurent Rivard
-//
-//
-//
 #import "HECRegisterVC.h"
 #import "HECRegisterCell.h"
 #import "AFNetworking.h"
@@ -23,6 +15,7 @@
 @synthesize yearTF = _yearTF;
 @synthesize _credTableView;
 @synthesize registerBtn;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,7 +48,7 @@
     self.yearTF.delegate = self;
     
     //Harcoded so the tableview looks great
-    [self.groupeTF setFrame:CGRectMake(139, 167, 100, 30)];
+    [self.groupeTF setFrame:CGRectMake(139, 167, 144, 30)];
     
 }
 
@@ -107,18 +100,11 @@
             [self.yearTF becomeFirstResponder];
             break;
         case 3:
-          
-            if([self checkAllLoginFields]){
-                [textField resignFirstResponder];
-                [self go:nil];
-            }
-
-           else {
-               //ALRETVIEWWWSSSSSS
-           }
-            
-            
+            [textField resignFirstResponder];
+            [self go:nil];
             break;
+
+            
         default:
             break;
     }
@@ -160,55 +146,26 @@
     // e.g. self.myOutlet = nil;
 }
 -(void) textFieldDidBeginEditing:(UITextField *)textField {
-    NSLog(@"should clear");
     
 }
-//-(BOOL) textFieldShouldReturn:(UITextField *)textField {
-//
-////    //Get the indexPath for the currently selected cell
-////    NSIndexPath *cellPath = [(UITableView*)[self view] indexPathForSelectedRow];
-////    
-////    //Get the actual cell
-////    CustomTableCell *cell = (CustomTableCell *)[(UITableView*)[self view] cellForRowAtIndexPath:cellPath];
-////    
-////    int currentTag = textView.tag;
-////    int nextTag = currentTag + 1; // or something else
-////    
-////    UITextView *nextTV = [cell viewWithTag: nextTag];
-////    [nextTV becomesFirstResponder];
-//    
-//    
-//    //////////////////
-//    NSIndexPath *indexPath = [_credTableView indexPathForSelectedRow];
-//    HECRegisterCell* cell = (HECRegisterCell *) [_credTableView cellForRowAtIndexPath:indexPath];
-//    
-//    int currentTag = cell.inputTextField.tag;
-//    NSLog(@"cell tag : %d", cell.inputTextField.tag);
-//    int nextTag = currentTag +1;
-//    
-//    UITextView *nextTextView = [cell viewWithTag:nextTag];
-//    
-//    [nextTextView resignFirstResponder];
-//    
-//   // [cell.inputTextField.t becomeFirstResponder];
-//
-//    
-//    return NO;
-//}
 
 - (IBAction)go:(UIButton *)sender {
-    [self saveInfoToUserDefaults];
-    [self addUserToDatabase];
+    
+    NSArray *params = [[NSArray alloc] initWithObjects:self.nameTF.text, self.matriculeTF.text, self.groupeTF.text, self.yearTF.text, nil];
+    
+    if([self checkFields:params])
+        [self crossReferenceGroups];
+
+    else {
+        UIAlertView *failed = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Veuillez compléter tous les champs obligatoires."  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [failed show];
+    }
 }
 
--(BOOL) checkAllLoginFields {
-    return YES;
-}
 -(void) saveInfoToUserDefaults {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     //user has login for first time
-    [defaults setObject:@"NO" forKey:@"first_time"];
 
     [defaults setObject:self.nameTF.text forKey:@"name"];
     [defaults setObject:self.matriculeTF.text forKey:@"matricule"];
@@ -219,7 +176,7 @@
     
 }
 - (void) addUserToDatabase {
-    
+    NSLog(@"addUserToDatabase");
     MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	hud.labelText = @"Création du compte";
     hud.dimBackground = YES;
@@ -231,14 +188,10 @@
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
     [httpClient defaultValueForHeader:@"Accept"];
-//    NSLog(@"name: %@", [currentDefaults objectForKey:@"name"]);
-//    NSLog(@"year: %@", [currentDefaults objectForKey:@"year"]);
-//    NSLog(@"mat: %@", [currentDefaults objectForKey:@"matricule"]);
-//    NSLog(@"group: %@", [currentDefaults objectForKey:@"groupe"]);
+
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     NSString *uuid = [AppDelegate device_id];
-//    NSLog(@"uuid: %@", uuid);
-    
+    NSLog(@"uuid: %@", uuid);
     [params setObject:[currentDefaults objectForKey:@"name"] forKey:@"name"];
     [params setObject:@"join" forKey:@"cmd"];
     [params setObject:[currentDefaults objectForKey:@"matricule"] forKey:@"matricule"];
@@ -247,6 +200,7 @@
     [params setObject:uuid forKey:@"udid"];
     [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
     
+    NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
     
@@ -255,22 +209,92 @@
     [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         [hud hide:YES];
-        NSString *response = [operation responseString];
-        NSLog(@"response: [%@]",response);
-        NSLog(@"responseobject: %@", responseObject);
+
+        NSLog(@"Success on creating account");
+        [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"first_time"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
+        //call function for HECActivities to fetch events
+        [self.delegate registrationWasSuccessful:@"success"];
         
         [self dismissModalViewControllerAnimated:YES];
 
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@", [operation error]);
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Une erreur est survenue." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         
         [alert show];
-        
+        [hud hide: YES];
     }];
     
     [operation start];
 }
+
+-(BOOL) checkFields: (NSArray *) params {
+    
+    NSLog(@"params :%@", params);
+    
+    if([[params objectAtIndex:0] isEqualToString:@""] || [[params objectAtIndex:1] isEqualToString:@""] ||[[params objectAtIndex:2] isEqualToString:@""] || [[params objectAtIndex:3] isEqualToString:@""] ) {
+        return  NO;
+    }
+    
+    return YES;
+}
+-(void) crossReferenceGroups {
+    
+    
+    MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+	hud.labelText = @"Validation...";
+    hud.dimBackground = YES;
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://10.11.1.59:8888/get/get_group_rankings"];
+    
+    
+    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+//        NSLog(@"rankings: %@", JSON);
+        [self parseJSON:JSON];
+        [hud hide:YES];
+    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
+        NSLog(@"Failed: %@",[error localizedDescription]);   
+        [hud hide:YES];
+    }];
+    [operation start];
+                        
+}
+
+-(void) parseJSON: (id) JSON {
+    
+     NSMutableArray *groups = [[NSMutableArray alloc] init];
+    
+    for(NSDictionary *dic in JSON) {
+        [groups addObject:[dic objectForKey:@"group"]];
+    }
+    
+     [self checkGroups:groups];
+    
+}
+-(void) checkGroups: (NSMutableArray *) groups {
+    for(NSString *group in groups) {
+        NSLog(@"self.grouptf : %@", self.groupeTF.text);
+        NSLog(@"group :%@", group);
+        if([group isEqualToString:self.groupeTF.text]) {
+            [self saveInfoToUserDefaults];
+            [self addUserToDatabase];
+            return;
+        }
+    }
+    UIAlertView *groupError = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Veuillez entrer un groupe valide" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [groupError show];
+    
+}
+
 @end

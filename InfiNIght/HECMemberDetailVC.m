@@ -13,6 +13,13 @@
 @end
 
 @implementation HECMemberDetailVC
+@synthesize memberInfo=_memberInfo;
+@synthesize name=_name;
+@synthesize position=_position;
+@synthesize age= _age;
+@synthesize school= _school;
+@synthesize job= _job;
+@synthesize paragraph = _paragraph;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,21 +34,30 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+   
+    _name.text = [_memberInfo valueForKey:@"name"];
+    _position.text = [_memberInfo valueForKey:@"position"];
+    _age.text = [_memberInfo valueForKey:@"age"];
+    _school.text = [_memberInfo valueForKey:@"school"];   
+    _job.text = [_memberInfo valueForKey:@"job"];
+    _paragraph.text = [_memberInfo valueForKey:@"paragraph"];
+
 }
 
 - (void)viewDidUnload
 {
+    [self setName:nil];
+    [self setPosition:nil];
+    [self setAge:nil];
+    [self setSchool:nil];
+    [self setJob:nil];
+    [self setParagraph:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Annie" message:@"Ici, on voit le profil d'Annie. Donnez moi vos suggestions sur la face dont vous voulez presenter l'info" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [alert show];
+
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 - (IBAction)composeMail:(id)sender {
     
@@ -50,10 +66,10 @@
 	mail.mailComposeDelegate = self;
 	if ( [MFMailComposeViewController canSendMail] ) {
 		//Setting up the Subject, recipients, and message body.
-		[mail setToRecipients:[NSArray arrayWithObjects:@"annie.leclerc@hec.ca",nil]];
+		[mail setToRecipients:[NSArray arrayWithObject:[_memberInfo valueForKey:@"email"]]];
 		
-					[mail setMessageBody:@"l'adresse changerais pour chaque personne évidemment" isHTML:NO];
-		[mail setSubject:@"Bonjour a tous!"];
+					[mail setMessageBody:@"Email envoyé par l'application Promo INFINight." isHTML:NO];
+		[mail setSubject:@"Promo INFINight"];
 		[self presentModalViewController:mail animated:YES];
     }
 }

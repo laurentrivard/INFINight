@@ -148,3 +148,86 @@ Stack trace:
 #0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(110): PDOStatement->execute()
 #1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(37): APNS_Push->start()
 #2 {main}
+2012-07-20T00:11:06+02:00 Push script started (development mode)
+2012-07-20T00:11:06+02:00 Connecting to gateway.sandbox.push.apple.com:2195
+2012-07-20T00:11:07+02:00 Connection OK
+2012-07-20T00:11:22+02:00 Sending message 1 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"Hi babe: ","sound":"default"}}'
+2012-07-20T00:11:22+02:00 Message successfully delivered
+2012-07-20T00:11:23+02:00 Sending message 2 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"Hi babe: ","sound":"default"}}'
+2012-07-20T00:11:23+02:00 Message successfully delivered
+2012-07-21T18:33:06+02:00 Push script started (development mode)
+2012-07-21T18:33:07+02:00 Connecting to gateway.sandbox.push.apple.com:2195
+2012-07-21T18:33:08+02:00 Connection OK
+2012-07-21T18:33:13+02:00 Sending message 3 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"ONE: ","sound":"default"}}'
+2012-07-21T18:33:13+02:00 Message successfully delivered
+2012-07-21T18:33:13+02:00 Sending message 4 to '2f108f7ed1b90b10b13e95eeb65286da9a6d32cb8de53131da7bce243543d3ee', payload: '{"aps":{"alert":"ONE: ","sound":"default"}}'
+2012-07-21T18:33:13+02:00 Message successfully delivered
+2012-07-21T20:33:47+02:00 Sending message 5 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"fasdfasdf: ","sound":"default"}}'
+2012-07-21T20:33:47+02:00 Message not delivered
+2012-07-21T20:33:47+02:00 Reconnecting to gateway.sandbox.push.apple.com:2195, attempt 1
+2012-07-21T20:33:48+02:00 Connection OK
+2012-07-21T20:33:53+02:00 Sending message 5 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"fasdfasdf: ","sound":"default"}}'
+2012-07-21T20:33:53+02:00 Message successfully delivered
+2012-07-23T22:23:25+02:00 Push script started (development mode)
+2012-07-23T22:23:25+02:00 Connecting to gateway.sandbox.push.apple.com:2195
+2012-07-23T22:23:27+02:00 Connection OK
+2012-07-23T22:23:27+02:00 Sending message 6 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"cugsqwyu: ","sound":"default"}}'
+2012-07-23T22:23:27+02:00 Message successfully delivered
+2012-07-23T22:23:27+02:00 Sending message 7 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"cugsqwyu: ","sound":"default"}}'
+2012-07-23T22:23:27+02:00 Message successfully delivered
+2012-07-23T22:23:27+02:00 Sending message 8 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"cugsqwyu: ","sound":"default"}}'
+2012-07-23T22:23:27+02:00 Message successfully delivered
+2012-07-23T22:27:27+02:00 Sending message 9 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"fustdtchjj: ","sound":"default"}}'
+2012-07-23T22:27:27+02:00 Message successfully delivered
+2012-07-23T22:27:27+02:00 Sending message 10 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"fustdtchjj: ","sound":"default"}}'
+2012-07-23T22:27:27+02:00 Message successfully delivered
+2012-07-23T22:27:27+02:00 Sending message 11 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"fustdtchjj: ","sound":"default"}}'
+2012-07-23T22:27:27+02:00 Message successfully delivered
+2012-07-24T19:37:09+02:00 Push script started (development mode)
+2012-07-24T19:37:09+02:00 Connecting to gateway.sandbox.push.apple.com:2195
+2012-07-24T19:37:10+02:00 Connection OK
+2012-07-24T19:37:10+02:00 Sending message 12 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": "1"}}'
+2012-07-24T19:37:11+02:00 Message successfully delivered
+2012-07-24T19:37:11+02:00 Sending message 13 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": "1"}}'
+2012-07-24T19:37:11+02:00 Message successfully delivered
+2012-07-24T19:37:11+02:00 Sending message 14 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": "1"}}'
+2012-07-24T19:37:11+02:00 Message successfully delivered
+2012-07-24T19:37:11+02:00 Sending message 15 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": "1"}}'
+2012-07-24T19:37:11+02:00 Message successfully delivered
+2012-07-24T19:40:11+02:00 Sending message 16 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": 1}}'
+2012-07-24T19:40:11+02:00 Message successfully delivered
+2012-07-24T19:40:11+02:00 Sending message 17 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": 1}}'
+2012-07-24T19:40:11+02:00 Message successfully delivered
+2012-07-24T19:40:12+02:00 Sending message 18 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": 1}}'
+2012-07-24T19:40:12+02:00 Message successfully delivered
+2012-07-24T19:40:12+02:00 Sending message 19 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": 1}}'
+2012-07-24T19:40:12+02:00 Message successfully delivered
+2012-07-24T19:40:32+02:00 Sending message 20 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": 1}}'
+2012-07-24T19:40:32+02:00 Message successfully delivered
+2012-07-24T19:40:32+02:00 Sending message 21 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": 1}}'
+2012-07-24T19:40:32+02:00 Message successfully delivered
+2012-07-24T19:40:32+02:00 Sending message 22 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": 1}}'
+2012-07-24T19:40:32+02:00 Message successfully delivered
+2012-07-24T19:40:32+02:00 Sending message 23 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"yufffeer: ","sound":"default", "badge": 1}}'
+2012-07-24T19:40:32+02:00 Message successfully delivered
+2012-07-24T19:47:13+02:00 Sending message 24 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"pushhh: ","sound":"default", "badge": 1}}'
+2012-07-24T19:47:13+02:00 Message successfully delivered
+2012-07-24T19:47:13+02:00 Sending message 25 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"pushhh: ","sound":"default", "badge": 1}}'
+2012-07-24T19:47:13+02:00 Message successfully delivered
+2012-07-24T19:47:13+02:00 Sending message 26 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"pushhh: ","sound":"default", "badge": 1}}'
+2012-07-24T19:47:13+02:00 Message successfully delivered
+2012-07-24T19:47:13+02:00 Sending message 27 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"pushhh: ","sound":"default", "badge": 1}}'
+2012-07-24T19:47:13+02:00 Message successfully delivered
+2012-07-24T19:51:18+02:00 Sending message 28 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"fifuf: ","sound":"default", "badge": 1}}'
+2012-07-24T19:51:18+02:00 Message successfully delivered
+2012-07-24T19:51:18+02:00 Sending message 29 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"fifuf: ","sound":"default", "badge": 1}}'
+2012-07-24T19:51:18+02:00 Message successfully delivered
+2012-07-24T19:51:18+02:00 Sending message 30 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"fifuf: ","sound":"default", "badge": 1}}'
+2012-07-24T19:51:18+02:00 Message successfully delivered
+2012-07-24T19:51:18+02:00 Sending message 31 to '02d1e64f5d7b0add4b3ee6f10c3af241836fbafd9a46df98b3a4935e542a3993', payload: '{"aps":{"alert":"fifuf: ","sound":"default", "badge": 1}}'
+2012-07-24T19:51:18+02:00 Message successfully delivered
+2012-07-24T21:41:37+02:00 Exiting with fatal error: exception 'PDOException' with message 'SQLSTATE[08S01]: Communication link failure: 1053 Server shutdown in progress' in /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php:110
+Stack trace:
+#0 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(110): PDOStatement->execute()
+#1 /Users/LaurentRivard/Desktop/XCode/HECINFINight/PHP-No server/InfinightServer/push/push.php(37): APNS_Push->start()
+#2 {main}

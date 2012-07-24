@@ -9,6 +9,7 @@
 #import "HECAddEventVC.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
+#import "HECAddEventTimeVC.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -22,7 +23,6 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 @implementation HECAddEventVC
 @synthesize titleTF;
 @synthesize descriptionTF;
-@synthesize dateTF;
 @synthesize locationTF;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,28 +38,30 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    
     
     self.titleTF.delegate = self;
     self.descriptionTF.delegate = self;
-    self.dateTF.delegate = self;
     self.locationTF.delegate = self;
+    
+    [self.titleTF becomeFirstResponder];
+    
 }
+
+
 
 - (void)viewDidUnload
 {
     [self setTitleTF:nil];
     [self setDescriptionTF:nil];
-    [self setDateTF:nil];
     [self setLocationTF:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     
     switch (textField.tag) {
@@ -67,14 +69,13 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
             [self.descriptionTF becomeFirstResponder];
             break;
         case 1:
-            [self.dateTF becomeFirstResponder];
-            break;
-        case 2:
             [self.locationTF becomeFirstResponder];
             break;
-        case 3:
+        case 2:
             [textField resignFirstResponder];
+
             break;
+
         default:
             break;
     }
@@ -83,41 +84,10 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-//    CGRect textFieldRect =
-//    [self.view.window convertRect:textField.bounds fromView:textField];
-//    CGRect viewRect =
-//    [self.view.window convertRect:self.view.bounds fromView:self.view];
-//    CGFloat midline = textFieldRect.origin.y + 0.5 * textFieldRect.size.height;
-//    CGFloat numerator =
-//    midline - viewRect.origin.y
-//    - MINIMUM_SCROLL_FRACTION * viewRect.size.height;
-//    CGFloat denominator =
-//    (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION)
-//    * viewRect.size.height;
-//    CGFloat heightFraction = numerator / denominator;
-//    
-//    if (heightFraction < 0.0)
-//    {
-//        heightFraction = 0.0;
-//    }
-//    else if (heightFraction > 1.0)
-//    {
-//        heightFraction = 1.0;
-//    }
-//        animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
-//    
-//
-//    
-//    CGRect viewFrame = self.view.frame;
-//    viewFrame.origin.y -= animatedDistance;
-//    
-//    [UIView beginAnimations:nil context:NULL];
-//    [UIView setAnimationBeginsFromCurrentState:YES];
-//    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
-//    
-//    [self.view setFrame:viewFrame];
-//    
-//    [UIView commitAnimations];
+
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
 }
 - (IBAction)addEvent:(id)sender {
     
@@ -135,8 +105,10 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     [params setObject:@"addEvent" forKey:@"cmd"];
     [params setObject:self.titleTF.text forKey:@"title"];
     [params setObject:self.descriptionTF.text forKey:@"description"];
-    [params setObject:self.dateTF.text forKey:@"date"];
-    [params setObject:self.locationTF.text forKey:@"location"];        
+    [params setObject:_newEventDate forKey:@"date"];
+    [params setObject:self.locationTF.text forKey:@"location"]; 
+    [params  setObject:_dateString forKey:@"event_date_string"];
+    NSLog(@"date string i am passing with the params : %@", _dateString);
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
     
@@ -155,6 +127,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@", [operation error]);
+        [hud hide:YES];
         
     }];
     
@@ -172,13 +145,14 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     else if (buttonIndex == 1) {
         NSLog(@"sending push notification...");
         [self sendPushNotificationToUsers];
+        [self dismissModalViewControllerAnimated:YES];
     }
 }
 
 -(void) sendPushNotificationToUsers {
     
     MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-	hud.labelText = @"Envoi...";
+	hud.labelText = @"Envoi de la notification...";
     hud.dimBackground = YES;
     
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
@@ -210,5 +184,20 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     }];
     
     [operation start];
+}
+-(IBAction) addEventTime:(id)sender {
+    HECAddEventTimeVC *addTime = [[HECAddEventTimeVC alloc] initWithNibName:@"HECAddEventTimeVC" bundle:[NSBundle mainBundle]];
+    addTime.delegate = self;
+    [self presentModalViewController:addTime animated:YES];
+                                  
+}
+-(void) passDateBack:(HECAddEventTimeVC *)controller didFinish:(NSDictionary *)dic{
+    _newEventDate = [dic objectForKey:@"event_date"];
+    
+    //parse it before sending it ... cut out the seconds and Eastern Daylight Time
+    int index = [[dic objectForKey:@"event_date_string"] length] -3 ;
+    _dateString = [[dic objectForKey:@"event_date_string"] substringToIndex:index];
+    
+    NSLog(@"eventdatestring : %@" ,_dateString);
 }
 @end

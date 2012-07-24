@@ -145,7 +145,6 @@ class API
 
 	function handleCommand()
 	{
-	echo 'in handle command';
 //figure out what function was called
 
 		if (isset($_POST['cmd']))
@@ -153,32 +152,18 @@ class API
 		
 			switch (trim($_POST['cmd']))
 			{
+			
 				case 'join': $this->handleJoin(); return;
 				case 'leave': $this->handleLeave(); return;
 				case 'update': $this->handleUpdate(); return;
 				case 'message': $this->handleMessage(); return;
 				case 'addEvent': $this->handleNewEvent(); return;
-				case 'getEvents' : $this->getEvents(); return;
+				case 'updateRankings': $this->updateRankings(); return;
 			}
 		}
-
 		exitWithHttpError(400, 'Unknown command');
 	}
-	function getEvents () 
-	{
-		echo 'in get events';
 
-			
-		$this->pdo->beginTransaction();
-		$stmt = $this->pdo->prepare('SELECT event_title FROM events');
-		$stmt->execute();
-		$parties = $stmt->fetchAll(PDO::FETCH_OBJ);
-		
-		var_dump($parties);
-		
-		
-		return $parties;
-	}
 	// The "join" API command registers a user to receive notifications that
 	// are sent in a specific "chat room". Each chat room is identified by a
 	// secret code. All the users who register with the same secret code can
@@ -196,6 +181,23 @@ class API
 	//          string of maximum 255 bytes.
 	//
 	
+	//check to see if the group added exists
+
+	//update the group rankings
+	function updateRankings ()
+	{
+		$group_num = $this->getString('group', 5);
+		$int_num = intval($group_num);
+		
+		$this->pdo->beginTransaction();
+		$stmt = $this->pdo->prepare ("UPDATE groups SET points = points + 1 WHERE `group`=:group");
+		$stmt->bindParam(':group', $int_num, PDO::PARAM_INT);
+		$stmt->execute();
+		$this->pdo->commit();
+	
+	
+			
+	}
 // add new event to the database
 	function handleNewEvent ()
  	{
@@ -203,12 +205,17 @@ class API
 		$event_description = $this->getString('description', 255);
 		$event_date = $this->getString('date', 50);
 		$event_location = $this->getString ('location', 255);
+		$event_date_string = $this->getString('event_date_string', 100);
 
 	date_default_timezone_set('America/New_York');
 
 		$this->pdo->beginTransaction();
-		$stmt = $this->pdo->prepare('INSERT INTO events (event_title, event_description, event_date, event_location, date_created) VALUES (?, ?, ?, ?, ?)');
-		$stmt->execute(array($event_title, $event_description, $event_date, $event_location, date("Y-m-d H:i:s")));
+		$stmt = $this->pdo->prepare('INSERT INTO events (event_title, event_description,
+									 event_date, event_date_string, event_location, date_created) 
+									 VALUES (?, ?, ?, ?, ?, ?)');
+		$stmt->execute(array($event_title, $event_description, $event_date,
+											 $event_date_string, $event_location, 
+											 date("Y-m-d H:i:s")));
 
 		$this->pdo->commit();
 
@@ -219,8 +226,6 @@ class API
  //adds user to active_users database
 	function handleJoin()
 	{
-
-
 		$device_id = $this->getUDID();
 		$device_token = $this->getDeviceToken(true);
 		$name = $this->getString('name', 255);
@@ -233,7 +238,7 @@ class API
 		// provides. When the client sends a "leave" command, we delete its
 		// record from the active_users table.
 
-		$this->pdo->beginTransaction();           //check what begin transaction does 
+		$this->pdo->beginTransaction();  
 
 	//	$stmt = $this->pdo->prepare('DELETE FROM active_users WHERE udid = ?');
 //		$stmt->execute(array($device_id));
@@ -419,7 +424,7 @@ class API
 		$textJson = truncateUtf8($textJson, self::MAX_MESSAGE_LENGTH);
 
 		// Combine everything into a JSON string
-		$payload = '{"aps":{"alert":"' . $nameJson . ': ' . $textJson . '","sound":"default"}}';
+		$payload = '{"aps":{"alert":"' . $nameJson . ': ' . $textJson . '","sound":"default", "badge": 1}}';
 		return $payload;
 	}
 

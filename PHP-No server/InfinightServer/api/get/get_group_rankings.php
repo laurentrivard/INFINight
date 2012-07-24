@@ -86,49 +86,22 @@ class RETRIEVE {
 	
 		function handleCommand()
 	{
-//figure out what function was called
 
-		if (isset($_POST['cmd']))
-		{
-		
-			switch (trim($_POST['cmd']))
-			{
-
-				case 'getEvents' : $this->getEvents(); return;
-			}
-		}
-
-//		exitWithHttpError(400, 'Unknown command');
-
-		$this->getEvents();
+		$this->getRankings();
 	}
-	function getEvents () 
+	function getRankings () 
 	{
-		$last = $this->get_last_date();
-		if($last) {
 			$this->pdo->beginTransaction();
-			$stmt = $this->pdo->prepare('SELECT * FROM events WHERE date_created > ?  ORDER BY event_date ASC');
-			$stmt->execute(array($last));
-			$parties = $stmt->fetchAll(PDO::FETCH_OBJ);
-		}
-		else
-			echo 'fuck';
+			$stmt = $this->pdo->prepare('SELECT * FROM groups ORDER BY points DESC');
+			$stmt->execute();
+			$rankings = $stmt->fetchAll(PDO::FETCH_OBJ);
 				
 		//set header so XCode accepts the JSON object
 	header('Content-Type: application/json');
 
-	   echo json_encode($parties);
+	   echo json_encode($rankings);
 	   return true;
 	   
-	}
-		function get_last_date()
-	{
-		if (!isset($_GET['last']))
-			exitWithHttpError(400, 'Missing last date');
-
-		$last = trim(urldecode($_GET['last']));
-
-		return $last;
 	}
 	
 }

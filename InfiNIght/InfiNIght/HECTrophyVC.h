@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HECTrophyVC : UITableViewController
+@interface HECTrophyVC : UITableViewController {
+    NSMutableArray *groupPoints;
+}
 
 @end

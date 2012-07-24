@@ -43,7 +43,7 @@ try
 	// To keep the code clean, I put the API into its own class. Create an
 	// instance of that class and let it handle the request.
 	$retrieve = new RETRIEVE($config);
-	$retrieve->handleCommand();
+	$retrieve->checkGroups();
 ////////////////////////////////////////////////////////
 
 
@@ -84,51 +84,36 @@ class RETRIEVE {
 		$this->pdo->query('SET NAMES utf8');
 	}
 	
-		function handleCommand()
+	function checkGroups () 
 	{
-//figure out what function was called
-
-		if (isset($_POST['cmd']))
-		{
-		
-			switch (trim($_POST['cmd']))
-			{
-
-				case 'getEvents' : $this->getEvents(); return;
-			}
-		}
-
-//		exitWithHttpError(400, 'Unknown command');
-
-		$this->getEvents();
-	}
-	function getEvents () 
-	{
-		$last = $this->get_last_date();
-		if($last) {
+		$group_entered = $this->get_group('group');
+		if($group) {
 			$this->pdo->beginTransaction();
-			$stmt = $this->pdo->prepare('SELECT * FROM events WHERE date_created > ?  ORDER BY event_date ASC');
+			$stmt = $this->pdo->prepare('SELECT * FROM group');
 			$stmt->execute(array($last));
-			$parties = $stmt->fetchAll(PDO::FETCH_OBJ);
+			$all_groups = $stmt->fetchAll(PDO::FETCH_OBJ);
 		}
-		else
-			echo 'fuck';
-				
-		//set header so XCode accepts the JSON object
-	header('Content-Type: application/json');
+		
+		header('Content-Type: application/json');
+		for($group as $all_groupes) {
+			
+			if($group == $group_entered)
+			echo json_encode('true');
+		
+		}
 
-	   echo json_encode($parties);
+	   echo json_encode('false');
 	   return true;
 	   
 	}
-		function get_last_date()
+		function get_group($group_name)
 	{
-		if (!isset($_GET['last']))
+		if (!isset($_GET['$group_name']))
 			exitWithHttpError(400, 'Missing last date');
 
-		$last = trim(urldecode($_GET['last']));
+		$group = trim(urldecode($_GET['$group_name']));
 
-		return $last;
+		return $group;
 	}
 	
 }

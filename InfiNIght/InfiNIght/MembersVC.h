@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MembersVC : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@interface MembersVC : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate> {
+    NSDictionary *_allMembersInfo;
+}
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

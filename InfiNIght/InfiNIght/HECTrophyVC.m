@@ -7,6 +7,9 @@
 //
 
 #import "HECTrophyVC.h"
+#import "MBProgressHUD.h"
+#import "AFNetworking.h"
+#import "GroupCell.h"
 
 @interface HECTrophyVC ()
 
@@ -28,13 +31,15 @@
     [super viewDidLoad];
     
     [self.navigationController setNavigationBarHidden:NO];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(getRankings)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationItem.title = @"Classement";
 
-}
--(void) viewDidAppear:(BOOL)animated {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Classements des groupes" message:@"ici, on verra le classement des groupes. Ca peux ressembler a la page d'activités, ou ca peut ausi etre different" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
-    [alert show];
+    [self getRankings];
 }
+
 
 - (void)viewDidUnload
 {
@@ -53,63 +58,37 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return [groupPoints count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    GroupCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
+  NSArray *myCustomCell = [[NSBundle mainBundle] loadNibNamed:@"GroupCell" owner:nil options:nil];
+    if(cell == nil) {
+        
+        for(id currentObj in myCustomCell) {
+            if([currentObj isKindOfClass:[GroupCell class]])
+                cell = (GroupCell *) currentObj;
+        }
+     
+    }
     
+    cell.groupName.text = [NSString stringWithFormat:@"Groupe %@",[[groupPoints objectAtIndex:indexPath.row] valueForKey:@"group"]];
+    cell.groupPoints.text = [NSString stringWithFormat:@"%@ Points", [[groupPoints objectAtIndex:indexPath.row] valueForKey:@"points"]];
+
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -122,6 +101,46 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+-(void) getRankings{
+    NSLog(@"getting events");
+    
+    MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hub.dimBackground = YES;
+    hub.labelText = @"Classement ...";
+    
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://10.11.1.59:8888/get/get_group_rankings"];
+    
+    
+    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"rankings: %@", JSON);
+        [self parseJSON:JSON];
+        [hub hide:YES];
+    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
+        NSLog(@"Failed: %@",[error localizedDescription]);   
+        [hub hide:YES];
+    }];
+    [operation start];
+}
+
+-(void) parseJSON: (id) JSON {
+    
+    groupPoints = [[NSMutableArray alloc] init ];
+    for(NSDictionary *dic in JSON) {
+        [groupPoints addObject:dic];        
+    }
+    
+    [self.tableView reloadData];
 }
 
 @end

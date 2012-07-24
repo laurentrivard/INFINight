@@ -8,11 +8,18 @@
 
 #import "ReadQRCodeVC.h"
 #import "ZBarSDK.h"
+#import "AFNetworking.h"
+
 @interface ReadQRCodeVC ()
 
 @end
 
 @implementation ReadQRCodeVC
+@synthesize nameLbl = _nameLbl;
+@synthesize matriculeLbl = _matriculeLbl;
+@synthesize groupLbl = _groupLbl;
+@synthesize yearLbl = _yearLbl;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,40 +48,47 @@
         [self launchScanner];
     }
 }
--(void) viewDidAppear:(BOOL)animated {
-    
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bar Scanner" message:@"ici, le bar pourra cliquer sur son image et apres avoir entrer un mot de passe, pourra scanner le QR code. Cliquez sur OK pour scanner" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Scan", nil];
-    
-    [alert show];
-}
+
 - (void) imagePickerController: (UIImagePickerController*) reader
  didFinishPickingMediaWithInfo: (NSDictionary*) info
 {
-    [self showSuccess];
     // ADD: get the decode results
     id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
     ZBarSymbol *symbol = nil;
     for(symbol in results)
         // EXAMPLE: just grab the first barcode
         break;
-    
-    
-    //look to give confirmation on the screen instead of dismissing everytime
-    NSLog(@"symbol data: %@", symbol.data);    
+    //make phone vibrate when scan succeeds
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-
-    UIAlertView *alert  = [[UIAlertView alloc] initWithTitle:@"info" message:[NSString stringWithFormat: @"voici l'info que le scanner a lu : %@ \n je vais pouvoir séparer l'information pour update la base de donnée", symbol.data] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     
-    [alert show];
+    
+    //parse the stupid string
+    NSRange nameRange = [symbol.data rangeOfCharacterFromSet:[NSCharacterSet  characterSetWithCharactersInString:@"#"]];
+    NSString *name = [symbol.data substringToIndex:nameRange.location];  //name
+    NSString *remaining = [symbol.data  substringFromIndex:nameRange.location + 1];
+    NSRange matriculeRange = [remaining rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
+    NSString *matricule = [remaining substringToIndex:matriculeRange.location]; //matricule
+    remaining = [remaining substringFromIndex:matriculeRange.location + 1];
+    NSRange groupRange = [remaining rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
+    NSString *group = [remaining substringToIndex:groupRange.location];
+    NSString *year = [remaining substringFromIndex:groupRange.location + 1];
+    
+    self.nameLbl.text = name;
+    self.matriculeLbl.text = matricule;
+    self.groupLbl.text = group;
+    self.yearLbl.text = year;
+
+    [self updatePoints: group];
+    
+
     // [info objectForKey: UIImagePickerControllerOriginalImage];
     
     // ADD symbol.data to their list for the night which will be updated to the server at 3 AM ?
-    //could do it everytime, could do it at 3AM, could do it every hour...
+    //could do it everytime, could do it at 3AM, could do every hour...
     
     
     // ADD: dismiss the controller (NB dismiss from the *reader*!)
-  //  [reader dismissModalViewControllerAnimated: YES];
+    [reader dismissModalViewControllerAnimated: YES];
 }
 - (void)launchScanner {
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
@@ -91,51 +105,46 @@
     [self presentModalViewController: reader
                             animated: YES];
 }
--(void) showSuccess {
-    //make the iphone vibrate? 
+
+-(void) updatePoints: (NSString *) group {
     
-//    _confirmation = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
-//    _confirmation.backgroundColor = [UIColor greenColor];
-//    _confirmation.alpha = 1;
-//    
-//    UIImageView *successImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
-//    UIImage *successImage = [UIImage imageNamed:@"ScanSuccess.png"];
-//    successImageView.image = successImage;
-//    
-//    [UIView beginAnimations:nil context:NULL];
-//    [UIView setAnimationDuration:1.0];
-//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//    _confirmation.frame = CGRectMake(0,-50,320,50);
-//  //  _confirmation.frame = CGRectMake(0,0,320,35);
-//    [UIView commitAnimations];
-//
-//    [_confirmation addSubview:successImageView];
-//    [self.view addSubview:_confirmation];
-//    _progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
-//    _progressHUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]]; 
-//    _progressHUD.mode = MBProgressHUDModeCustomView;
-//	
-//	_progressHUD.delegate = self;
-//	
-//	[_progressHUD show:YES];
-//	[_progressHUD hide:YES afterDelay:3];
-//    _progressHUD.labelText = @"Succès";
-//    [self.view addSubview:_progressHUD];
-//
-//    [_progressHUD hide:YES afterDelay:1];
-//     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(fireTimer:) userInfo:nil repeats:NO];   
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
     
+    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
+    [httpClient defaultValueForHeader:@"Accept"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    [params setObject:@"updateRankings" forKey:@"cmd"];
+    [params setObject:group forKey:@"group"];
+    
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *response = [operation responseString];
+        NSLog(@"response: [%@]",response);
+        NSLog(@"responseobject: %@", responseObject);
+        
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error: %@", [operation error]);        
+    }];
+    
+    [operation start];
 }
+- (IBAction)launchScanner:(id)sender {
+    [self launchScanner];
+}
+- (void)viewDidUnload {
 
-
-//-(void) fireTimer: (NSTimer *) timer {
-//    
-//    [UIView beginAnimations:nil context:NULL];
-//    [UIView setAnimationDuration:2.0];
-//    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-//    _confirmation.frame = CGRectMake(0,0,320,35);
-//    _confirmation.frame = CGRectMake(0,-110,320,20);
-//    [UIView commitAnimations];
-//    NSLog(@"suppp");
-//}
+    [self setYearLbl:nil];
+    [self setGroupLbl:nil];
+    [self setMatriculeLbl:nil];
+    [self setNameLbl:nil];
+    [super viewDidUnload];
+}
 @end

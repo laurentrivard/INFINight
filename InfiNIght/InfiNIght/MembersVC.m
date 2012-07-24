@@ -31,18 +31,20 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationItem.title = @"Membres";
 
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 1048);   
     self.scrollView.delegate = self;
-//    self.scrollView.pagingEnabled = ;
 
+   _allMembersInfo = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"membersInfo" ofType:@"plist"]]; //load the contents of the plist
     
     
 	// Do any additional setup after loading the view.
-    UIImageView *frank = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"frankProfileFinal.png"]];
+    UIImageView *frank = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"FrankProfilePic.png"]];
     frank.frame = CGRectMake(8, 8, 148, 200);
     
-    UIImageView *karl = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"karlProfileFinal.png"]];
+    UIImageView *karl = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Admin.png"]];
     karl.frame = CGRectMake(164, 8, 148, 200);
     
     UIImageView *annie = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"annieProfileFinal.png"]];
@@ -66,7 +68,7 @@
     UIImageView *samuel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"samuelProfileFinal.png"]];
     samuel.frame = CGRectMake(8, 840, 148, 200);
     
-    UIImageView *admin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"settings.png"]];
+    UIImageView *admin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Admin.png"]];
     admin.frame = CGRectMake(164, 840, 148, 200);
     
     frank.tag = 0;
@@ -134,26 +136,32 @@
     HECMemberDetailVC *profileDetail = [[HECMemberDetailVC alloc] initWithNibName:@"HECMemberDetailVC" bundle:[NSBundle mainBundle]];
     switch (sender.view.tag) {
         case 0:
-            //assign the data to the controller
+            profileDetail.memberInfo = [[_allMembersInfo valueForKey:@"Members"] objectAtIndex:0];
             break;
         case 1:
+            profileDetail.memberInfo = [[_allMembersInfo valueForKey:@"Members"] objectAtIndex:1];
             break;
         case 2:
+            profileDetail.memberInfo = [[_allMembersInfo valueForKey:@"Members"] objectAtIndex:2];
             break;
         case 3:
+            profileDetail.memberInfo = [[_allMembersInfo valueForKey:@"Members"] objectAtIndex:3];
             break;
         case 4:
+            profileDetail.memberInfo = [[_allMembersInfo valueForKey:@"Members"] objectAtIndex:4];
             break;
         case 5:
+            profileDetail.memberInfo = [[_allMembersInfo valueForKey:@"Members"] objectAtIndex:5];
             break;
         case 6:
+            profileDetail.memberInfo = [[_allMembersInfo valueForKey:@"Members"] objectAtIndex:6];
             break;
         case 7:
+            profileDetail.memberInfo = [[_allMembersInfo valueForKey:@"Members"] objectAtIndex:7];
             break;
         case 8:
+            profileDetail.memberInfo = [[_allMembersInfo valueForKey:@"Members"] objectAtIndex:8];
             break;      
-        case 9:
-            break;
         default:
             //should never reach
             break;

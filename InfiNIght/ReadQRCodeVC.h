@@ -16,5 +16,11 @@
     NSTimer *_timer;
     MBProgressHUD *_progressHUD;
 }
+@property (strong, nonatomic) IBOutlet UILabel *nameLbl;
+@property (strong, nonatomic) IBOutlet UILabel *matriculeLbl;
+@property (strong, nonatomic) IBOutlet UILabel *groupLbl;
+@property (strong, nonatomic) IBOutlet UILabel *yearLbl;
+
+- (IBAction)launchScanner:(id)sender;
 
 @end

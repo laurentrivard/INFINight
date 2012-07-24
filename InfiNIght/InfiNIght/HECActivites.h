@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HECRegisterVC.h"
 
-@interface HECActivites : UITableViewController {
-    NSMutableArray *_dates, *_events;
+@interface HECActivites : UITableViewController <RegistrationWasSuccessful> {
+    NSMutableArray *_dates;
+    NSMutableArray *_events;
+    NSArray *tableViewEvents;
+    BOOL newEventWasReceived;
 
 }
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+-(void) refreshActivities;
 
 @end

@@ -10,4 +10,6 @@
 
 @interface HECPartenairesVC : UIViewController
 
+
+-(IBAction)pushREAD:(id)sender;
 @end

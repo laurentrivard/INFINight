@@ -39,6 +39,11 @@
     NSLog(@"year: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"year"]);
     NSLog(@"Device token: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"device_token"]);
     
+    //nav bar
+    [self.navigationController setNavigationBarHidden:NO];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
+    self.navigationItem.title = @"Code QR";
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     self.nameLbl.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"name"];
     [self generateQRCode];
