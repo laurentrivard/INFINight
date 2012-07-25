@@ -174,9 +174,11 @@
         [self.scrollView addSubview:myAlertView];
      //   [myAlertView show];
         
+        NSLog(@"sender.view.tag %d", sender.view.tag);
         HECAddEventVC *addEvent = [[HECAddEventVC alloc] initWithNibName:@"HECAddEventVC" bundle:[NSBundle mainBundle]];
-        
-        [self presentModalViewController:addEvent animated:YES];
+        NSLog(@"sender.view.tag %d", sender.view.tag);
+
+        [self presentModalViewController:addEvent animated:NO];
         
     }
 
