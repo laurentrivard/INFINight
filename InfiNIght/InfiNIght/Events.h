@@ -17,5 +17,9 @@
 @property (nonatomic, retain) NSString * event_date;
 @property (nonatomic, retain) NSString * event_location;
 @property (nonatomic, retain) NSString * event_date_string;
+@property (nonatomic, retain) NSString * image_title;
+@property (nonatomic, retain) NSString * type;
+
+
 
 @end

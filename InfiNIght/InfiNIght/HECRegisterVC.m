@@ -12,8 +12,6 @@
 @synthesize nameTF = _nameTF;
 @synthesize matriculeTF = _matriculeTF;
 @synthesize groupeTF = _groupeTF;
-@synthesize yearTF = _yearTF;
-@synthesize _credTableView;
 @synthesize registerBtn;
 @synthesize delegate;
 
@@ -33,22 +31,35 @@
     
     [self.registerBtn setBackgroundImage:[UIImage imageNamed:@"HECRegisterBottom.jpg"] forState:UIControlStateNormal];
     
- //   _credTableView = [[UITableView alloc] initWithFrame:CGRectMake(5, 80, 310, 175) style:UITableViewStyleGrouped];
-    
-    _cellTitles= [[NSArray alloc] initWithObjects:@"Nom Complet", @"Matricule", @"Groupe", @"Année", nil];
+    //picker view for schools
+    UIPickerView *picker = [[UIPickerView alloc] init];
+    picker.frame = CGRectMake(0, 200, 320, 150);
+    picker.backgroundColor = [UIColor blackColor];
+    picker.delegate = self;
+    picker.dataSource = self;
+    picker.showsSelectionIndicator = YES;
+    [self.view addSubview:picker];
+        
+    _cellTitles= [[NSArray alloc] initWithObjects:@"Prénom", @"Nom de Famille", @"Année", nil];
     _credTableView.backgroundColor = [UIColor clearColor];
     _credTableView.delegate = self;
     _credTableView.dataSource = self;
-//    [self.view addSubview:_credTableView];
     
     //init text fields
     self.nameTF.delegate = self;
     self.matriculeTF.delegate = self;
     self.groupeTF.delegate = self;
-    self.yearTF.delegate = self;
     
+    self.nameTF.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    self.matriculeTF.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+
+
     //Harcoded so the tableview looks great
     [self.groupeTF setFrame:CGRectMake(139, 167, 144, 30)];
+    
+    
+    mtlSchools = [NSArray arrayWithObjects:@"HEC Montréal", @"Concordia", @"McGill",@"Polytechnique",  @"Université de Montréal", @"UQAM", nil];
+    [self.nameTF becomeFirstResponder];
     
 }
 
@@ -78,14 +89,9 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     
     }
-//    cell.inputTextField.tag = _tagCell;
     cell.cellTitle.text = [_cellTitles objectAtIndex:indexPath.row];
-//    cell.inputTextField.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    if(cell.inputTextField.tag == 3)
-//        cell.inputTextField.returnKeyType = UIReturnKeyDone;
-    
-    
+  
     return cell;
 }
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
@@ -97,14 +103,8 @@
             [self.groupeTF becomeFirstResponder];
             break;
         case 2:
-            [self.yearTF becomeFirstResponder];
-            break;
-        case 3:
             [textField resignFirstResponder];
-            [self go:nil];
             break;
-
-            
         default:
             break;
     }
@@ -122,9 +122,7 @@
         case 2: 
             [self.groupeTF becomeFirstResponder];
             break;
-        case 3:
-            [self.yearTF becomeFirstResponder];
-            break;
+
         default:
             break;
     }
@@ -136,41 +134,69 @@
 - (void)viewDidUnload
 {
     [self setRegisterBtn:nil];
-    [self set_credTableView:nil];
     [self setNameTF:nil];
     [self setMatriculeTF:nil];
     [self setGroupeTF:nil];
-    [self setYearTF:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+-(void) viewDidAppear:(BOOL)animated {
+    [self.navigationController.navigationBar setHidden:YES];
+
+}
 -(void) textFieldDidBeginEditing:(UITextField *)textField {
     
 }
-
-- (IBAction)go:(UIButton *)sender {
+-(IBAction)go:(id)sender {
+    [self saveInfoToUserDefaults];
     
-    NSArray *params = [[NSArray alloc] initWithObjects:self.nameTF.text, self.matriculeTF.text, self.groupeTF.text, self.yearTF.text, nil];
-    
-    if([self checkFields:params])
-        [self crossReferenceGroups];
+    NSArray *params = [NSArray arrayWithObjects:self.nameTF.text, self.matriculeTF.text, self.groupeTF.text, nil];
 
-    else {
-        UIAlertView *failed = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Veuillez compléter tous les champs obligatoires."  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [failed show];
+    if([self checkFields:params]) {
+        [self saveInfoToUserDefaults];
+        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"school"] isEqualToString:[NSString stringWithFormat:@"%@", [mtlSchools objectAtIndex:0]]]) {  //student goes to HEC
+            NSLog(@"Goes to HEC");
+            
+            HECStudentVC *student = [[HECStudentVC alloc] initWithNibName:@"HECStudentVC" bundle:[NSBundle mainBundle]];
+
+            [self.navigationController pushViewController:student animated:YES];
+        }
+        else {   //student does not go to HEC
+            [self addUserToDatabase];
+        }
     }
+    
+    else {
+            UIAlertView *failed = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Veuillez compléter tous les champs obligatoires. \n Assurez-vous que votre année de graduation soit vraie..bla"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [failed show];
+        } 
+}
+
+-(BOOL) checkFields: (NSArray *) params {
+    
+    NSLog(@"params :%@", params);
+    
+    if([[params objectAtIndex:0] isEqualToString:@""] || [[params objectAtIndex:1] isEqualToString:@""] ||[[params objectAtIndex:2] isEqualToString:@""]) {
+        return  NO;
+    }
+    if([self.groupeTF.text intValue] < 2013 || [self.groupeTF.text intValue] > 2018)
+        return NO;
+    
+    
+    return YES;
 }
 
 -(void) saveInfoToUserDefaults {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     //user has login for first time
-
-    [defaults setObject:self.nameTF.text forKey:@"name"];
-    [defaults setObject:self.matriculeTF.text forKey:@"matricule"];
-    [defaults setObject:self.groupeTF.text forKey:@"groupe"];
-    [defaults setObject:self.yearTF.text forKey:@"year"];
+    NSString *fullName = self.nameTF.text;
+    fullName = [fullName stringByAppendingString:[NSString stringWithFormat:@" %@", self.matriculeTF.text]];
+    NSLog(@"FUL NAME BEFORE SAVE : %@", fullName);
+    
+    [defaults setObject:fullName forKey:@"name"];
+    [defaults setObject:self.groupeTF.text forKey:@"year"];
     
     [defaults synchronize];
     
@@ -182,34 +208,38 @@
     hud.dimBackground = YES;
     
     NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
-
     
-    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
+    
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://50.116.56.171"];
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
     [httpClient defaultValueForHeader:@"Accept"];
-
+    
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     NSString *uuid = [AppDelegate device_id];
     NSLog(@"uuid: %@", uuid);
-    [params setObject:[currentDefaults objectForKey:@"name"] forKey:@"name"];
-    [params setObject:@"join" forKey:@"cmd"];
-    [params setObject:[currentDefaults objectForKey:@"matricule"] forKey:@"matricule"];
-    [params setObject:[currentDefaults objectForKey:@"groupe"] forKey:@"groupe"];
-    [params setObject:[currentDefaults objectForKey:@"year"] forKey:@"grad_year"];
-    [params setObject:uuid forKey:@"udid"];
-    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
     
+    
+    [params setObject:@"join" forKey:@"cmd"];
+    [params setObject:[currentDefaults objectForKey:@"name"] forKey:@"name"];
+    [params setObject:@"0" forKey:@"matricule"];   //set default to zero
+    [params setObject:@"0" forKey:@"groupe"];       //set default to zero
+    [params setObject:[currentDefaults objectForKey:@"year"] forKey:@"grad_year"];
+    [params setObject:[currentDefaults objectForKey:@"school"] forKey:@"school"];
+    [params setObject:uuid forKey:@"udid"];
+    [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];   //test for simulator
+//    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
+
     NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
     
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api/api.php" parameters:params];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         [hud hide:YES];
-
+        
         NSLog(@"Success on creating account");
         [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"first_time"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -218,7 +248,7 @@
         [self.delegate registrationWasSuccessful:@"success"];
         
         [self dismissModalViewControllerAnimated:YES];
-
+        
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@", [operation error]);
         
@@ -231,70 +261,21 @@
     [operation start];
 }
 
--(BOOL) checkFields: (NSArray *) params {
-    
-    NSLog(@"params :%@", params);
-    
-    if([[params objectAtIndex:0] isEqualToString:@""] || [[params objectAtIndex:1] isEqualToString:@""] ||[[params objectAtIndex:2] isEqualToString:@""] || [[params objectAtIndex:3] isEqualToString:@""] ) {
-        return  NO;
-    }
-    
-    return YES;
-}
--(void) crossReferenceGroups {
-    
-    
-    MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-	hud.labelText = @"Validation...";
-    hud.dimBackground = YES;
-    
-    
-    NSURL *url = [NSURL URLWithString:@"http://10.11.1.59:8888/get/get_group_rankings"];
-    
-    
-    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:url];
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    
-    
-    
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:params];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-//        NSLog(@"rankings: %@", JSON);
-        [self parseJSON:JSON];
-        [hud hide:YES];
-    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
-        NSLog(@"Failed: %@",[error localizedDescription]);   
-        [hud hide:YES];
-    }];
-    [operation start];
-                        
+//picker view code
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
 }
 
--(void) parseJSON: (id) JSON {
-    
-     NSMutableArray *groups = [[NSMutableArray alloc] init];
-    
-    for(NSDictionary *dic in JSON) {
-        [groups addObject:[dic objectForKey:@"group"]];
-    }
-    
-     [self checkGroups:groups];
-    
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [mtlSchools count];
 }
--(void) checkGroups: (NSMutableArray *) groups {
-    for(NSString *group in groups) {
-        NSLog(@"self.grouptf : %@", self.groupeTF.text);
-        NSLog(@"group :%@", group);
-        if([group isEqualToString:self.groupeTF.text]) {
-            [self saveInfoToUserDefaults];
-            [self addUserToDatabase];
-            return;
-        }
-    }
-    UIAlertView *groupError = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Veuillez entrer un groupe valide" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [groupError show];
-    
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [mtlSchools objectAtIndex:row];
 }
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    [[NSUserDefaults standardUserDefaults] setObject:[mtlSchools objectAtIndex:row] forKey:@"school"];
+    NSLog(@"%@", [mtlSchools objectAtIndex:row]);
+}
+
 
 @end

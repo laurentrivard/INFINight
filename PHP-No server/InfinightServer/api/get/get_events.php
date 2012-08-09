@@ -111,8 +111,7 @@ class RETRIEVE {
 			$stmt->execute(array($last));
 			$parties = $stmt->fetchAll(PDO::FETCH_OBJ);
 		}
-		else
-			echo 'fuck';
+
 				
 		//set header so XCode accepts the JSON object
 	header('Content-Type: application/json');

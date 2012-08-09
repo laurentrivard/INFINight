@@ -108,7 +108,7 @@
 
 -(void) updatePoints: (NSString *) group {
     
-    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://50.116.56.171"];
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
     [httpClient defaultValueForHeader:@"Accept"];
@@ -119,7 +119,7 @@
     [params setObject:group forKey:@"group"];
     
     
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api/api.php" parameters:params];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     

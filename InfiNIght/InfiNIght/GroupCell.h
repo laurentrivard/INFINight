@@ -11,5 +11,7 @@
 @interface GroupCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *groupName;
 @property (strong, nonatomic) IBOutlet UILabel *groupPoints;
+@property (strong, nonatomic) IBOutlet UILabel *position;
+@property (strong, nonatomic) IBOutlet UIImageView *arrowIV;
 
 @end

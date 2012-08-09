@@ -20,6 +20,8 @@
 @synthesize school= _school;
 @synthesize job= _job;
 @synthesize paragraph = _paragraph;
+@synthesize imageView = _imageView;
+@synthesize toolbar = _toolbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,14 +35,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
    
+
+    _toolbar.tintColor = [UIColor blackColor];
+    
     _name.text = [_memberInfo valueForKey:@"name"];
     _position.text = [_memberInfo valueForKey:@"position"];
     _age.text = [_memberInfo valueForKey:@"age"];
     _school.text = [_memberInfo valueForKey:@"school"];   
     _job.text = [_memberInfo valueForKey:@"job"];
     _paragraph.text = [_memberInfo valueForKey:@"paragraph"];
+    
+    
+    self.imageView.image = [UIImage imageNamed:@"annieTEST.jpg"];
 
 }
 
@@ -52,10 +59,9 @@
     [self setSchool:nil];
     [self setJob:nil];
     [self setParagraph:nil];
+    [self setImageView:nil];
+    [self setToolbar:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-
 }
 
 
@@ -88,7 +94,7 @@
             break;
         case MFMailComposeResultSent:
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:@"Mail Sent Successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mesage envoyé" message:@"Votre message a été envoyé avec succès." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
 
         }

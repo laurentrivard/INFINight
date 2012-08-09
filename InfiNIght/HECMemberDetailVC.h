@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UITextView *school;
 @property (strong, nonatomic) IBOutlet UITextView *job;
 @property (strong, nonatomic) IBOutlet UITextView *paragraph;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 
 - (IBAction)composeMail:(id)sender;
 - (IBAction) back: (id) sender;

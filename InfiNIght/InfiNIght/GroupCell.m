@@ -11,6 +11,8 @@
 @implementation GroupCell
 @synthesize groupName;
 @synthesize groupPoints;
+@synthesize position;
+@synthesize arrowIV;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

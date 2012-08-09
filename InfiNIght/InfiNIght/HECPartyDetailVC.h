@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFNetworking.h"
 
 @interface HECPartyDetailVC : UIViewController
 
@@ -16,4 +17,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateLbl;
 @property (strong, nonatomic) IBOutlet UILabel *locationLbl;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTF;
+@property (strong, nonatomic) IBOutlet UIImageView *imagePhoto;
 @end

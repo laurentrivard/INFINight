@@ -159,6 +159,7 @@ class API
 				case 'message': $this->handleMessage(); return;
 				case 'addEvent': $this->handleNewEvent(); return;
 				case 'updateRankings': $this->updateRankings(); return;
+				case 'image': $this->uploadImage(); return;
 			}
 		}
 		exitWithHttpError(400, 'Unknown command');
@@ -181,7 +182,33 @@ class API
 	//          string of maximum 255 bytes.
 	//
 	
-	//check to see if the group added exists
+	function uploadImage()
+	{
+	//	if (isset($_FILES['name']['tmp_name'])) {
+			$temp_loc = $_FILES['image']['tmp_name'];
+			$file_name = $_FILES['image']['name'];
+			var_dump ($_FILES);
+	//		exit;
+	
+	$move_result = move_uploaded_file($temp_loc, "pictures/" . $file_name);
+	
+	if($move_result !=true)
+		echo 'ERROR MOVING PICTURES ----';
+	else
+		unlink($temp_loc);
+		
+//			$this->pdo->beginTransaction();
+//			$stmt = $this->pdo->prepare('INSERT INTO image (event_name, event_image) VALUES (?, ?)');
+//			$stmt->execute(array($_POST['title'], $_FILES['image']['name'],));
+//			$this->pdo->commit ();		
+//	}
+
+		
+	//	echo $_FILES;
+
+	
+	
+	}
 
 	//update the group rankings
 	function updateRankings ()
@@ -201,6 +228,7 @@ class API
 // add new event to the database
 	function handleNewEvent ()
  	{
+ 	
 		$event_title = $this->getString('title', 190);
 		$event_description = $this->getString('description', 255);
 		$event_date = $this->getString('date', 50);

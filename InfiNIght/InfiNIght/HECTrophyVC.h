@@ -10,6 +10,10 @@
 
 @interface HECTrophyVC : UITableViewController {
     NSMutableArray *groupPoints;
+    NSMutableArray *positionChanged;
+    NSMutableArray *lastPositions;
 }
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

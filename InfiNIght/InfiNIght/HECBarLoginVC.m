@@ -1,18 +1,18 @@
 //
-//  HECAdminVC.m
+//  HECBarLoginVC.m
 //  InfiNIght
 //
-//  Created by Laurent Rivard on 7/17/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Laurent Rivard on 8/8/12.
+//
 //
 
-#import "HECAdminVC.h"
+#import "HECBarLoginVC.h"
 
-@interface HECAdminVC ()
+@interface HECBarLoginVC ()
 
 @end
 
-@implementation HECAdminVC
+@implementation HECBarLoginVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

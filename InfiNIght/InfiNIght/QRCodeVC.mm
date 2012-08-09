@@ -18,7 +18,6 @@
 
 @implementation QRCodeVC
 @synthesize QRCode;
-@synthesize nameLbl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,19 +39,17 @@
     NSLog(@"Device token: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"device_token"]);
     
     //nav bar
-    [self.navigationController setNavigationBarHidden:NO];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
-    self.navigationItem.title = @"Code QR";
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    [self.navigationController setNavigationBarHidden:YES];
+//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
+//    self.navigationItem.title = @"Code QR";
+//    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
-    self.nameLbl.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"name"];
     [self generateQRCode];
 }
 
 - (void)viewDidUnload
 {
     [self setQRCode:nil];
-    [self setNameLbl:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -65,7 +62,9 @@
     int qrcodeImageDimension = 200;
     
     //the string can be very long
-    NSString* codeString = [NSString stringWithFormat: @"%@#%@#%@#%@", [defaults stringForKey:@"name"], [defaults stringForKey:@"matricule"], [defaults stringForKey:@"groupe"],[defaults stringForKey:@"year"]];
+    NSString* codeString = [NSString stringWithFormat: @"%@#%@#%@#%@", [defaults stringForKey:@"name"], [defaults stringForKey:@"device_token"], [defaults stringForKey:@"groupe"],[defaults stringForKey:@"school"]];
+    
+    NSLog(@"code string: %@", codeString);
     
     //first encode the string into a matrix of bools, TRUE for black dot and FALSE for white. Let the encoder decide the error correction level and version
     DataMatrix* qrMatrix = [QREncoder encodeWithECLevel:QR_ECLEVEL_AUTO version:QR_VERSION_AUTO string:codeString];
@@ -81,7 +80,7 @@
 - (IBAction)join:(id)sender {
     NSLog(@"join tapped");
     
-    NSURL *url = [NSURL URLWithString:@"http://10.11.1.59:8888/get/get_events"];
+    NSURL *url = [NSURL URLWithString:@"http://50.116.56.171/api/get/get_events"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
  //   [request setValue:[NSString stringWithFormat:@"application/json"] forHTTPHeaderField:@"Accept"];
 

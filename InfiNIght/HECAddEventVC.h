@@ -15,6 +15,7 @@
     NSString *_dateString;
     CGRect _field;
     UIImagePickerController *_imagePicker;
+    NSData *_imgData;
 }
 
 @property (strong, nonatomic) IBOutlet UITextView *titleTF;

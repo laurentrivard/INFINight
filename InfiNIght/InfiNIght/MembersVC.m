@@ -8,8 +8,10 @@
 
 #import "MembersVC.h"
 #import "HECMemberDetailVC.h"
-#import "HECAdminVC.h"
-#import "HECAddEventVC.h"
+//#import "ReadQRCodeVC.h"
+#import "ScanQRVC.h"
+//#import "HECAddEventVC.h"
+#import "ScanEventListVC.h"
 
 @interface MembersVC ()
 
@@ -44,28 +46,28 @@
     UIImageView *frank = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"FrankProfilePic.png"]];
     frank.frame = CGRectMake(8, 8, 148, 200);
     
-    UIImageView *karl = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Admin.png"]];
+    UIImageView *karl = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"KarlProfilePic.png"]];
     karl.frame = CGRectMake(164, 8, 148, 200);
     
-    UIImageView *annie = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"annieProfileFinal.png"]];
+    UIImageView *annie = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AnnieProfilePic.png"]];
     annie.frame = CGRectMake(8, 216, 148, 200);
     
-    UIImageView *stephanie = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stephanieProfileFinal.png"]];
+    UIImageView *stephanie = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"StephanieProfilePic.png"]];
     stephanie.frame = CGRectMake(164, 216, 148, 200);
     
-    UIImageView *nicolas = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nicolasProfileFinal.png"]];
+    UIImageView *nicolas = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NicolasProfilePic.png"]];
     nicolas.frame = CGRectMake(8, 424, 148, 200);
     
-    UIImageView *genevieve = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"genevieveProfileFinal.png"]];
+    UIImageView *genevieve = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"GenvieveProfilePic.png"]];
     genevieve.frame = CGRectMake(164, 424, 148, 200);
     
-    UIImageView *catherine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"catherineProfileFinal.png"]];
+    UIImageView *catherine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CatherineProfilePic.png"]];
     catherine.frame = CGRectMake(8, 632, 148, 200);
     
-    UIImageView *gabrielle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gabrielleProfileFinal.png"]];
+    UIImageView *gabrielle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"GabrielleProfilePic.png"]];
     gabrielle.frame = CGRectMake(164, 632, 148, 200);
     
-    UIImageView *samuel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"samuelProfileFinal.png"]];
+    UIImageView *samuel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SamuelProfilePic.png"]];
     samuel.frame = CGRectMake(8, 840, 148, 200);
     
     UIImageView *admin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Admin.png"]];
@@ -169,17 +171,18 @@
     if(sender.view.tag < 9)
         [self presentModalViewController:profileDetail animated:YES];
     else {
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Mot de passe" message:@"ici, il faudra rentrer un mot de passe pour pouvoir acceder a la prochaine page. Vous pourrez ajouter un evenement ou party dans cette page. " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-      
-        [self.scrollView addSubview:myAlertView];
-     //   [myAlertView show];
-        
-        NSLog(@"sender.view.tag %d", sender.view.tag);
-        HECAddEventVC *addEvent = [[HECAddEventVC alloc] initWithNibName:@"HECAddEventVC" bundle:[NSBundle mainBundle]];
-        NSLog(@"sender.view.tag %d", sender.view.tag);
-
-        [self presentModalViewController:addEvent animated:NO];
-        
+        if([[[NSUserDefaults standardUserDefaults] stringForKey:@"canScan"] isEqualToString:@"NO"]) {
+//            ScanQRVC *code = [[ScanQRVC alloc] initWithNibName:@"ScanQRVC" bundle:[NSBundle mainBundle]];
+//            [self presentModalViewController:code animated:YES];
+            
+            ScanEventListVC *scan = [[ScanEventListVC alloc] initWithNibName:@"ScanEventListVC" bundle:[NSBundle mainBundle]];
+            [self presentModalViewController:scan animated:YES];
+        }
+        else {
+            UIAlertView *perm = [[UIAlertView alloc ] initWithTitle:@"Erreur" message:@"Vous n'avez pas accès à cette page." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            
+            [perm show];
+        }
     }
 
     //push the profileDetailController

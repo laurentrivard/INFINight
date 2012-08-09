@@ -10,12 +10,13 @@
 #import "MBProgressHUD.h"
 #import "AFNetworking.h"
 #import "GroupCell.h"
-
-@interface HECTrophyVC ()
-
-@end
+#import "AppDelegate.h"
+#import "CoreData/CoreData.h"
 
 @implementation HECTrophyVC
+
+@synthesize managedObjectContext=_managedObjectContext;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,6 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (_managedObjectContext == nil)
+    {
+        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    }
     
     [self.navigationController setNavigationBarHidden:NO];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(getRankings)];
@@ -48,24 +54,16 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
+{return 1;}
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{return @"Pos   Groupe      Points ";}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{return 35;}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [groupPoints count];
-}
+{return [groupPoints count];}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -82,26 +80,26 @@
      
     }
     
-    cell.groupName.text = [NSString stringWithFormat:@"Groupe %@",[[groupPoints objectAtIndex:indexPath.row] valueForKey:@"group"]];
-    cell.groupPoints.text = [NSString stringWithFormat:@"%@ Points", [[groupPoints objectAtIndex:indexPath.row] valueForKey:@"points"]];
+    int previousPos = [[[groupPoints objectAtIndex:indexPath.row] valueForKey:@"previous_position"] intValue];
+    int currentPos = [[[groupPoints objectAtIndex:indexPath.row] valueForKey:@"current_position"] intValue];
+    
+    cell.groupName.text = [NSString stringWithFormat:@"%@",[[groupPoints objectAtIndex:indexPath.row] valueForKey:@"group"]];
+    cell.groupPoints.text = [NSString stringWithFormat:@"%@ ", [[groupPoints objectAtIndex:indexPath.row] valueForKey:@"points"]];
+    cell.position.text = [NSString stringWithFormat:@"%d", currentPos];
+    
+    
+    //image
+    if(currentPos < previousPos)
+        cell.arrowIV.image = [UIImage imageNamed:@"greenArrow.png"];
+    else if(currentPos > previousPos)
+        cell.arrowIV.image = [UIImage imageNamed:@"redArrow.png"];
+    else
+        cell.arrowIV.image = [UIImage imageNamed:@"noChange.png"];
+    
 
     return cell;
 }
 
-
-
-#pragma mark - Table view delegate
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    // Navigation logic may go here. Create and push another view controller.
-//    /*
-//     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-//     // ...
-//     // Pass the selected object to the new view controller.
-//     [self.navigationController pushViewController:detailViewController animated:YES];
-//     */
-//}
 
 -(void) getRankings{
     NSLog(@"getting rankings");
@@ -112,7 +110,7 @@
     
     
     
-    NSURL *url = [NSURL URLWithString:@"http://10.11.1.59:8888/get/get_group_rankings"];
+    NSURL *url = [NSURL URLWithString:@"http://50.116.56.171"];
     
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:url];
@@ -120,7 +118,7 @@
     
     
     
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:params];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"/api/get/get_group_rankings.php" parameters:params];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSLog(@"rankings: %@", JSON);
@@ -136,13 +134,17 @@
 }
 
 -(void) parseJSON: (id) JSON {
+    if(!groupPoints)
+        groupPoints = [[NSMutableArray alloc] init];
     
-    groupPoints = [[NSMutableArray alloc] init ];
+    [groupPoints removeAllObjects];
+    
     for(NSDictionary *dic in JSON) {
         [groupPoints addObject:dic];        
     }
     
     [self.tableView reloadData];
+        
 }
 
 @end

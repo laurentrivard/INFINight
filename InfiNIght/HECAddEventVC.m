@@ -161,7 +161,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 	hud.labelText = @"Ajout de l'évènement";
     hud.dimBackground = YES;
     
-    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://www.laurent.evertrue.com"];
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
     [httpClient defaultValueForHeader:@"Accept"];
@@ -176,7 +176,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     [params  setObject:_dateString forKey:@"event_date_string"];
     NSLog(@"date string i am passing with the params : %@", _dateString);
     
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api/api.php" parameters:params];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
@@ -186,6 +186,9 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
         NSString *response = [operation responseString];
         NSLog(@"response: [%@]",response);
         NSLog(@"responseobject: %@", responseObject);
+        
+        NSLog(@"calling image function");
+        [self uploadImgToServer:_imgData];
         
         UIAlertView *push = [[UIAlertView alloc] initWithTitle:@"" message:@"Envoyer une notification push aux utilisateurs?" delegate:nil cancelButtonTitle:@"Non" otherButtonTitles:@"Oui", nil];
         push.delegate = self;
@@ -206,7 +209,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 //respond to push notifications
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-        [self dismissModalViewControllerAnimated:YES];
+      //  [self dismissModalViewControllerAnimated:YES];
     }
     else if (buttonIndex == 1) {
         NSLog(@"sending push notification...");
@@ -222,7 +225,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 	hud.labelText = @"Envoi de la notification...";
     hud.dimBackground = YES;
     
-    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://www.laurent.evertrue.com"];
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
     [httpClient defaultValueForHeader:@"Accept"];
@@ -233,7 +236,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     [params setObject:self.titleTF.text forKey:@"text"];
     
     
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api/api.php" parameters:params];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
@@ -245,6 +248,9 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
         NSString *response = [operation responseString];
         NSLog(@"response: [%@]",response);
         NSLog(@"responseobject: %@", responseObject);
+        
+        
+        
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@", [operation error]);
         
@@ -287,9 +293,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 //    
 //    [self.view addSubview:imgView];
     
-        NSData *imgData = [[NSData alloc] initWithData:(UIImagePNGRepresentation(img))];
+        _imgData = [[NSData alloc] initWithData:(UIImagePNGRepresentation(img))];
         
-        NSLog(@"image was added successfully %@", imgData);
+//        NSLog(@"image was added successfully %@", _imgData);
 //    }
 //    else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
 //    {
@@ -316,34 +322,37 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     NSLog(@"eventdatestring : %@" ,_dateString);
 }
-//-(void) uploadImgToServer: (NSData *) imgData {
+-(void) uploadImgToServer: (NSData *) imgData {
+    NSLog(@"calling upload image to server ");
+    
 //    NSData* sendData = [self.fileName.text dataUsingEncoding:NSUTF8StringEncoding];
-//    NSDictionary *sendDictionary = [NSDictionary dictionaryWithObject:sendData forKey:@"name"];
-//    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
-//    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:baseUrl];
-//    NSMutableURLRequest *afRequest = [httpClient multipartFormRequestWithMethod:@"POST" 
-//                                                                           path:@"/photos" 
-//                                                                     parameters:sendDictionary 
-//                                                      constructingBodyWithBlock:^(id <AFMultipartFormData>formData) 
-//                                      {                                     
-//                                          [formData appendPartWithFileData:photoImageData 
-//                                                                      name:self.fileName.text 
-//                                                                  fileName:filePath 
-//                                                                  mimeType:@"image/jpeg"]; 
-//                                      }
-//                                      ];
-//    
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:afRequest];
+//    NSDictionary *sendDictionary = [NSDictionary dictionaryWithObject:imgData forKey:@"name"];
+    NSMutableDictionary *sendDictionary = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self.titleTF.text, imgData, @"image", nil] forKeys:[NSArray arrayWithObjects: @"title", @"imgData", @"cmd", nil]];
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://www.laurent.evertrue.com"];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:baseUrl];
+    NSMutableURLRequest *afRequest = [httpClient multipartFormRequestWithMethod:@"POST"
+                                                                           path:@"/api/api.php" 
+                                                                     parameters:sendDictionary 
+                                                      constructingBodyWithBlock:^(id <AFMultipartFormData>formData) 
+                                      {                                     
+                                          [formData appendPartWithFileData:imgData
+                                                                      name:@"image"
+                                                                  fileName:[NSString stringWithFormat:@"%@.png", self.titleTF.text]
+                                                                  mimeType:@"image/png"]; 
+                                      }
+                                      ];
+
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:afRequest];
 //    [operation setUploadProgressBlock:^(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite) {
 //        
 //        NSLog(@"Sent %d of %d bytes", totalBytesWritten, totalBytesExpectedToWrite);
 //        
 //    }];
-//    
-//    [operation setCompletionBlock:^{
-//        NSLog(@"%@", operation.responseString); //Gives a very scary warning
-//    }];
-//    
-//    [operation start]; 
-//}
+    
+    [operation setCompletionBlock:^{
+        NSLog(@"%@", operation.responseString); //Gives a very scary warning
+    }];
+    
+    [operation start]; 
+}
 @end

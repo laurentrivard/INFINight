@@ -40,6 +40,9 @@
         [defaultValues setObject:@"" forKey:@"groupe"];
         [defaultValues setObject:@"" forKey:@"year"];
         [defaultValues setObject:newDate forKey:@"lastActivityFetched"];
+        [defaultValues setObject:@"NO" forKey:@"canScan"];
+        [defaultValues setObject:@"HEC Montréal" forKey:@"school"];
+        [defaultValues setObject:@"YES" forKey:@"firstRankingsUpdate"];
     }
     
     //TestFlight settings

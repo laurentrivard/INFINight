@@ -38,12 +38,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    if (_managedObjectContext == nil) 
+
+    if (_managedObjectContext == nil)
     { 
         _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; 
     }
-    
     //////////////////////////////////////////////////
     //on first load, show the register page
     
@@ -53,13 +52,15 @@
     self.navigationItem.title = @"Évènements";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     if([[[NSUserDefaults standardUserDefaults] stringForKey:@"first_time"] isEqualToString:@"YES"]) {
-        HECRegisterVC *reg = [[HECRegisterVC alloc] initWithNibName:@"HECRegisterVC" bundle:[NSBundle mainBundle]];
+    HECRegisterVC *reg = [[HECRegisterVC alloc] initWithNibName:@"HECRegisterVC" bundle:[NSBundle mainBundle]];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:reg];
+        [nav.navigationBar setHidden:YES];
         reg.delegate = self;
     
         double delayInSeconds = 0.1;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self presentModalViewController:reg animated:YES];
+            [self presentModalViewController:nav animated:NO];
         });
     }
     else {
@@ -118,8 +119,20 @@
     }
     cell.textLabel.text = [[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"event_title"];
 
+
     return cell;
+}
+
+//changes color of cell background depending on type of event
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
+ //change color of events
+  /*  if([[[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"type"] isEqualToString:@"0"])
+        cell.backgroundColor = [UIColor blueColor];
+    else if([[[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"type"] isEqualToString:@"1"])
+        cell.backgroundColor = [UIColor greenColor];
+    else
+        cell.backgroundColor = [UIColor redColor];*/
 }
 
 
@@ -129,7 +142,10 @@
 {
     HECPartyDetailVC *partyDetail = [[HECPartyDetailVC alloc] initWithNibName:@"HECPartyDetailVC" bundle:[NSBundle mainBundle]];
     partyDetail.eventInfo = [tableViewEvents objectAtIndex:indexPath.section];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    
     [self.navigationController pushViewController:partyDetail animated:YES];
+
 }
 
 -(void) refreshActivities {
@@ -142,7 +158,7 @@
 
     
     
-    NSURL *url = [NSURL URLWithString:@"http://10.11.1.59:8888/get/get_events"];
+    NSURL *url = [NSURL URLWithString:@"http://50.116.56.171"];
 
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:url];
@@ -151,7 +167,7 @@
     [params setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"lastActivityFetched"] forKey:@"last"];
  
     
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:params];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"/api/get/get_events.php" parameters:params];
 
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSLog(@"All Events: %@", JSON);
@@ -217,10 +233,9 @@
         [event setValue:[[events objectAtIndex:count] valueForKey:@"event_date"] forKey:@"event_date"];
         [event setValue:[[events objectAtIndex:count] valueForKey:@"event_location"] forKey:@"event_location"];
         [event setValue:[[events objectAtIndex:count] valueForKey:@"event_date_string"] forKey:@"event_date_string"];
+        [event setValue:[[events objectAtIndex:count] valueForKey:@"image_title"] forKey:@"image_title"];
+        [event setValue:[[events objectAtIndex:count] valueForKey:@"type"] forKey:@"type"];
         
-        
-        
-    
     
         NSError *error;
     
@@ -233,6 +248,7 @@
     }
 }
 -(void) readFromCoreData {
+    NSLog(@"in savetocoredata");
     //update tableview from all elements saved in CoreData 
     if(!_events) 
         _events = [[NSMutableArray alloc] init];
@@ -264,6 +280,8 @@
         [dic setObject:event.event_location forKey:@"event_location"];
         NSLog(@"event date string just before adding: %@", event.event_date_string);
         [dic setObject:event.event_date_string forKey:@"event_date_string"];
+        [dic setObject:event.image_title  forKey:@"image_title"];
+        [dic setObject:event.type forKey:@"type"];
         
         //add all events to display
         [_events addObject:dic];
@@ -277,7 +295,15 @@
     [self.tableView reloadData];
 
 }
+//delegate for non-HEC students
 -(void) registrationWasSuccessful: (NSString *) success {
+    NSLog(@"registrationWasSuccessful delegate callback : %@", success);
+    if([success isEqualToString:@"success"])
+        [self refreshActivities];
+}
+
+//delegate for HEC students
+-(void) studentRegistrationWasSuccessful:(NSString *)success {
     NSLog(@"registrationWasSuccessful delegate callback : %@", success);
     if([success isEqualToString:@"success"])
         [self refreshActivities];

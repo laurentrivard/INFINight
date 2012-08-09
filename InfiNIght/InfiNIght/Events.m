@@ -16,5 +16,8 @@
 @dynamic event_date;
 @dynamic event_location;
 @dynamic event_date_string;
+@dynamic image_title;
+@dynamic type;
+
 
 @end
