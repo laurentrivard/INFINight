@@ -10,7 +10,7 @@
 #import "HECRegisterVC.h"
 #import "HECStudentVC.h"
 
-@interface HECActivites : UITableViewController <RegistrationWasSuccessful, studentRegistrationWasSuccessful> {
+@interface HECActivites : UITableViewController <RegistrationWasSuccessful> {
     NSMutableArray *_dates;
     NSMutableArray *_events;
     NSArray *tableViewEvents;

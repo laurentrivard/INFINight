@@ -59,7 +59,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     //the qrcode is square. now we make it 250 pixels wide
-    int qrcodeImageDimension = 200;
+    int qrcodeImageDimension = 310;
     
     //the string can be very long
     NSString* codeString = [NSString stringWithFormat: @"%@#%@#%@#%@", [defaults stringForKey:@"name"], [defaults stringForKey:@"device_token"], [defaults stringForKey:@"groupe"],[defaults stringForKey:@"school"]];

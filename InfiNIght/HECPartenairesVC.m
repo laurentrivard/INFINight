@@ -7,7 +7,6 @@
 //
 
 #import "HECPartenairesVC.h"
-#import "ReadQRCodeVC.h"
 
 @interface HECPartenairesVC ()
 
@@ -40,9 +39,5 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
--(IBAction)pushREAD:(id)sender {
-    ReadQRCodeVC *read = [[ReadQRCodeVC alloc] initWithNibName:@"ReadQRCodeVC" bundle:[NSBundle mainBundle]];
-    [self.navigationController pushViewController:read animated:YES];
 }
 @end

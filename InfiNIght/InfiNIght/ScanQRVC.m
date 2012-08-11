@@ -53,14 +53,15 @@
     remaining = [remaining substringFromIndex:matriculeRange.location + 1];
     NSRange groupRange = [remaining rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
     NSString *group = [remaining substringToIndex:groupRange.location];
-    NSString *year = [remaining substringFromIndex:groupRange.location + 1];
+    NSString *school = [remaining substringFromIndex:groupRange.location + 1];
     
     
-    NSLog(@"NAME : %@ --- DEVICE TOKEN : %@ -----  GROUP : %@   year: %@", name, matricule, group, year);
+    NSLog(@"NAME : %@ --- DEVICE TOKEN : %@ -----  GROUP : %@   year: %@", name, matricule, group, school);
     
     __name = name;
     __deviceToken = matricule;
     __group = group;
+    __school = school;
     
     
     self.nameLbl.text = name;
@@ -103,6 +104,7 @@
     [params setObject:__name forKey:@"name"];
     [params setObject:[self.eventInfo valueForKey:@"event_title"] forKey:@"event_name"];
     [params setObject:__group forKey:@"group"];
+    [params setObject:__school forKey:@"school"];
     
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api/scan.php" parameters:params];

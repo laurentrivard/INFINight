@@ -19,6 +19,7 @@
     NSString *__name;
     NSString *__deviceToken;
     NSString *__group;
+    NSString *__school;
 }
 @property (strong, nonatomic) IBOutlet UILabel *nameLbl;
 @property (strong, nonatomic) IBOutlet UILabel *groupLbl;

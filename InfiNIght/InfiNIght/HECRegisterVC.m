@@ -233,11 +233,10 @@
     [params setObject:[currentDefaults objectForKey:@"year"] forKey:@"grad_year"];
     [params setObject:[currentDefaults objectForKey:@"school"] forKey:@"school"];
     [params setObject:uuid forKey:@"udid"];
-#if TARGET_IPHONE_SIMULATOR
-
-    [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];   //test for simulator
-#endif
     [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
+#if TARGET_IPHONE_SIMULATOR
+    [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];
+#endif
 
     NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
     

@@ -14,6 +14,7 @@
 #import "CoreData/CoreData.h"
 #import "AppDelegate.h"
 #import "Events.h"
+#import "HECEventCell.h"
 
 
 @interface HECActivites ()
@@ -75,7 +76,13 @@
         _dates = [[NSMutableArray alloc] init];
     }
 }
-
+-(void) viewDidAppear:(BOOL)animated {
+    if([[[NSUserDefaults standardUserDefaults] stringForKey:@"firstTimeEvents"] isEqualToString:@"YES"])
+        [self refreshActivities];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"firstTimeEvents"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -111,29 +118,34 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    HECEventCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        NSArray *bundleObj = [[NSBundle mainBundle] loadNibNamed:@"HECEventCell" owner:nil options:nil];
+        for(id current in bundleObj) {
+            if([current isKindOfClass:[HECEventCell class]]) {
+                cell = (HECEventCell *) current;
+            }
+        }
     }
-    cell.textLabel.text = [[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"event_title"];
+        
+    cell.eventTitle.text = [[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"event_title"];
 
 
     return cell;
 }
 
-//changes color of cell background depending on type of event
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
- //change color of events
-  /*  if([[[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"type"] isEqualToString:@"0"])
-        cell.backgroundColor = [UIColor blueColor];
-    else if([[[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"type"] isEqualToString:@"1"])
-        cell.backgroundColor = [UIColor greenColor];
-    else
-        cell.backgroundColor = [UIColor redColor];*/
-}
+////changes color of cell background depending on type of event
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+// //change color of events
+//  /*  if([[[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"type"] isEqualToString:@"0"])
+//        cell.backgroundColor = [UIColor blueColor];
+//    else if([[[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"type"] isEqualToString:@"1"])
+//        cell.backgroundColor = [UIColor greenColor];
+//    else
+//        cell.backgroundColor = [UIColor redColor];*/
+//}
 
 
 #pragma mark - Table view delegate
@@ -164,8 +176,9 @@
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:url];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
-    [params setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"lastActivityFetched"] forKey:@"last"];
- 
+//    [params setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"lastActivityFetched"] forKey:@"last"];
+    [params setObject:@"sero" forKey:@"last"];
+
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"/api/get/get_events.php" parameters:params];
 
@@ -188,7 +201,17 @@
         for(NSDictionary *dic in json) {
             [newEvents addObject:dic];
         }
-    if([newEvents count] > 0) {
+    
+    //reload the data
+
+    tableViewEvents = [[NSArray alloc] initWithArray:newEvents];
+    [self.tableView reloadData];
+    
+    
+    
+    
+    
+/*   if([newEvents count] > 0) {
         
         NSLog(@"NEW EVENT");
         newEventWasReceived = YES;
@@ -200,7 +223,13 @@
     
         
         NSLog(@"last date : %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"lastActivityFetched"]);
+    } */
+
     
+       
+        
+        ////////////////////////////////////////////////
+        /*
         //save new events to core data
         [self saveToCoreData:newEvents];
         
@@ -214,10 +243,11 @@
     else {
         [self readFromCoreData];
     }
-
+*/
+         //////////////////////////////////////////////////////////////
 }
 
--(void) saveToCoreData: (NSMutableArray *) events{
+/*-(void) saveToCoreData: (NSMutableArray *) events{
     NSLog(@"in save to core data");
     
     
@@ -301,13 +331,9 @@
     if([success isEqualToString:@"success"])
         [self refreshActivities];
 }
+ */
 
-//delegate for HEC students
--(void) studentRegistrationWasSuccessful:(NSString *)success {
-    NSLog(@"registrationWasSuccessful delegate callback : %@", success);
-    if([success isEqualToString:@"success"])
-        [self refreshActivities];
-}
 
 
 @end
+

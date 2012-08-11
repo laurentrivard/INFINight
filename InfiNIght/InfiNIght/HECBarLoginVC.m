@@ -202,6 +202,7 @@
         NSLog(@"Success on creating account");
         [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"first_time"];
         [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"canScan"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"firstTimeEvents"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         //call function for HECActivities to fetch events
