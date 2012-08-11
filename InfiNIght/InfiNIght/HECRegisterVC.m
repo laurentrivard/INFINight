@@ -3,6 +3,7 @@
 #import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "HECBarLoginVC.h"
 
 @interface HECRegisterVC ()
 
@@ -58,7 +59,7 @@
     [self.groupeTF setFrame:CGRectMake(139, 167, 144, 30)];
     
     
-    mtlSchools = [NSArray arrayWithObjects:@"HEC Montréal", @"Concordia", @"McGill",@"Polytechnique",  @"Université de Montréal", @"UQAM", nil];
+    mtlSchools = [NSArray arrayWithObjects:@"HEC Montréal", @"Concordia", @"McGill",@"Polytechnique",  @"Université de Montréal", @"UQAM",@"Bar Officiel", nil];
     [self.nameTF becomeFirstResponder];
     
 }
@@ -162,6 +163,11 @@
 
             [self.navigationController pushViewController:student animated:YES];
         }
+        else if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"school" ]  isEqualToString:[NSString stringWithFormat:@"%@", [mtlSchools lastObject]]]) {
+            HECBarLoginVC *bar = [[HECBarLoginVC alloc] initWithNibName:@"HECBarLoginVC" bundle:[NSBundle mainBundle]];
+            [self.navigationController pushViewController:bar animated:YES];
+
+        }
         else {   //student does not go to HEC
             [self addUserToDatabase];
         }
@@ -227,8 +233,11 @@
     [params setObject:[currentDefaults objectForKey:@"year"] forKey:@"grad_year"];
     [params setObject:[currentDefaults objectForKey:@"school"] forKey:@"school"];
     [params setObject:uuid forKey:@"udid"];
+#if TARGET_IPHONE_SIMULATOR
+
     [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];   //test for simulator
-//    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
+#endif
+    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
 
     NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
     

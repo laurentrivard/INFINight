@@ -51,7 +51,7 @@
     _groupeTF.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     _groupeTF.clearButtonMode = UITextFieldViewModeAlways;
     _groupeTF.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    _groupeTF.returnKeyType = UIReturnKeyDone;
+    _groupeTF.returnKeyType = UIReturnKeyGo;
     _groupeTF.delegate = self;
     _groupeTF.tag =1;
     
@@ -188,8 +188,10 @@
     [params setObject:[currentDefaults objectForKey:@"year"] forKey:@"grad_year"];
     [params setObject:[currentDefaults objectForKey:@"school"] forKey:@"school"];
     [params setObject:uuid forKey:@"udid"];
-//    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
+    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
+#if TARGET_IPHONE_SIMULATOR
     [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];   //test for simulator
+#endif
 
     NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
     

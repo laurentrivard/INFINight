@@ -47,7 +47,7 @@
     _paragraph.text = [_memberInfo valueForKey:@"paragraph"];
     
     
-    self.imageView.image = [UIImage imageNamed:@"annieTEST.jpg"];
+    self.imageView.image = [UIImage imageNamed:[_memberInfo valueForKey:@"detailPic"]];
 
 }
 

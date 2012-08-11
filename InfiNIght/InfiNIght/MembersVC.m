@@ -8,9 +8,7 @@
 
 #import "MembersVC.h"
 #import "HECMemberDetailVC.h"
-//#import "ReadQRCodeVC.h"
 #import "ScanQRVC.h"
-//#import "HECAddEventVC.h"
 #import "ScanEventListVC.h"
 
 @interface MembersVC ()
@@ -58,7 +56,7 @@
     UIImageView *nicolas = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NicolasProfilePic.png"]];
     nicolas.frame = CGRectMake(8, 424, 148, 200);
     
-    UIImageView *genevieve = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"GenvieveProfilePic.png"]];
+    UIImageView *genevieve = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"GenevieveProfilePic.png"]];
     genevieve.frame = CGRectMake(164, 424, 148, 200);
     
     UIImageView *catherine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CatherineProfilePic.png"]];
@@ -127,11 +125,6 @@
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 -(void) handleSingleTap: (UIGestureRecognizer *) sender {
 
     //instantiate the profileDetailController
@@ -163,7 +156,7 @@
             break;
         case 8:
             profileDetail.memberInfo = [[_allMembersInfo valueForKey:@"Members"] objectAtIndex:8];
-            break;      
+            break;
         default:
             //should never reach
             break;
@@ -171,9 +164,8 @@
     if(sender.view.tag < 9)
         [self presentModalViewController:profileDetail animated:YES];
     else {
-        if([[[NSUserDefaults standardUserDefaults] stringForKey:@"canScan"] isEqualToString:@"NO"]) {
-//            ScanQRVC *code = [[ScanQRVC alloc] initWithNibName:@"ScanQRVC" bundle:[NSBundle mainBundle]];
-//            [self presentModalViewController:code animated:YES];
+        if([[[NSUserDefaults standardUserDefaults] stringForKey:@"canScan"] isEqualToString:@"YES"]) {
+
             
             ScanEventListVC *scan = [[ScanEventListVC alloc] initWithNibName:@"ScanEventListVC" bundle:[NSBundle mainBundle]];
             [self presentModalViewController:scan animated:YES];

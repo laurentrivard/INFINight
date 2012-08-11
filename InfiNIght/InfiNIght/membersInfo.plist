@@ -19,6 +19,8 @@
 			<string>fjaksldfjalksdfjalksfjaslkjs</string>
 			<key>email</key>
 			<string></string>
+			<key>detailPic</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -34,6 +36,8 @@
 			<key>paragraph</key>
 			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
 			<key>email</key>
+			<string></string>
+			<key>detailPic</key>
 			<string></string>
 		</dict>
 		<dict>
@@ -51,6 +55,8 @@
 			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
 			<key>email</key>
 			<string>annie.leclerc@hec.ca</string>
+			<key>detailPic</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -66,6 +72,8 @@
 			<key>paragraph</key>
 			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
 			<key>email</key>
+			<string></string>
+			<key>detailPic</key>
 			<string></string>
 		</dict>
 		<dict>
@@ -83,6 +91,8 @@
 			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
 			<key>email</key>
 			<string></string>
+			<key>detailPic</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -92,13 +102,15 @@
 			<key>age</key>
 			<string>21 ans</string>
 			<key>school</key>
-			<string>HEC: Finit son BAA en avril 2013. DESS en comptabilité pour obtention du titre CA jusqu&apos;en septembre 2014.</string>
+			<string>HEC: Je finirai ma double spécialisation en finance et marketing au printemps 2013. </string>
 			<key>job</key>
-			<string>Stagiaire chez Ersnt &amp; Young</string>
+			<string>Stagiaire marketing de la Fondation HEC Montréal</string>
 			<key>paragraph</key>
-			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
+			<string>Bonbons, Disney, talons hauts, paillettes, brownies... Voilà un portrait très fidèle de ma personne. Un combo haut en couleurs et en sucre? Ben oui!</string>
 			<key>email</key>
-			<string></string>
+			<string>genevieve.higgins-desbiens@hec.ca</string>
+			<key>detailPic</key>
+			<string>genevievePic.png</string>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -114,6 +126,8 @@
 			<key>paragraph</key>
 			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
 			<key>email</key>
+			<string></string>
+			<key>detailPic</key>
 			<string></string>
 		</dict>
 		<dict>
@@ -131,6 +145,8 @@
 			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
 			<key>email</key>
 			<string></string>
+			<key>detailPic</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -146,6 +162,8 @@
 			<key>paragraph</key>
 			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
 			<key>email</key>
+			<string></string>
+			<key>detailPic</key>
 			<string></string>
 		</dict>
 	</array>
