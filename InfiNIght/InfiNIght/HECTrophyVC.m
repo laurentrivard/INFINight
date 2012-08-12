@@ -94,7 +94,7 @@
     else if(currentPos > previousPos)
         cell.arrowIV.image = [UIImage imageNamed:@"redArrow.png"];
     else
-        cell.arrowIV.image = [UIImage imageNamed:@"noChange.png"];
+        cell.arrowIV.image = [UIImage imageNamed:@"doubleArrow.gif"];
     
 
     return cell;

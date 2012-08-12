@@ -13,8 +13,6 @@
 		D712C92F15D5D6C100BEA642 /* GenevieveProfilePic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D712C92D15D5D6C100BEA642 /* GenevieveProfilePic@2x.png */; };
 		D712C93315D608BF00BEA642 /* genevievePic.png in Resources */ = {isa = PBXBuildFile; fileRef = D712C93115D608BF00BEA642 /* genevievePic.png */; };
 		D712C93415D608BF00BEA642 /* genevievePic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D712C93215D608BF00BEA642 /* genevievePic@2x.png */; };
-		D712C93715D6C08500BEA642 /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D712C93515D6C08500BEA642 /* qrCode@2x.png */; };
-		D712C93815D6C08500BEA642 /* qrCode.png in Resources */ = {isa = PBXBuildFile; fileRef = D712C93615D6C08500BEA642 /* qrCode.png */; };
 		D712C93B15D6C21200BEA642 /* HECEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D712C93A15D6C21000BEA642 /* HECEventCell.m */; };
 		D712C93D15D6C23600BEA642 /* HECEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D712C93C15D6C23400BEA642 /* HECEventCell.xib */; };
 		D735420015B7426400011349 /* getEvents.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D73541FF15B7426400011349 /* getEvents.rtf */; };
@@ -99,8 +97,6 @@
 		D79D409915D1BCC800923CFB /* Scan_defaults.png in Resources */ = {isa = PBXBuildFile; fileRef = D79D409715D1BCC800923CFB /* Scan_defaults.png */; };
 		D79D409C15D1BF1000923CFB /* backArrowLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = D79D409A15D1BF1000923CFB /* backArrowLogin.png */; };
 		D79D409D15D1BF1000923CFB /* backArrowLogin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D79D409B15D1BF1000923CFB /* backArrowLogin@2x.png */; };
-		D79D40A415D2C35F00923CFB /* noChange.png in Resources */ = {isa = PBXBuildFile; fileRef = D79D40A215D2C35F00923CFB /* noChange.png */; };
-		D79D40A515D2C35F00923CFB /* noChange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D79D40A315D2C35F00923CFB /* noChange@2x.png */; };
 		D79D40A815D304CF00923CFB /* greenArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D79D40A615D304CF00923CFB /* greenArrow@2x.png */; };
 		D79D40A915D304CF00923CFB /* greenArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D79D40A715D304CF00923CFB /* greenArrow.png */; };
 		D79D40AC15D3054600923CFB /* redArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D79D40AA15D3054600923CFB /* redArrow.png */; };
@@ -129,6 +125,12 @@
 		D7C56ECA15AF1E9800160C99 /* MembersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C56EC915AF1E9700160C99 /* MembersVC.m */; };
 		D7C74D3D15D6CFCE0079C534 /* COM_HEC_1_TOP@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C74D3B15D6CFCE0079C534 /* COM_HEC_1_TOP@2x.png */; };
 		D7C74D4415D6D1140079C534 /* COM_HEC_1_TOP.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C74D4315D6D1140079C534 /* COM_HEC_1_TOP.png */; };
+		D7C74D4B15D8491B0079C534 /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C74D4915D8491B0079C534 /* qrCode@2x.png */; };
+		D7C74D4C15D8491B0079C534 /* qrCode.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C74D4A15D8491B0079C534 /* qrCode.png */; };
+		D7C74D4F15D84BD30079C534 /* doubleArrow.gif in Resources */ = {isa = PBXBuildFile; fileRef = D7C74D4E15D84BD30079C534 /* doubleArrow.gif */; };
+		D7C74D5115D84C330079C534 /* doubleArrow@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = D7C74D5015D84C330079C534 /* doubleArrow@2x.gif */; };
+		D7C74D6415D84EE20079C534 /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C74D5F15D84E410079C534 /* libSDWebImageARC.a */; };
+		D7C74D6615D84EF00079C534 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C74D6515D84EF00079C534 /* ImageIO.framework */; };
 		D7CB9DA015CB174400F243D9 /* HECEventImageDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CB9D9E15CB174400F243D9 /* HECEventImageDetailVC.m */; };
 		D7CB9DA115CB174400F243D9 /* HECEventImageDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7CB9D9F15CB174400F243D9 /* HECEventImageDetailVC.xib */; };
 		D7F15A0315B337170013D4E8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F15A0215B337170013D4E8 /* AudioToolbox.framework */; };
@@ -150,6 +152,34 @@
 			remoteGlobalIDString = 9621844115431DBA00447877;
 			remoteInfo = QRCodeEncoderDemo;
 		};
+		D7C74D5C15D84E410079C534 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7C74D5315D84E3F0079C534 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53922D6F148C55820056699D;
+			remoteInfo = SDWebImage;
+		};
+		D7C74D5E15D84E410079C534 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7C74D5315D84E3F0079C534 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53761325155AD0D5005750A4;
+			remoteInfo = "SDWebImage ARC";
+		};
+		D7C74D6015D84E410079C534 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7C74D5315D84E3F0079C534 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 531041E0157EAFA400BBABC3;
+			remoteInfo = "SDWebImage ARC+MKAnnotation";
+		};
+		D7C74D6215D84EAE0079C534 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7C74D5315D84E3F0079C534 /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53761307155AD0D5005750A4;
+			remoteInfo = "SDWebImage ARC";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -160,8 +190,6 @@
 		D712C92D15D5D6C100BEA642 /* GenevieveProfilePic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GenevieveProfilePic@2x.png"; sourceTree = "<group>"; };
 		D712C93115D608BF00BEA642 /* genevievePic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = genevievePic.png; sourceTree = "<group>"; };
 		D712C93215D608BF00BEA642 /* genevievePic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "genevievePic@2x.png"; sourceTree = "<group>"; };
-		D712C93515D6C08500BEA642 /* qrCode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@2x.png"; sourceTree = "<group>"; };
-		D712C93615D6C08500BEA642 /* qrCode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrCode.png; sourceTree = "<group>"; };
 		D712C93915D6C21000BEA642 /* HECEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECEventCell.h; sourceTree = "<group>"; };
 		D712C93A15D6C21000BEA642 /* HECEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HECEventCell.m; sourceTree = "<group>"; };
 		D712C93C15D6C23400BEA642 /* HECEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HECEventCell.xib; sourceTree = "<group>"; };
@@ -274,8 +302,6 @@
 		D79D409715D1BCC800923CFB /* Scan_defaults.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scan_defaults.png; sourceTree = "<group>"; };
 		D79D409A15D1BF1000923CFB /* backArrowLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrowLogin.png; sourceTree = "<group>"; };
 		D79D409B15D1BF1000923CFB /* backArrowLogin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backArrowLogin@2x.png"; sourceTree = "<group>"; };
-		D79D40A215D2C35F00923CFB /* noChange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noChange.png; sourceTree = "<group>"; };
-		D79D40A315D2C35F00923CFB /* noChange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noChange@2x.png"; sourceTree = "<group>"; };
 		D79D40A615D304CF00923CFB /* greenArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenArrow@2x.png"; sourceTree = "<group>"; };
 		D79D40A715D304CF00923CFB /* greenArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenArrow.png; sourceTree = "<group>"; };
 		D79D40AA15D3054600923CFB /* redArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redArrow.png; sourceTree = "<group>"; };
@@ -330,6 +356,12 @@
 		D7C56EC915AF1E9700160C99 /* MembersVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersVC.m; sourceTree = "<group>"; };
 		D7C74D3B15D6CFCE0079C534 /* COM_HEC_1_TOP@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "COM_HEC_1_TOP@2x.png"; sourceTree = "<group>"; };
 		D7C74D4315D6D1140079C534 /* COM_HEC_1_TOP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = COM_HEC_1_TOP.png; sourceTree = "<group>"; };
+		D7C74D4915D8491B0079C534 /* qrCode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@2x.png"; sourceTree = "<group>"; };
+		D7C74D4A15D8491B0079C534 /* qrCode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrCode.png; sourceTree = "<group>"; };
+		D7C74D4E15D84BD30079C534 /* doubleArrow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = doubleArrow.gif; sourceTree = "<group>"; };
+		D7C74D5015D84C330079C534 /* doubleArrow@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "doubleArrow@2x.gif"; sourceTree = "<group>"; };
+		D7C74D5315D84E3F0079C534 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = "../../Downloads/Libraries/rs-SDWebImage-c474512/SDWebImage.xcodeproj"; sourceTree = "<group>"; };
+		D7C74D6515D84EF00079C534 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		D7CB9D9D15CB174400F243D9 /* HECEventImageDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECEventImageDetailVC.h; sourceTree = "<group>"; };
 		D7CB9D9E15CB174400F243D9 /* HECEventImageDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HECEventImageDetailVC.m; sourceTree = "<group>"; };
 		D7CB9D9F15CB174400F243D9 /* HECEventImageDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HECEventImageDetailVC.xib; sourceTree = "<group>"; };
@@ -343,6 +375,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C74D6615D84EF00079C534 /* ImageIO.framework in Frameworks */,
+				D7C74D6415D84EE20079C534 /* libSDWebImageARC.a in Frameworks */,
 				D74BA2CA15B88DC3005FAF8C /* CoreData.framework in Frameworks */,
 				D791453615B5DAA300C261B2 /* MessageUI.framework in Frameworks */,
 				D7F15A0315B337170013D4E8 /* AudioToolbox.framework in Frameworks */,
@@ -451,8 +485,9 @@
 		D7768FF315ACA953001763E1 = {
 			isa = PBXGroup;
 			children = (
-				D7C74D4315D6D1140079C534 /* COM_HEC_1_TOP.png */,
-				D7C74D3B15D6CFCE0079C534 /* COM_HEC_1_TOP@2x.png */,
+				D7C74D6515D84EF00079C534 /* ImageIO.framework */,
+				D7C74D5315D84E3F0079C534 /* SDWebImage.xcodeproj */,
+				D7C74D5215D84D260079C534 /* QR Code Images */,
 				D79D408B15D1B05A00923CFB /* Scan Images */,
 				D7BC34BC15D014FA00B86571 /* rankings */,
 				D78EFEF315BCA7D900FA7C90 /* Register Pics */,
@@ -526,8 +561,8 @@
 				D776902F15ACB11E001763E1 /* icon_wallet.png */,
 				D776902D15ACAFA0001763E1 /* icon_trophy.png */,
 				D776902A15ACAE83001763E1 /* icon_users.png */,
-				D712C93515D6C08500BEA642 /* qrCode@2x.png */,
-				D712C93615D6C08500BEA642 /* qrCode.png */,
+				D7C74D4915D8491B0079C534 /* qrCode@2x.png */,
+				D7C74D4A15D8491B0079C534 /* qrCode.png */,
 			);
 			name = "Tab Bar Icons";
 			sourceTree = "<group>";
@@ -626,8 +661,8 @@
 				D79D40A715D304CF00923CFB /* greenArrow.png */,
 				D79D40AA15D3054600923CFB /* redArrow.png */,
 				D79D40AB15D3054600923CFB /* redArrow@2x.png */,
-				D79D40A215D2C35F00923CFB /* noChange.png */,
-				D79D40A315D2C35F00923CFB /* noChange@2x.png */,
+				D7C74D4E15D84BD30079C534 /* doubleArrow.gif */,
+				D7C74D5015D84C330079C534 /* doubleArrow@2x.gif */,
 			);
 			name = rankings;
 			sourceTree = "<group>";
@@ -786,6 +821,25 @@
 			name = "Members Pictures";
 			sourceTree = "<group>";
 		};
+		D7C74D5215D84D260079C534 /* QR Code Images */ = {
+			isa = PBXGroup;
+			children = (
+				D7C74D4315D6D1140079C534 /* COM_HEC_1_TOP.png */,
+				D7C74D3B15D6CFCE0079C534 /* COM_HEC_1_TOP@2x.png */,
+			);
+			name = "QR Code Images";
+			sourceTree = "<group>";
+		};
+		D7C74D5415D84E3F0079C534 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D7C74D5D15D84E410079C534 /* libSDWebImage.a */,
+				D7C74D5F15D84E410079C534 /* libSDWebImageARC.a */,
+				D7C74D6115D84E410079C534 /* libSDWebImageARC+MKAnnotation.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -800,6 +854,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D7C74D6315D84EAE0079C534 /* PBXTargetDependency */,
 			);
 			name = InfiNIght;
 			productName = InfiNIght;
@@ -829,6 +884,10 @@
 					ProductGroup = D7C56E1415ADEDF400160C99 /* Products */;
 					ProjectRef = D7C56E1315ADEDF400160C99 /* QRCodeEncoderObjectiveCAtGithub.xcodeproj */;
 				},
+				{
+					ProductGroup = D7C74D5415D84E3F0079C534 /* Products */;
+					ProjectRef = D7C74D5315D84E3F0079C534 /* SDWebImage.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -850,6 +909,27 @@
 			fileType = wrapper.application;
 			path = QRCodeEncoderDemo.app;
 			remoteRef = D7C56E1E15ADEDF400160C99 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D7C74D5D15D84E410079C534 /* libSDWebImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDWebImage.a;
+			remoteRef = D7C74D5C15D84E410079C534 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D7C74D5F15D84E410079C534 /* libSDWebImageARC.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDWebImageARC.a;
+			remoteRef = D7C74D5E15D84E410079C534 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D7C74D6115D84E410079C534 /* libSDWebImageARC+MKAnnotation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImageARC+MKAnnotation.a";
+			remoteRef = D7C74D6015D84E410079C534 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -921,8 +1001,6 @@
 				D79D409915D1BCC800923CFB /* Scan_defaults.png in Resources */,
 				D79D409C15D1BF1000923CFB /* backArrowLogin.png in Resources */,
 				D79D409D15D1BF1000923CFB /* backArrowLogin@2x.png in Resources */,
-				D79D40A415D2C35F00923CFB /* noChange.png in Resources */,
-				D79D40A515D2C35F00923CFB /* noChange@2x.png in Resources */,
 				D79D40A815D304CF00923CFB /* greenArrow@2x.png in Resources */,
 				D79D40A915D304CF00923CFB /* greenArrow.png in Resources */,
 				D79D40AC15D3054600923CFB /* redArrow.png in Resources */,
@@ -932,11 +1010,13 @@
 				D712C92F15D5D6C100BEA642 /* GenevieveProfilePic@2x.png in Resources */,
 				D712C93315D608BF00BEA642 /* genevievePic.png in Resources */,
 				D712C93415D608BF00BEA642 /* genevievePic@2x.png in Resources */,
-				D712C93715D6C08500BEA642 /* qrCode@2x.png in Resources */,
-				D712C93815D6C08500BEA642 /* qrCode.png in Resources */,
 				D712C93D15D6C23600BEA642 /* HECEventCell.xib in Resources */,
 				D7C74D3D15D6CFCE0079C534 /* COM_HEC_1_TOP@2x.png in Resources */,
 				D7C74D4415D6D1140079C534 /* COM_HEC_1_TOP.png in Resources */,
+				D7C74D4B15D8491B0079C534 /* qrCode@2x.png in Resources */,
+				D7C74D4C15D8491B0079C534 /* qrCode.png in Resources */,
+				D7C74D4F15D84BD30079C534 /* doubleArrow.gif in Resources */,
+				D7C74D5115D84C330079C534 /* doubleArrow@2x.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,6 +1064,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D7C74D6315D84EAE0079C534 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SDWebImage ARC";
+			targetProxy = D7C74D6215D84EAE0079C534 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D776900B15ACA954001763E1 /* InfoPlist.strings */ = {
@@ -1058,6 +1146,8 @@
 				GCC_PREFIX_HEADER = "InfiNIght/InfiNIght-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"./QR Code/QRCodeEncoderObjectiveCAtGithub\"/**",
+					"\"$(OBJROOT)/UninstalledProducts/include\"",
+					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
 				);
 				INFOPLIST_FILE = "InfiNIght/InfiNIght-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -1065,6 +1155,7 @@
 					"\"$(SRCROOT)/ZBarSDK\"",
 					"\"$(SRCROOT)\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "26CBF469-AC83-4B76-8504-5B85A4DB2D72";
 				WRAPPER_EXTENSION = app;
@@ -1080,6 +1171,8 @@
 				GCC_PREFIX_HEADER = "InfiNIght/InfiNIght-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"./QR Code/QRCodeEncoderObjectiveCAtGithub\"/**",
+					"\"$(OBJROOT)/UninstalledProducts/include\"",
+					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
 				);
 				INFOPLIST_FILE = "InfiNIght/InfiNIght-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -1087,6 +1180,7 @@
 					"\"$(SRCROOT)/ZBarSDK\"",
 					"\"$(SRCROOT)\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9FCF40E3-507B-481D-BFDB-287C190D5FB6";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FB70835-1B78-41AA-BFD6-475BC8052D91";

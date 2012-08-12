@@ -15,7 +15,7 @@
 #import "AppDelegate.h"
 #import "Events.h"
 #import "HECEventCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface HECActivites ()
 
@@ -130,8 +130,8 @@
     }
         
     cell.eventTitle.text = [[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"event_title"];
-
-
+    [cell.eventImage setImageWithURL:[NSURL URLWithString:@"50.116.56.171/api/pictures/image.jpg"]
+placeholderImage:[UIImage imageNamed:@"qrCode.png"]];
     return cell;
 }
 
