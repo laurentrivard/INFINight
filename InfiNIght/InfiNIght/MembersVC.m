@@ -162,7 +162,7 @@
             break;
     } 
     if(sender.view.tag < 9)
-        [self presentModalViewController:profileDetail animated:YES];
+        [self.navigationController pushViewController:profileDetail animated:YES];
     else {
         if([[[NSUserDefaults standardUserDefaults] stringForKey:@"canScan"] isEqualToString:@"YES"]) {
 

@@ -10,6 +10,7 @@
 
 @implementation HECEventCell
 @synthesize eventTitle;
+@synthesize activityInd;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

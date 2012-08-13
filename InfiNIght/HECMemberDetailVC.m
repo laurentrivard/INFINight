@@ -21,7 +21,7 @@
 @synthesize job= _job;
 @synthesize paragraph = _paragraph;
 @synthesize imageView = _imageView;
-@synthesize toolbar = _toolbar;
+@synthesize scrollView = _scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,9 +35,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    
 
-    _toolbar.tintColor = [UIColor blackColor];
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 370);
+    self.scrollView.delegate = self;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(composeMail:)];
+
     
     _name.text = [_memberInfo valueForKey:@"name"];
     _position.text = [_memberInfo valueForKey:@"position"];
@@ -49,6 +53,7 @@
     
     self.imageView.image = [UIImage imageNamed:[_memberInfo valueForKey:@"detailPic"]];
 
+    
 }
 
 - (void)viewDidUnload
@@ -60,7 +65,7 @@
     [self setJob:nil];
     [self setParagraph:nil];
     [self setImageView:nil];
-    [self setToolbar:nil];
+    [self setScrollView:nil];
     [super viewDidUnload];
 }
 

@@ -12,6 +12,7 @@
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
+			<string>IBUIActivityIndicatorView</string>
 			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUITableViewCell</string>
@@ -54,7 +55,7 @@
 							<object class="IBUILabel" id="150374054">
 								<reference key="NSNextResponder" ref="331270565"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{48, 11}, {195, 21}}</string>
+								<string key="NSFrame">{{48, 11}, {252, 21}}</string>
 								<reference key="NSSuperview" ref="331270565"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -85,6 +86,18 @@
 									<double key="NSSize">18</double>
 									<int key="NSfFlags">16</int>
 								</object>
+							</object>
+							<object class="IBUIActivityIndicatorView" id="351110064">
+								<reference key="NSNextResponder" ref="331270565"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{4, 2}, {37, 37}}</string>
+								<reference key="NSSuperview" ref="331270565"/>
+								<reference key="NSWindow"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<bool key="IBUIHidesWhenStopped">NO</bool>
+								<int key="IBUIStyle">0</int>
 							</object>
 						</array>
 						<string key="NSFrameSize">{300, 43}</string>
@@ -131,6 +144,14 @@
 					</object>
 					<int key="connectionID">7</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">activityInd</string>
+						<reference key="source" ref="638508936"/>
+						<reference key="destination" ref="351110064"/>
+					</object>
+					<int key="connectionID">9</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -157,6 +178,7 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="349154844"/>
 							<reference ref="150374054"/>
+							<reference ref="351110064"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -170,6 +192,11 @@
 						<reference key="object" ref="150374054"/>
 						<reference key="parent" ref="638508936"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">8</int>
+						<reference key="object" ref="351110064"/>
+						<reference key="parent" ref="638508936"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -180,12 +207,13 @@
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">7</int>
+			<int key="maxID">9</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -193,10 +221,15 @@
 					<string key="className">HECEventCell</string>
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="activityInd">UIActivityIndicatorView</string>
 						<string key="eventImage">UIImageView</string>
 						<string key="eventTitle">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="activityInd">
+							<string key="name">activityInd</string>
+							<string key="candidateClassName">UIActivityIndicatorView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="eventImage">
 							<string key="name">eventImage</string>
 							<string key="candidateClassName">UIImageView</string>

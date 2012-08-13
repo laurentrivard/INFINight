@@ -128,25 +128,21 @@
             }
         }
     }
-        
+    [cell.activityInd startAnimating];
+    NSString *imageName = [[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"image_title"];
+    
     cell.eventTitle.text = [[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"event_title"];
-    [cell.eventImage setImageWithURL:[NSURL URLWithString:@"50.116.56.171/api/pictures/image.jpg"]
-placeholderImage:[UIImage imageNamed:@"qrCode.png"]];
+    [cell.eventImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://50.116.56.171/api/pictures/%@", imageName]]
+                    placeholderImage:[UIImage imageNamed:@"klsdajf"] success:^(UIImage *image) {
+                        [cell.activityInd stopAnimating];
+                        [cell.activityInd removeFromSuperview];
+     }failure:^(NSError *error) {
+         [cell.activityInd stopAnimating];
+         [cell.activityInd removeFromSuperview];
+     }];
+
     return cell;
 }
-
-////changes color of cell background depending on type of event
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-// //change color of events
-//  /*  if([[[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"type"] isEqualToString:@"0"])
-//        cell.backgroundColor = [UIColor blueColor];
-//    else if([[[tableViewEvents objectAtIndex:indexPath.section] valueForKey:@"type"] isEqualToString:@"1"])
-//        cell.backgroundColor = [UIColor greenColor];
-//    else
-//        cell.backgroundColor = [UIColor redColor];*/
-//}
-
 
 #pragma mark - Table view delegate
 

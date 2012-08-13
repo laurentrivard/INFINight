@@ -2,13 +2,12 @@
 //  HECPartenairesVC.h
 //  InfiNIght
 //
-//  Created by Laurent Rivard on 7/17/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Laurent Rivard on 8/13/12.
+//
 //
 
 #import <UIKit/UIKit.h>
 
-@interface HECPartenairesVC : UIViewController
-
+@interface HECPartenairesVC : UITableViewController
 
 @end

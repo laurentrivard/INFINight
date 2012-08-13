@@ -91,7 +91,8 @@
 
 
 -(void) updateUser {
-    
+    _progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _progressHUD.dimBackground = YES;
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://50.116.56.171"];
     
     AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
@@ -117,13 +118,13 @@
         NSLog(@"response: [%@]",response);
         NSLog(@"responseobject: %@", responseObject);
         self.successImage.image = [UIImage imageNamed:@"Checkmark.png"];
-
+        [_progressHUD hide:YES];
         
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@", [operation error]);
         self.successImage.image = [UIImage imageNamed:@"X.png"];
-        
+        [_progressHUD hide:YES];
     }];
     
     [operation start];
