@@ -39,17 +39,10 @@
     // Set to Left or Right
     [[self navigationItem] setRightBarButtonItem:barButton];
     
-    
+    //get url from plist
     NSString *urlAddress = self.urlString;
-    
-    //Create a URL object.
     NSURL *url = [NSURL URLWithString:urlAddress];
-    
-    //URL Requst Object
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    
-    
-    //Load the request in the UIWebView.
     [webView loadRequest:requestObj];
 }
 

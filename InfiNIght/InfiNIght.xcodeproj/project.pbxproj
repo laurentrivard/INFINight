@@ -437,11 +437,10 @@
 		D753CB3215ACB86200F6B2FC /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				D791453F15B5E6DB00C261B2 /* Partenaires */,
-				D7C56ECB15AF1EA000160C99 /* Members */,
 				D753CB3315ACB87100F6B2FC /* Activities */,
 				D753CB3415ACB88100F6B2FC /* Coupe */,
 				D7C56DB315ADE58900160C99 /* QR Code */,
+				D7C56ECB15AF1EA000160C99 /* Members */,
 				D7C56E6915AE031200160C99 /* Read QR Code --BAR */,
 			);
 			name = Tabs;
@@ -551,6 +550,7 @@
 				D776901215ACA954001763E1 /* AppDelegate.m */,
 				D72D7BF215D8BF39000272E0 /* MainStoryboard.storyboard */,
 				D753CB3215ACB86200F6B2FC /* Tabs */,
+				D791453F15B5E6DB00C261B2 /* Partenaires */,
 				D753CB3D15ACB98F00F6B2FC /* Register */,
 				D776900915ACA954001763E1 /* Supporting Files */,
 			);
