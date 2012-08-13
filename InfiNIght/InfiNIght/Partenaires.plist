@@ -5,46 +5,44 @@
 	<key>Partenaires</key>
 	<array>
 		<dict>
+			<key>pic</key>
+			<string>labatt.png</string>
 			<key>name</key>
-			<string>Canon </string>
+			<string>Labatt</string>
 			<key>website</key>
-			<string>www.canon.com</string>
+			<string>http://www.labatt.com/?language=fr</string>
 		</dict>
 		<dict>
+			<key>pic</key>
+			<string>redbull.png</string>
 			<key>name</key>
-			<string>Nike</string>
+			<string>Red Bull</string>
 			<key>website</key>
-			<string>www.nike.com</string>
+			<string>http://www.redbull.com</string>
 		</dict>
 		<dict>
+			<key>pic</key>
+			<string>bnc.png</string>
 			<key>name</key>
-			<string>Twitter</string>
+			<string>Banque Nationale (BNC)</string>
 			<key>website</key>
-			<string>www.twitter.com</string>
+			<string>http://www.bnc.ca</string>
 		</dict>
 		<dict>
+			<key>pic</key>
+			<string>deloitte.png</string>
 			<key>name</key>
-			<string>Facebook</string>
+			<string>Deloitte</string>
 			<key>website</key>
-			<string>www.facebook.com</string>
+			<string>http://www.deloitte.com</string>
 		</dict>
 		<dict>
+			<key>pic</key>
+			<string>td.png</string>
 			<key>name</key>
-			<string>Harvard</string>
+			<string>TD Meloche Monnex</string>
 			<key>website</key>
-			<string>www.harvard.edu</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Cisco</string>
-			<key>website</key>
-			<string>www.cisco.com</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Trek Bikes</string>
-			<key>website</key>
-			<string>www.trekbikes.com</string>
+			<string>http://www.melochemonnex.com/</string>
 		</dict>
 	</array>
 </dict>

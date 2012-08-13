@@ -64,6 +64,11 @@
 		D781CF2815C70ADB008A9370 /* ScanQRVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D781CF2615C70ADB008A9370 /* ScanQRVC.xib */; };
 		D781CF2A15C71D1F008A9370 /* infinight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D781CF2915C71D1E008A9370 /* infinight@2x.png */; };
 		D781CF2E15C71D76008A9370 /* infinight.png in Resources */ = {isa = PBXBuildFile; fileRef = D781CF2D15C71D76008A9370 /* infinight.png */; };
+		D78705BD15D98F3B0047ACFE /* bnc.png in Resources */ = {isa = PBXBuildFile; fileRef = D78705B815D98F3B0047ACFE /* bnc.png */; };
+		D78705BE15D98F3B0047ACFE /* deloitte.png in Resources */ = {isa = PBXBuildFile; fileRef = D78705B915D98F3B0047ACFE /* deloitte.png */; };
+		D78705BF15D98F3B0047ACFE /* labatt.png in Resources */ = {isa = PBXBuildFile; fileRef = D78705BA15D98F3B0047ACFE /* labatt.png */; };
+		D78705C115D98F3B0047ACFE /* td.png in Resources */ = {isa = PBXBuildFile; fileRef = D78705BC15D98F3B0047ACFE /* td.png */; };
+		D78705C315D991240047ACFE /* redbull.png in Resources */ = {isa = PBXBuildFile; fileRef = D78705C215D991240047ACFE /* redbull.png */; };
 		D78BA09E15D078C400FA29DE /* EventDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = D78BA09C15D078C400FA29DE /* EventDetail.png */; };
 		D78BA09F15D078C400FA29DE /* EventDetail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D78BA09D15D078C400FA29DE /* EventDetail@2x.png */; };
 		D78BA0AB15D1A41900FA29DE /* ScanEventListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78BA0A915D1A41900FA29DE /* ScanEventListVC.m */; };
@@ -257,6 +262,11 @@
 		D781CF2615C70ADB008A9370 /* ScanQRVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanQRVC.xib; sourceTree = "<group>"; };
 		D781CF2915C71D1E008A9370 /* infinight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "infinight@2x.png"; sourceTree = "<group>"; };
 		D781CF2D15C71D76008A9370 /* infinight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infinight.png; sourceTree = "<group>"; };
+		D78705B815D98F3B0047ACFE /* bnc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bnc.png; sourceTree = "<group>"; };
+		D78705B915D98F3B0047ACFE /* deloitte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deloitte.png; sourceTree = "<group>"; };
+		D78705BA15D98F3B0047ACFE /* labatt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = labatt.png; sourceTree = "<group>"; };
+		D78705BC15D98F3B0047ACFE /* td.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = td.png; sourceTree = "<group>"; };
+		D78705C215D991240047ACFE /* redbull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbull.png; sourceTree = "<group>"; };
 		D78BA09C15D078C400FA29DE /* EventDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventDetail.png; sourceTree = "<group>"; };
 		D78BA09D15D078C400FA29DE /* EventDetail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EventDetail@2x.png"; sourceTree = "<group>"; };
 		D78BA0A815D1A41800FA29DE /* ScanEventListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanEventListVC.h; path = ../ScanEventListVC.h; sourceTree = "<group>"; };
@@ -492,7 +502,7 @@
 		D7768FF315ACA953001763E1 = {
 			isa = PBXGroup;
 			children = (
-				D7C74D5315D84E3F0079C534 /* SDWebImage.xcodeproj */,
+				D78705B715D98F290047ACFE /* Partenaires Images */,
 				D7C74D5215D84D260079C534 /* QR Code Images */,
 				D79D408B15D1B05A00923CFB /* Scan Images */,
 				D7BC34BC15D014FA00B86571 /* rankings */,
@@ -503,7 +513,6 @@
 				D7C56E7915AE16FD00160C99 /* Libraries */,
 				D776900115ACA954001763E1 /* Frameworks */,
 				D7768FFF15ACA954001763E1 /* Products */,
-				D7C56E1315ADEDF400160C99 /* QRCodeEncoderObjectiveCAtGithub.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -572,6 +581,18 @@
 				D7C74D4A15D8491B0079C534 /* qrCode.png */,
 			);
 			name = "Tab Bar Icons";
+			sourceTree = "<group>";
+		};
+		D78705B715D98F290047ACFE /* Partenaires Images */ = {
+			isa = PBXGroup;
+			children = (
+				D78705B815D98F3B0047ACFE /* bnc.png */,
+				D78705B915D98F3B0047ACFE /* deloitte.png */,
+				D78705C215D991240047ACFE /* redbull.png */,
+				D78705BA15D98F3B0047ACFE /* labatt.png */,
+				D78705BC15D98F3B0047ACFE /* td.png */,
+			);
+			name = "Partenaires Images";
 			sourceTree = "<group>";
 		};
 		D78EFEF315BCA7D900FA7C90 /* Register Pics */ = {
@@ -778,6 +799,8 @@
 		D7C56E7915AE16FD00160C99 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D7C74D5315D84E3F0079C534 /* SDWebImage.xcodeproj */,
+				D7C56E1315ADEDF400160C99 /* QRCodeEncoderObjectiveCAtGithub.xcodeproj */,
 				D791455015B60F8E00C261B2 /* AFNetworking */,
 				D7B50F7E15B32E7F00135A98 /* libz.dylib */,
 				D7B50F7D15B32E4A00135A98 /* TestFlight */,
@@ -1030,6 +1053,11 @@
 				D72D7BF415D8BF39000272E0 /* MainStoryboard.storyboard in Resources */,
 				D72D7BF615D8C06C000272E0 /* Partenaires.plist in Resources */,
 				D72D7BFB15D8C546000272E0 /* HECPartenairesDetailVC.xib in Resources */,
+				D78705BD15D98F3B0047ACFE /* bnc.png in Resources */,
+				D78705BE15D98F3B0047ACFE /* deloitte.png in Resources */,
+				D78705BF15D98F3B0047ACFE /* labatt.png in Resources */,
+				D78705C115D98F3B0047ACFE /* td.png in Resources */,
+				D78705C315D991240047ACFE /* redbull.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

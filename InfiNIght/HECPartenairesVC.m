@@ -27,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationItem.title = @"Partenaires";
 
     _sponsors = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Partenaires" ofType:@"plist"]]; //load the contents of the plist
     
@@ -72,6 +74,7 @@
     }
     // Configure the cell...
     cell.textLabel.text = [[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"name"];
+    cell.imageView.image = [UIImage imageNamed:[[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"pic"]];
     
     return cell;
 }
@@ -82,6 +85,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HECPartenairesDetailVC *web = [[HECPartenairesDetailVC alloc] initWithNibName:@"HECPartenairesDetailVC" bundle:[NSBundle mainBundle]];
+    web.urlString = [[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"website"];
     
     [self.navigationController pushViewController:web animated:YES];
 }
