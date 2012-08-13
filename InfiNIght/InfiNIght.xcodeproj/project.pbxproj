@@ -18,6 +18,8 @@
 		D72D7BF115D8BDAE000272E0 /* HECPartenairesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D72D7BF015D8BDAE000272E0 /* HECPartenairesVC.m */; };
 		D72D7BF415D8BF39000272E0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D72D7BF215D8BF39000272E0 /* MainStoryboard.storyboard */; };
 		D72D7BF615D8C06C000272E0 /* Partenaires.plist in Resources */ = {isa = PBXBuildFile; fileRef = D72D7BF515D8C06C000272E0 /* Partenaires.plist */; };
+		D72D7BFA15D8C546000272E0 /* HECPartenairesDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D72D7BF815D8C545000272E0 /* HECPartenairesDetailVC.m */; };
+		D72D7BFB15D8C546000272E0 /* HECPartenairesDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D72D7BF915D8C545000272E0 /* HECPartenairesDetailVC.xib */; };
 		D735420015B7426400011349 /* getEvents.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D73541FF15B7426400011349 /* getEvents.rtf */; };
 		D735420215B761B100011349 /* handleMessage.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D735420115B761B100011349 /* handleMessage.rtf */; };
 		D74BA2CA15B88DC3005FAF8C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74BA2C915B88DC3005FAF8C /* CoreData.framework */; };
@@ -198,6 +200,9 @@
 		D72D7BF015D8BDAE000272E0 /* HECPartenairesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HECPartenairesVC.m; path = ../HECPartenairesVC.m; sourceTree = "<group>"; };
 		D72D7BF315D8BF39000272E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D72D7BF515D8C06C000272E0 /* Partenaires.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Partenaires.plist; sourceTree = "<group>"; };
+		D72D7BF715D8C545000272E0 /* HECPartenairesDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECPartenairesDetailVC.h; sourceTree = "<group>"; };
+		D72D7BF815D8C545000272E0 /* HECPartenairesDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HECPartenairesDetailVC.m; sourceTree = "<group>"; };
+		D72D7BF915D8C545000272E0 /* HECPartenairesDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HECPartenairesDetailVC.xib; sourceTree = "<group>"; };
 		D73541FF15B7426400011349 /* getEvents.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = getEvents.rtf; sourceTree = "<group>"; };
 		D735420115B761B100011349 /* handleMessage.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = handleMessage.rtf; sourceTree = "<group>"; };
 		D74BA2C915B88DC3005FAF8C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -587,6 +592,9 @@
 			children = (
 				D72D7BEF15D8BDAE000272E0 /* HECPartenairesVC.h */,
 				D72D7BF015D8BDAE000272E0 /* HECPartenairesVC.m */,
+				D72D7BF715D8C545000272E0 /* HECPartenairesDetailVC.h */,
+				D72D7BF815D8C545000272E0 /* HECPartenairesDetailVC.m */,
+				D72D7BF915D8C545000272E0 /* HECPartenairesDetailVC.xib */,
 				D72D7BF515D8C06C000272E0 /* Partenaires.plist */,
 			);
 			name = Partenaires;
@@ -1021,6 +1029,7 @@
 				D7C74D5115D84C330079C534 /* doubleArrow@2x.gif in Resources */,
 				D72D7BF415D8BF39000272E0 /* MainStoryboard.storyboard in Resources */,
 				D72D7BF615D8C06C000272E0 /* Partenaires.plist in Resources */,
+				D72D7BFB15D8C546000272E0 /* HECPartenairesDetailVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1064,6 +1073,7 @@
 				D79D40B115D3089D00923CFB /* HECBarLoginVC.m in Sources */,
 				D712C93B15D6C21200BEA642 /* HECEventCell.m in Sources */,
 				D72D7BF115D8BDAE000272E0 /* HECPartenairesVC.m in Sources */,
+				D72D7BFA15D8C546000272E0 /* HECPartenairesDetailVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

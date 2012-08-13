@@ -6,9 +6,45 @@
 	<array>
 		<dict>
 			<key>name</key>
-			<string></string>
+			<string>Canon </string>
 			<key>website</key>
-			<string></string>
+			<string>www.canon.com</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Nike</string>
+			<key>website</key>
+			<string>www.nike.com</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Twitter</string>
+			<key>website</key>
+			<string>www.twitter.com</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Facebook</string>
+			<key>website</key>
+			<string>www.facebook.com</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Harvard</string>
+			<key>website</key>
+			<string>www.harvard.edu</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Cisco</string>
+			<key>website</key>
+			<string>www.cisco.com</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Trek Bikes</string>
+			<key>website</key>
+			<string>www.trekbikes.com</string>
 		</dict>
 	</array>
 </dict>

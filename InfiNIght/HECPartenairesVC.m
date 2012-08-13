@@ -7,6 +7,7 @@
 //
 
 #import "HECPartenairesVC.h"
+#import "HECPartenairesDetailVC.h"
 
 @interface HECPartenairesVC ()
 
@@ -27,11 +28,9 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _sponsors = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Partenaires" ofType:@"plist"]]; //load the contents of the plist
+    
+  //  NSLog(@"sponsors: %@", _sponsors);
 }
 
 - (void)viewDidUnload
@@ -51,13 +50,14 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    
+    return [[_sponsors objectForKey:@"Partenaires"] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,7 +65,13 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+    }
     // Configure the cell...
+    cell.textLabel.text = [[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"name"];
     
     return cell;
 }
@@ -75,13 +81,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    HECPartenairesDetailVC *web = [[HECPartenairesDetailVC alloc] initWithNibName:@"HECPartenairesDetailVC" bundle:[NSBundle mainBundle]];
+    
+    [self.navigationController pushViewController:web animated:YES];
 }
 
 @end
