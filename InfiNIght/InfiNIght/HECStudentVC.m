@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
 
-    
+    [self crossReferenceGroups];
     _credTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 90, 300, 100) style:UITableViewStyleGrouped];
     [self.view addSubview:_credTableView];
     _credTableView.delegate = self;
@@ -31,7 +31,16 @@
     _credTableView.bounces = NO;
     _credTableView.backgroundColor = [UIColor clearColor];
     
-    _cellTitles = [[NSArray alloc] initWithObjects:@"Matricule", @"Groupe", nil ];
+    //picker view for schools
+    picker = [[UIPickerView alloc] init];
+    picker.frame = CGRectMake(0, 150, 320, 150);
+    picker.backgroundColor = [UIColor blackColor];
+    picker.delegate = self;
+    picker.dataSource = self;
+    picker.showsSelectionIndicator = YES;
+    [self.view addSubview:picker];
+    
+    _cellTitles = [[NSArray alloc] initWithObjects:@"Matricule", nil ];
     
     _matriculeTF = [[UITextField alloc] initWithFrame:CGRectMake(139, 106, 144, 30)];
     _matriculeTF.backgroundColor = [UIColor clearColor];
@@ -42,21 +51,21 @@
     _matriculeTF.returnKeyType = UIReturnKeyNext;
     _matriculeTF.tag = 0;
     _matriculeTF.delegate = self;
-    _matriculeTF.keyboardType = UIKeyboardTypeDecimalPad;
+    _matriculeTF.keyboardType = UIKeyboardTypeNumberPad;
     [_matriculeTF becomeFirstResponder];
 
-    _groupeTF = [[UITextField alloc] initWithFrame:CGRectMake(139, 141, 144, 30)];
-    _groupeTF.backgroundColor = [UIColor clearColor];
-    _groupeTF.placeholder = @"Obligatoire";
-    _groupeTF.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
-    _groupeTF.clearButtonMode = UITextFieldViewModeAlways;
-    _groupeTF.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    _groupeTF.returnKeyType = UIReturnKeyGo;
-    _groupeTF.delegate = self;
-    _groupeTF.tag =1;
+//    _groupeTF = [[UITextField alloc] initWithFrame:CGRectMake(139, 141, 144, 30)];
+//    _groupeTF.backgroundColor = [UIColor clearColor];
+//    _groupeTF.placeholder = @"Obligatoire";
+//    _groupeTF.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+//    _groupeTF.clearButtonMode = UITextFieldViewModeAlways;
+//    _groupeTF.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+//    _groupeTF.returnKeyType = UIReturnKeyGo;
+//    _groupeTF.delegate = self;
+//    _groupeTF.tag =1;
     
     [self.view addSubview:_matriculeTF];
-    [self.view addSubview:_groupeTF];
+//    [self.view addSubview:_groupeTF];
     
     
     self.backArrow.userInteractionEnabled = YES;
@@ -64,7 +73,10 @@
     [self.backArrow addGestureRecognizer:singleTap];
 
 }
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_matriculeTF resignFirstResponder];
+}
 
 - (void)viewDidUnload
 {
@@ -80,8 +92,8 @@
             [_groupeTF becomeFirstResponder];
             break;
         case 1:
-            [[NSUserDefaults standardUserDefaults] setObject:_groupeTF.text forKey:@"group"];
-            [self check];
+//            [[NSUserDefaults standardUserDefaults] setObject:_groupeTF.text forKey:@"group"];
+           [self check];
             break;
         default:
             break;
@@ -89,10 +101,13 @@
     return NO;
 }
 -(void) check {
-    NSArray *params = [[NSArray alloc] initWithObjects:_matriculeTF.text, _groupeTF.text, nil];
+    NSArray *params = [[NSArray alloc] initWithObjects:_matriculeTF.text, nil];
     if([self checkFields:params]) {
         
-        [self crossReferenceGroups];
+      //  [self crossReferenceGroups];
+        [self saveInfoToUserDefaults];
+        [self addUserToDatabase];
+        
     }
     else {
         UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Assurez-vous de bien compléter tous les champs obligatoires" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -106,7 +121,8 @@
             [_matriculeTF becomeFirstResponder];
             break;
         case 1:
-            [_groupeTF becomeFirstResponder];
+            //push the view controllers with all the groups
+     //       [_groupeTF becomeFirstResponder];
             break;
         default:
             break;
@@ -116,14 +132,14 @@
     
     NSLog(@"params :%@", params);
     
-    if([[params objectAtIndex:0] isEqualToString:@""] || [[params objectAtIndex:1] isEqualToString:@""] ) {
+    if([[params objectAtIndex:0] isEqualToString:@""] /*|| [[params objectAtIndex:1] isEqualToString:@""] */) {
         return  NO;
     }
     if(_matriculeTF.text.length != 9)
         return NO;
     
     [[NSUserDefaults standardUserDefaults] setObject:_matriculeTF.text forKey:@"matricule"];
-    [[NSUserDefaults standardUserDefaults] setObject:_groupeTF.text forKey:@"groupe"];
+  //  [[NSUserDefaults standardUserDefaults] setObject:_groupeTF.text forKey:@"groupe"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     return YES;
@@ -226,20 +242,20 @@
     
     [operation start];
 }
--(void) checkGroups: (NSMutableArray *) groups {
-    for(NSString *group in groups) {
-        NSLog(@"self.grouptf : %@", _groupeTF.text);
-        NSLog(@"group :%@", group);
-        if([group isEqualToString:_groupeTF.text]) {
-            [self saveInfoToUserDefaults];
-            [self addUserToDatabase];
-            return;
-        }
-    }
-    UIAlertView *groupAlert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Veuillez entrer un groupe valide" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [groupAlert show];
-    
-}
+//-(void) checkGroups: (NSMutableArray *) groups {
+//    for(NSString *group in groups) {
+//        NSLog(@"self.grouptf : %@", _groupeTF.text);
+//        NSLog(@"group :%@", group);
+//        if([group isEqualToString:_groupeTF.text]) {
+//            [self saveInfoToUserDefaults];
+//            [self addUserToDatabase];
+//            return;
+//        }
+//    }
+//    UIAlertView *groupAlert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Veuillez entrer un groupe valide" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//    [groupAlert show];
+//    
+//}
 
 - (void) crossReferenceGroups {
     
@@ -272,19 +288,20 @@
 
 -(void) parseJSON: (id) JSON {
     
-    NSMutableArray *groups = [[NSMutableArray alloc] init];
+    groups = [[NSMutableArray alloc] init];
     
     for(NSDictionary *dic in JSON) {
         [groups addObject:[dic objectForKey:@"group"]];
     }
     
-    [self checkGroups:groups];
+ //   [self checkGroups:groups];
+    [picker reloadComponent:0];
     
 }
 
 -(void) saveInfoToUserDefaults {
     [[NSUserDefaults standardUserDefaults] setObject:_matriculeTF.text forKey:@"matricule"];
-    [[NSUserDefaults standardUserDefaults] setObject:_groupeTF.text forKey:@"group"];
+   // [[NSUserDefaults standardUserDefaults] setObject:_groupeTF.text forKey:@"group"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -292,8 +309,25 @@
     [self.navigationController popViewControllerAnimated: YES];
 }
 
+//picker view code
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [groups count];
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [groups objectAtIndex:row];
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    [[NSUserDefaults standardUserDefaults] setObject:[groups objectAtIndex:row] forKey:@"groupe"];
+    NSLog(@"%@", [groups objectAtIndex:row]);
+}
 
 
 
-
+- (IBAction)submit:(id)sender {
+    [self check];
+}
 @end

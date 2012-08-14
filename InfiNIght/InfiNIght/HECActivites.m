@@ -321,13 +321,14 @@
     [self.tableView reloadData];
 
 }
+ */
+
 //delegate for non-HEC students
 -(void) registrationWasSuccessful: (NSString *) success {
     NSLog(@"registrationWasSuccessful delegate callback : %@", success);
     if([success isEqualToString:@"success"])
         [self refreshActivities];
 }
- */
 
 
 

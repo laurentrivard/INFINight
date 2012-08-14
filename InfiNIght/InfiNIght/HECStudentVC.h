@@ -13,14 +13,17 @@
 @end
 
 
-@interface HECStudentVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
+@interface HECStudentVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
     UITableView *_credTableView;
     NSArray *_cellTitles;
     UITextField *_matriculeTF;
     UITextField *_groupeTF;
+    NSMutableArray *groups;
+    UIPickerView *picker;
 }
 
 @property (weak, nonatomic) id <studentRegistrationWasSuccessful> delegate;
 @property (strong, nonatomic) IBOutlet UIImageView *backArrow;
+- (IBAction)submit:(id)sender;
 
 @end
