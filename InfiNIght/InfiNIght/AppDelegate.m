@@ -106,11 +106,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:newToken forKey:@"device_token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-//    if(![[[NSUserDefaults standardUserDefaults] stringForKey:@"device_token"] isEqualToString:newToken]) {
-//        
-//        [self updateToken: newToken];
-//        
-//    }
+
 }
 //-(void) updateToken: (NSString *) token {
 //    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];

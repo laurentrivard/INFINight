@@ -11,6 +11,6 @@
 	<key>PRODUCTION_APP_KEY</key>
 	<string>p3neNEmnT1uW2yIj2Ys2sA</string>
 	<key>APP_STORE_OR_AD_HOC_BUILD</key>
-	<string>NO</string>
+	<string>YES</string>
 </dict>
 </plist>
