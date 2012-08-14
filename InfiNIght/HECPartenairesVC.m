@@ -8,6 +8,7 @@
 
 #import "HECPartenairesVC.h"
 #import "HECPartenairesDetailVC.h"
+#import "HECEventCell.h"
 
 @interface HECPartenairesVC ()
 
@@ -74,7 +75,23 @@
     }
     // Configure the cell...
     cell.textLabel.text = [[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"name"];
-    cell.imageView.image = [UIImage imageNamed:[[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"pic"]];
+    cell.imageView.image = [UIImage imageNamed:[[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"pic"]]; 
+//    static NSString *CellIdentifier = @"Cell";
+//    HECEventCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    
+//    if(cell == nil) {
+//        NSArray *bundleObj = [[NSBundle mainBundle] loadNibNamed:@"HECEventCell" owner:nil options:nil];
+//        for(id current in bundleObj) {
+//            if([current isKindOfClass:[HECEventCell class]]) {
+//                cell = (HECEventCell *) current;
+//            }
+//        }
+//    }
+//    [cell.activityInd removeFromSuperview];
+//    
+//    cell.eventTitle.text = [[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"name"];
+//    cell.eventImage.image = [UIImage imageNamed:[[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"pic"]];
+
     
     return cell;
 }
