@@ -226,14 +226,14 @@
 		D753CB4A15ACD03700F6B2FC /* HECRegisterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECRegisterCell.h; sourceTree = "<group>"; };
 		D753CB4B15ACD03700F6B2FC /* HECRegisterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HECRegisterCell.m; sourceTree = "<group>"; };
 		D753CB4D15ACF7F400F6B2FC /* HECRegisterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HECRegisterCell.xib; sourceTree = "<group>"; };
-		D7768FFE15ACA954001763E1 /* Promo HEC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Promo HEC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7768FFE15ACA954001763E1 /* InfiNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D776900215ACA954001763E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D776900415ACA954001763E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D776900615ACA954001763E1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D776900A15ACA954001763E1 /* Promo HEC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Promo HEC-Info.plist"; sourceTree = "<group>"; };
+		D776900A15ACA954001763E1 /* INFInight-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INFInight-Info.plist"; sourceTree = "<group>"; };
 		D776900C15ACA954001763E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D776900E15ACA954001763E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D776901015ACA954001763E1 /* Promo HEC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Promo HEC-Prefix.pch"; sourceTree = "<group>"; };
+		D776901015ACA954001763E1 /* INFInight-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "INFInight-Prefix.pch"; sourceTree = "<group>"; };
 		D776901115ACA954001763E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D776901215ACA954001763E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D776902A15ACAE83001763E1 /* icon_users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_users.png; sourceTree = "<group>"; };
@@ -518,7 +518,7 @@
 		D7768FFF15ACA954001763E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D7768FFE15ACA954001763E1 /* Promo HEC.app */,
+				D7768FFE15ACA954001763E1 /* InfiNight.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -561,8 +561,8 @@
 			isa = PBXGroup;
 			children = (
 				D7F15A0115B3316E0013D4E8 /* InfiNIght.entitlements */,
-				D776901015ACA954001763E1 /* Promo HEC-Prefix.pch */,
-				D776900A15ACA954001763E1 /* Promo HEC-Info.plist */,
+				D776901015ACA954001763E1 /* INFInight-Prefix.pch */,
+				D776900A15ACA954001763E1 /* INFInight-Info.plist */,
 				D776900B15ACA954001763E1 /* InfoPlist.strings */,
 				D776900E15ACA954001763E1 /* main.m */,
 			);
@@ -892,7 +892,7 @@
 			);
 			name = "Promo HEC";
 			productName = InfiNIght;
-			productReference = D7768FFE15ACA954001763E1 /* Promo HEC.app */;
+			productReference = D7768FFE15ACA954001763E1 /* InfiNight.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -903,7 +903,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = D7768FF815ACA953001763E1 /* Build configuration list for PBXProject "Promo HEC" */;
+			buildConfigurationList = D7768FF815ACA953001763E1 /* Build configuration list for PBXProject "InfiNIght" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1185,21 +1185,21 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Laurent Rivard (YS938N34WD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "InfiNIght/Promo HEC-Prefix.pch";
+				GCC_PREFIX_HEADER = "InfiNIght/INFInight-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"./QR Code/QRCodeEncoderObjectiveCAtGithub\"/**",
 					"\"$(OBJROOT)/UninstalledProducts/include\"",
 					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
 				);
-				INFOPLIST_FILE = "InfiNIght/Promo HEC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				INFOPLIST_FILE = "InfiNIght/INFInight-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ZBarSDK\"",
 					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "Promo HEC";
+				PRODUCT_NAME = InfiNight;
 				PROVISIONING_PROFILE = "26CBF469-AC83-4B76-8504-5B85A4DB2D72";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1211,21 +1211,21 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Laurent Rivard";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Laurent Rivard";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "InfiNIght/Promo HEC-Prefix.pch";
+				GCC_PREFIX_HEADER = "InfiNIght/INFInight-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"./QR Code/QRCodeEncoderObjectiveCAtGithub\"/**",
 					"\"$(OBJROOT)/UninstalledProducts/include\"",
 					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
 				);
-				INFOPLIST_FILE = "InfiNIght/Promo HEC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				INFOPLIST_FILE = "InfiNIght/INFInight-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ZBarSDK\"",
 					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "Promo HEC";
+				PRODUCT_NAME = InfiNight;
 				PROVISIONING_PROFILE = "9FCF40E3-507B-481D-BFDB-287C190D5FB6";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FB70835-1B78-41AA-BFD6-475BC8052D91";
 				WRAPPER_EXTENSION = app;
@@ -1235,7 +1235,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D7768FF815ACA953001763E1 /* Build configuration list for PBXProject "Promo HEC" */ = {
+		D7768FF815ACA953001763E1 /* Build configuration list for PBXProject "InfiNIght" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D776902515ACA954001763E1 /* Debug */,

@@ -150,6 +150,7 @@
     
 }
 -(IBAction)go:(id)sender {
+    NSLog(@"hello!!");
     [self saveInfoToUserDefaults];
     
     NSArray *params = [NSArray arrayWithObjects:self.nameTF.text, self.matriculeTF.text, self.groupeTF.text, nil];
@@ -233,12 +234,15 @@
     [params setObject:[currentDefaults objectForKey:@"year"] forKey:@"grad_year"];
     [params setObject:[currentDefaults objectForKey:@"school"] forKey:@"school"];
     [params setObject:uuid forKey:@"udid"];
-    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
+    NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
+
 #if TARGET_IPHONE_SIMULATOR
     [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];
+#else
+    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
+
 #endif
 
-    NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api/api.php" parameters:params];
     
