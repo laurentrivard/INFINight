@@ -11,6 +11,7 @@
 #import "CoreData/CoreData.h"
 #import "HECActivites.h"
 #import "AFNetworking.h"
+#import "UAirship.h"
 
 @implementation AppDelegate
 
@@ -23,10 +24,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Let the device know we want to receive push notifications
-	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    // Register for notifications
+    [[UIApplication sharedApplication]
+     registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                         UIRemoteNotificationTypeSound |
+                                         UIRemoteNotificationTypeAlert)];
     
+    //Init Airship launch options
+    NSMutableDictionary *takeOffOptions = [[NSMutableDictionary alloc] init];
+    [takeOffOptions setValue:launchOptions forKey:UAirshipTakeOffOptionsLaunchOptionsKey];
+    
+    // Create Airship singleton that's used to talk to Urban Airship servers.
+    // Please populate AirshipConfig.plist with your info from http://go.urbanairship.com
+    [UAirship takeOff:takeOffOptions];
     
     if(!defaultValues) {
         defaultValues = [[NSMutableDictionary alloc] init ];
@@ -69,6 +79,8 @@
     [self.act refreshActivities];
     NSLog(@"refresh got called ...");
 }
+
+
 -(void) applicationDidBecomeActive:(UIApplication *)application {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 
@@ -80,6 +92,11 @@
 }
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
+    
+    // Updates the device token and registers the token with UA
+    [[UAirship shared] registerDeviceToken:deviceToken];
+    
+    
 	NSLog(@"My token is: %@", deviceToken);
     
     
@@ -166,6 +183,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+        [UAirship land];
 }
 
 - (void)saveContext
