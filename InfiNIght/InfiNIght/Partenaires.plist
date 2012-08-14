@@ -6,19 +6,11 @@
 	<array>
 		<dict>
 			<key>pic</key>
-			<string>labatt.png</string>
+			<string>AEHEC.png</string>
 			<key>name</key>
-			<string>Labatt</string>
+			<string>AEHEC</string>
 			<key>website</key>
-			<string>http://www.labatt.com/?language=fr</string>
-		</dict>
-		<dict>
-			<key>pic</key>
-			<string>redbull.png</string>
-			<key>name</key>
-			<string>Red Bull</string>
-			<key>website</key>
-			<string>http://www.redbull.com</string>
+			<string>http://www.hec.ca/developpement_durable/engagement/activ_citoy_aehec.html</string>
 		</dict>
 		<dict>
 			<key>pic</key>
@@ -35,6 +27,54 @@
 			<string>Deloitte</string>
 			<key>website</key>
 			<string>http://www.deloitte.com</string>
+		</dict>
+		<dict>
+			<key>pic</key>
+			<string>desjardins.png</string>
+			<key>name</key>
+			<string>Desjardins</string>
+			<key>website</key>
+			<string>http://www.desjardins.com/fr/</string>
+		</dict>
+		<dict>
+			<key>pic</key>
+			<string>ey.png</string>
+			<key>name</key>
+			<string>Ernst &amp; Young</string>
+			<key>website</key>
+			<string>http://www.ey.com/Home</string>
+		</dict>
+		<dict>
+			<key>pic</key>
+			<string>labatt.png</string>
+			<key>name</key>
+			<string>Labatt</string>
+			<key>website</key>
+			<string>http://www.labatt.com/?language=fr</string>
+		</dict>
+		<dict>
+			<key>pic</key>
+			<string>pwc.png</string>
+			<key>name</key>
+			<string>PWC</string>
+			<key>website</key>
+			<string>http://www.pwc.com/ca/fr</string>
+		</dict>
+		<dict>
+			<key>pic</key>
+			<string>redbull.png</string>
+			<key>name</key>
+			<string>Red Bull</string>
+			<key>website</key>
+			<string>http://www.redbull.com</string>
+		</dict>
+		<dict>
+			<key>pic</key>
+			<string>rsm.png</string>
+			<key>name</key>
+			<string>RSM</string>
+			<key>website</key>
+			<string>http://www.rsmrichter.com/accueil.aspx</string>
 		</dict>
 		<dict>
 			<key>pic</key>
