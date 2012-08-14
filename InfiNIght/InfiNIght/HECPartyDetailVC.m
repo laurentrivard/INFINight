@@ -22,6 +22,7 @@
 @synthesize locationLbl;
 @synthesize descriptionTF;
 @synthesize imagePhoto;
+@synthesize actInd;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,7 +45,7 @@
     self.dateLbl.text = [self.eventInfo objectForKey:@"event_date_string"];
     self.locationLbl.text = [self.eventInfo objectForKey:@"event_location"];
     
-    
+    [actInd startAnimating ];
     [self getImageWithFileName:[self.eventInfo objectForKey:@"image_title"]];
     
     self.imagePhoto.userInteractionEnabled = YES;
@@ -72,6 +73,7 @@
     [self setLocationLbl:nil];
     [self setDescriptionTF:nil];
     [self setImagePhoto:nil];
+    [self setActInd:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -97,7 +99,9 @@
         [photoIndicator stopAnimating];
         
         self.imagePhoto.image = image;
-    }];
+            [actInd stopAnimating];
+            [actInd removeFromSuperview];
+        }];
     
     
     [op start];

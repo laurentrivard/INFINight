@@ -18,4 +18,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *locationLbl;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTF;
 @property (strong, nonatomic) IBOutlet UIImageView *imagePhoto;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *actInd;
 @end

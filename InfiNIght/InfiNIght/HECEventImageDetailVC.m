@@ -16,6 +16,7 @@
 @implementation HECEventImageDetailVC
 @synthesize image;
 @synthesize imageName;
+@synthesize actInd;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,11 +32,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self loadImage];
+    [self.actInd startAnimating];
 }
 
 - (void)viewDidUnload
 {
     [self setImage:nil];
+    [self setActInd:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -65,6 +68,8 @@
             [photoIndicator stopAnimating];
             
             self.image.image = imageLoaded;
+            [self.actInd stopAnimating];
+            [self.actInd removeFromSuperview];
         }];
         
         
