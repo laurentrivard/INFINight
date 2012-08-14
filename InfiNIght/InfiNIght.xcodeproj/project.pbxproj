@@ -15,6 +15,16 @@
 		D712C93415D608BF00BEA642 /* genevievePic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D712C93215D608BF00BEA642 /* genevievePic@2x.png */; };
 		D712C93B15D6C21200BEA642 /* HECEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D712C93A15D6C21000BEA642 /* HECEventCell.m */; };
 		D712C93D15D6C23600BEA642 /* HECEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D712C93C15D6C23400BEA642 /* HECEventCell.xib */; };
+		D7170FD315DB113700C2CEA1 /* redbull.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FD215DB113700C2CEA1 /* redbull.png */; };
+		D7170FD515DB120C00C2CEA1 /* AEHEC.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FD415DB120C00C2CEA1 /* AEHEC.png */; };
+		D7170FD715DB12ED00C2CEA1 /* td.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FD615DB12ED00C2CEA1 /* td.png */; };
+		D7170FD915DB134B00C2CEA1 /* deloitte.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FD815DB134B00C2CEA1 /* deloitte.png */; };
+		D7170FDB15DB13C500C2CEA1 /* rsm.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FDA15DB13C500C2CEA1 /* rsm.png */; };
+		D7170FDD15DB142300C2CEA1 /* pwc.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FDC15DB142300C2CEA1 /* pwc.png */; };
+		D7170FDF15DB147B00C2CEA1 /* labatt.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FDE15DB147B00C2CEA1 /* labatt.png */; };
+		D7170FE115DB14B800C2CEA1 /* bnc.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FE015DB14B800C2CEA1 /* bnc.png */; };
+		D7170FE315DB150F00C2CEA1 /* ey.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FE215DB150F00C2CEA1 /* ey.png */; };
+		D7170FE515DB154400C2CEA1 /* desjardins.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FE415DB154400C2CEA1 /* desjardins.png */; };
 		D72D7BF115D8BDAE000272E0 /* HECPartenairesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D72D7BF015D8BDAE000272E0 /* HECPartenairesVC.m */; };
 		D72D7BF415D8BF39000272E0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D72D7BF215D8BF39000272E0 /* MainStoryboard.storyboard */; };
 		D72D7BF615D8C06C000272E0 /* Partenaires.plist in Resources */ = {isa = PBXBuildFile; fileRef = D72D7BF515D8C06C000272E0 /* Partenaires.plist */; };
@@ -64,11 +74,6 @@
 		D781CF2815C70ADB008A9370 /* ScanQRVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D781CF2615C70ADB008A9370 /* ScanQRVC.xib */; };
 		D781CF2A15C71D1F008A9370 /* infinight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D781CF2915C71D1E008A9370 /* infinight@2x.png */; };
 		D781CF2E15C71D76008A9370 /* infinight.png in Resources */ = {isa = PBXBuildFile; fileRef = D781CF2D15C71D76008A9370 /* infinight.png */; };
-		D78705BD15D98F3B0047ACFE /* bnc.png in Resources */ = {isa = PBXBuildFile; fileRef = D78705B815D98F3B0047ACFE /* bnc.png */; };
-		D78705BE15D98F3B0047ACFE /* deloitte.png in Resources */ = {isa = PBXBuildFile; fileRef = D78705B915D98F3B0047ACFE /* deloitte.png */; };
-		D78705BF15D98F3B0047ACFE /* labatt.png in Resources */ = {isa = PBXBuildFile; fileRef = D78705BA15D98F3B0047ACFE /* labatt.png */; };
-		D78705C115D98F3B0047ACFE /* td.png in Resources */ = {isa = PBXBuildFile; fileRef = D78705BC15D98F3B0047ACFE /* td.png */; };
-		D78705C315D991240047ACFE /* redbull.png in Resources */ = {isa = PBXBuildFile; fileRef = D78705C215D991240047ACFE /* redbull.png */; };
 		D78BA09E15D078C400FA29DE /* EventDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = D78BA09C15D078C400FA29DE /* EventDetail.png */; };
 		D78BA09F15D078C400FA29DE /* EventDetail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D78BA09D15D078C400FA29DE /* EventDetail@2x.png */; };
 		D78BA0AB15D1A41900FA29DE /* ScanEventListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78BA0A915D1A41900FA29DE /* ScanEventListVC.m */; };
@@ -315,6 +320,16 @@
 		D712C93915D6C21000BEA642 /* HECEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECEventCell.h; sourceTree = "<group>"; };
 		D712C93A15D6C21000BEA642 /* HECEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HECEventCell.m; sourceTree = "<group>"; };
 		D712C93C15D6C23400BEA642 /* HECEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HECEventCell.xib; sourceTree = "<group>"; };
+		D7170FD215DB113700C2CEA1 /* redbull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbull.png; sourceTree = "<group>"; };
+		D7170FD415DB120C00C2CEA1 /* AEHEC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AEHEC.png; sourceTree = "<group>"; };
+		D7170FD615DB12ED00C2CEA1 /* td.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = td.png; sourceTree = "<group>"; };
+		D7170FD815DB134B00C2CEA1 /* deloitte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deloitte.png; sourceTree = "<group>"; };
+		D7170FDA15DB13C500C2CEA1 /* rsm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsm.png; sourceTree = "<group>"; };
+		D7170FDC15DB142300C2CEA1 /* pwc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pwc.png; sourceTree = "<group>"; };
+		D7170FDE15DB147B00C2CEA1 /* labatt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = labatt.png; sourceTree = "<group>"; };
+		D7170FE015DB14B800C2CEA1 /* bnc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bnc.png; sourceTree = "<group>"; };
+		D7170FE215DB150F00C2CEA1 /* ey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ey.png; sourceTree = "<group>"; };
+		D7170FE415DB154400C2CEA1 /* desjardins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = desjardins.png; sourceTree = "<group>"; };
 		D72D7BEF15D8BDAE000272E0 /* HECPartenairesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HECPartenairesVC.h; path = ../HECPartenairesVC.h; sourceTree = "<group>"; };
 		D72D7BF015D8BDAE000272E0 /* HECPartenairesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HECPartenairesVC.m; path = ../HECPartenairesVC.m; sourceTree = "<group>"; };
 		D72D7BF315D8BF39000272E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -376,11 +391,6 @@
 		D781CF2615C70ADB008A9370 /* ScanQRVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanQRVC.xib; sourceTree = "<group>"; };
 		D781CF2915C71D1E008A9370 /* infinight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "infinight@2x.png"; sourceTree = "<group>"; };
 		D781CF2D15C71D76008A9370 /* infinight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infinight.png; sourceTree = "<group>"; };
-		D78705B815D98F3B0047ACFE /* bnc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bnc.png; sourceTree = "<group>"; };
-		D78705B915D98F3B0047ACFE /* deloitte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deloitte.png; sourceTree = "<group>"; };
-		D78705BA15D98F3B0047ACFE /* labatt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = labatt.png; sourceTree = "<group>"; };
-		D78705BC15D98F3B0047ACFE /* td.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = td.png; sourceTree = "<group>"; };
-		D78705C215D991240047ACFE /* redbull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbull.png; sourceTree = "<group>"; };
 		D78BA09C15D078C400FA29DE /* EventDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventDetail.png; sourceTree = "<group>"; };
 		D78BA09D15D078C400FA29DE /* EventDetail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EventDetail@2x.png"; sourceTree = "<group>"; };
 		D78BA0A815D1A41800FA29DE /* ScanEventListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanEventListVC.h; path = ../ScanEventListVC.h; sourceTree = "<group>"; };
@@ -957,11 +967,16 @@
 		D78705B715D98F290047ACFE /* Partenaires Images */ = {
 			isa = PBXGroup;
 			children = (
-				D78705B815D98F3B0047ACFE /* bnc.png */,
-				D78705B915D98F3B0047ACFE /* deloitte.png */,
-				D78705C215D991240047ACFE /* redbull.png */,
-				D78705BA15D98F3B0047ACFE /* labatt.png */,
-				D78705BC15D98F3B0047ACFE /* td.png */,
+				D7170FD415DB120C00C2CEA1 /* AEHEC.png */,
+				D7170FE015DB14B800C2CEA1 /* bnc.png */,
+				D7170FD815DB134B00C2CEA1 /* deloitte.png */,
+				D7170FE415DB154400C2CEA1 /* desjardins.png */,
+				D7170FE215DB150F00C2CEA1 /* ey.png */,
+				D7170FDE15DB147B00C2CEA1 /* labatt.png */,
+				D7170FDC15DB142300C2CEA1 /* pwc.png */,
+				D7170FD215DB113700C2CEA1 /* redbull.png */,
+				D7170FDA15DB13C500C2CEA1 /* rsm.png */,
+				D7170FD615DB12ED00C2CEA1 /* td.png */,
 			);
 			name = "Partenaires Images";
 			sourceTree = "<group>";
@@ -1961,11 +1976,6 @@
 				D72D7BF415D8BF39000272E0 /* MainStoryboard.storyboard in Resources */,
 				D72D7BF615D8C06C000272E0 /* Partenaires.plist in Resources */,
 				D72D7BFB15D8C546000272E0 /* HECPartenairesDetailVC.xib in Resources */,
-				D78705BD15D98F3B0047ACFE /* bnc.png in Resources */,
-				D78705BE15D98F3B0047ACFE /* deloitte.png in Resources */,
-				D78705BF15D98F3B0047ACFE /* labatt.png in Resources */,
-				D78705C115D98F3B0047ACFE /* td.png in Resources */,
-				D78705C315D991240047ACFE /* redbull.png in Resources */,
 				D79832BC15DAE87200460C31 /* AirshipConfig.plist in Resources */,
 				D79833DE15DAFF9A00460C31 /* CHANGELOG in Resources */,
 				D79833E015DAFF9A00460C31 /* LICENSE in Resources */,
@@ -2029,6 +2039,16 @@
 				D798344315DAFF9A00460C31 /* UASubscriptionRootViewController.xib in Resources */,
 				D798344415DAFF9A00460C31 /* UASubscriptionSettingsViewController.xib in Resources */,
 				D798344515DAFF9A00460C31 /* UASubscriptionUserProductsViewController.xib in Resources */,
+				D7170FD315DB113700C2CEA1 /* redbull.png in Resources */,
+				D7170FD515DB120C00C2CEA1 /* AEHEC.png in Resources */,
+				D7170FD715DB12ED00C2CEA1 /* td.png in Resources */,
+				D7170FD915DB134B00C2CEA1 /* deloitte.png in Resources */,
+				D7170FDB15DB13C500C2CEA1 /* rsm.png in Resources */,
+				D7170FDD15DB142300C2CEA1 /* pwc.png in Resources */,
+				D7170FDF15DB147B00C2CEA1 /* labatt.png in Resources */,
+				D7170FE115DB14B800C2CEA1 /* bnc.png in Resources */,
+				D7170FE315DB150F00C2CEA1 /* ey.png in Resources */,
+				D7170FE515DB154400C2CEA1 /* desjardins.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
