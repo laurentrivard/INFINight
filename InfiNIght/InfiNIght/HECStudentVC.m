@@ -17,20 +17,24 @@
 @end
 
 @implementation HECStudentVC
+@synthesize registerBtn = _registerBtn;
 @synthesize backArrow = _backArrow;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-   // [self crossReferenceGroups];
+    //group is 1 is they don't change group with the picker
+    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"groupe"];
     
+    //all the groups for 2012-2013
     groups = [[NSArray alloc] initWithObjects:  @"1", @"2", @"3", @"4", @"5",
                                                 @"6", @"7", @"8", @"9", @"10",
                                                 @"11", @"12", @"13", @"14", @"15",
                                                 @"16", @"21", @"22", @"23", nil];
     
-    
+    [self.registerBtn setBackgroundImage:[UIImage imageNamed:@"HECRegisterBottom.jpg"] forState:UIControlStateNormal];
+
     _credTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 90, 300, 100) style:UITableViewStyleGrouped];
     [self.view addSubview:_credTableView];
     _credTableView.delegate = self;
@@ -40,11 +44,16 @@
     
     //picker view for schools
     picker = [[UIPickerView alloc] init];
-    picker.frame = CGRectMake(0, 150, 320, 162);
+    picker.frame = CGRectMake(0, 170, 320, 162);
     picker.backgroundColor = [UIColor blackColor];
     picker.delegate = self;
     picker.dataSource = self;
     picker.showsSelectionIndicator = YES;
+    UILabel *groupeLbl = [[UILabel alloc] initWithFrame:CGRectMake(60, 140, 200, 40)];
+    groupeLbl.text = @"Selectionnez votre groupe";
+    groupeLbl.backgroundColor = [UIColor clearColor];
+    groupeLbl.textColor = [UIColor whiteColor];
+    [self.view addSubview:groupeLbl];
     [self.view addSubview:picker];
     
     _cellTitles = [[NSArray alloc] initWithObjects:@"Matricule", nil ];
@@ -74,6 +83,8 @@
     [self.view addSubview:_matriculeTF];
 //    [self.view addSubview:_groupeTF];
     
+    UITapGestureRecognizer *pickerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePickerTap:)];
+    [picker addGestureRecognizer:pickerTap];
     
     self.backArrow.userInteractionEnabled = YES;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
@@ -88,6 +99,7 @@
 - (void)viewDidUnload
 {
     [self setBackArrow:nil];
+    [self setRegisterBtn:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -99,7 +111,7 @@
             [_groupeTF becomeFirstResponder];
             break;
         case 1:
-           [self check];
+         //  [self check];
             break;
         default:
             break;
@@ -110,7 +122,6 @@
     NSArray *params = [[NSArray alloc] initWithObjects:_matriculeTF.text, nil];
     if([self checkFields:params]) {
         
-      //  [self crossReferenceGroups];
         [self saveInfoToUserDefaults];
         [self addUserToDatabase];
         
@@ -127,8 +138,6 @@
             [_matriculeTF becomeFirstResponder];
             break;
         case 1:
-            //push the view controllers with all the groups
-     //       [_groupeTF becomeFirstResponder];
             break;
         default:
             break;
@@ -145,7 +154,6 @@
         return NO;
     
     [[NSUserDefaults standardUserDefaults] setObject:_matriculeTF.text forKey:@"matricule"];
-  //  [[NSUserDefaults standardUserDefaults] setObject:_groupeTF.text forKey:@"groupe"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     return YES;
@@ -332,9 +340,10 @@
     NSLog(@"%@", [groups objectAtIndex:row]);
 }
 
-
-
 - (IBAction)submit:(id)sender {
     [self check];
+}
+-(void) handlePickerTap: (UIGestureRecognizer *) pickerTap {
+    [_matriculeTF resignFirstResponder];
 }
 @end

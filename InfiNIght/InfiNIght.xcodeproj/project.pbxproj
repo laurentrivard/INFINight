@@ -150,12 +150,6 @@
 		D798340115DAFF9A00460C31 /* UAPushSettingsTokenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D798337415DAFF9A00460C31 /* UAPushSettingsTokenViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D798340215DAFF9A00460C31 /* UAPushSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D798337615DAFF9A00460C31 /* UAPushSettingsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D798340315DAFF9A00460C31 /* UAPushUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D798337815DAFF9A00460C31 /* UAPushUI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D798340415DAFF9A00460C31 /* bottom-detail.png in Resources */ = {isa = PBXBuildFile; fileRef = D798337B15DAFF9A00460C31 /* bottom-detail.png */; };
-		D798340515DAFF9A00460C31 /* bottom-detail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D798337C15DAFF9A00460C31 /* bottom-detail@2x.png */; };
-		D798340615DAFF9A00460C31 /* middle-detail.png in Resources */ = {isa = PBXBuildFile; fileRef = D798337D15DAFF9A00460C31 /* middle-detail.png */; };
-		D798340715DAFF9A00460C31 /* middle-detail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D798337E15DAFF9A00460C31 /* middle-detail@2x.png */; };
-		D798340815DAFF9A00460C31 /* top-detail.png in Resources */ = {isa = PBXBuildFile; fileRef = D798337F15DAFF9A00460C31 /* top-detail.png */; };
-		D798340915DAFF9A00460C31 /* top-detail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D798338015DAFF9A00460C31 /* top-detail@2x.png */; };
 		D798340A15DAFF9A00460C31 /* UALocationSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D798338115DAFF9A00460C31 /* UALocationSettingsViewController.xib */; };
 		D798340B15DAFF9A00460C31 /* UAMapPresentationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D798338215DAFF9A00460C31 /* UAMapPresentationViewController.xib */; };
 		D798340C15DAFF9A00460C31 /* UAPushLocalization.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D798338315DAFF9A00460C31 /* UAPushLocalization.bundle */; };
@@ -178,14 +172,6 @@
 		D798341D15DAFF9A00460C31 /* UATableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D79833A215DAFF9A00460C31 /* UATableCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D798341E15DAFF9A00460C31 /* UAProductDetailiPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79833A515DAFF9A00460C31 /* UAProductDetailiPad.xib */; };
 		D798341F15DAFF9A00460C31 /* UAStoreFrontiPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79833A615DAFF9A00460C31 /* UAStoreFrontiPad.xib */; };
-		D798342015DAFF9A00460C31 /* accessory.png in Resources */ = {isa = PBXBuildFile; fileRef = D79833A815DAFF9A00460C31 /* accessory.png */; };
-		D798342115DAFF9A00460C31 /* accessory@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D79833A915DAFF9A00460C31 /* accessory@2x.png */; };
-		D798342215DAFF9A00460C31 /* detail-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = D79833AA15DAFF9A00460C31 /* detail-bottom.png */; };
-		D798342315DAFF9A00460C31 /* detail-bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D79833AB15DAFF9A00460C31 /* detail-bottom@2x.png */; };
-		D798342415DAFF9A00460C31 /* middle-detail.png in Resources */ = {isa = PBXBuildFile; fileRef = D79833AC15DAFF9A00460C31 /* middle-detail.png */; };
-		D798342515DAFF9A00460C31 /* middle-detail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D79833AD15DAFF9A00460C31 /* middle-detail@2x.png */; };
-		D798342615DAFF9A00460C31 /* top-detail.png in Resources */ = {isa = PBXBuildFile; fileRef = D79833AE15DAFF9A00460C31 /* top-detail.png */; };
-		D798342715DAFF9A00460C31 /* top-detail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D79833AF15DAFF9A00460C31 /* top-detail@2x.png */; };
 		D798342815DAFF9A00460C31 /* UAProductDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79833B015DAFF9A00460C31 /* UAProductDetail.xib */; };
 		D798342915DAFF9A00460C31 /* UAStoreFront.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79833B115DAFF9A00460C31 /* UAStoreFront.xib */; };
 		D798342A15DAFF9A00460C31 /* UAStoreFrontLocalization.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D79833B215DAFF9A00460C31 /* UAStoreFrontLocalization.bundle */; };
@@ -584,12 +570,6 @@
 		D798337615DAFF9A00460C31 /* UAPushSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAPushSettingsViewController.m; sourceTree = "<group>"; };
 		D798337715DAFF9A00460C31 /* UAPushUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAPushUI.h; sourceTree = "<group>"; };
 		D798337815DAFF9A00460C31 /* UAPushUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAPushUI.m; sourceTree = "<group>"; };
-		D798337B15DAFF9A00460C31 /* bottom-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-detail.png"; sourceTree = "<group>"; };
-		D798337C15DAFF9A00460C31 /* bottom-detail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-detail@2x.png"; sourceTree = "<group>"; };
-		D798337D15DAFF9A00460C31 /* middle-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "middle-detail.png"; sourceTree = "<group>"; };
-		D798337E15DAFF9A00460C31 /* middle-detail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "middle-detail@2x.png"; sourceTree = "<group>"; };
-		D798337F15DAFF9A00460C31 /* top-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-detail.png"; sourceTree = "<group>"; };
-		D798338015DAFF9A00460C31 /* top-detail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-detail@2x.png"; sourceTree = "<group>"; };
 		D798338115DAFF9A00460C31 /* UALocationSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UALocationSettingsViewController.xib; sourceTree = "<group>"; };
 		D798338215DAFF9A00460C31 /* UAMapPresentationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UAMapPresentationViewController.xib; sourceTree = "<group>"; };
 		D798338315DAFF9A00460C31 /* UAPushLocalization.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UAPushLocalization.bundle; sourceTree = "<group>"; };
@@ -622,14 +602,6 @@
 		D79833A215DAFF9A00460C31 /* UATableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UATableCell.m; sourceTree = "<group>"; };
 		D79833A515DAFF9A00460C31 /* UAProductDetailiPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UAProductDetailiPad.xib; sourceTree = "<group>"; };
 		D79833A615DAFF9A00460C31 /* UAStoreFrontiPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UAStoreFrontiPad.xib; sourceTree = "<group>"; };
-		D79833A815DAFF9A00460C31 /* accessory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accessory.png; sourceTree = "<group>"; };
-		D79833A915DAFF9A00460C31 /* accessory@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "accessory@2x.png"; sourceTree = "<group>"; };
-		D79833AA15DAFF9A00460C31 /* detail-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail-bottom.png"; sourceTree = "<group>"; };
-		D79833AB15DAFF9A00460C31 /* detail-bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail-bottom@2x.png"; sourceTree = "<group>"; };
-		D79833AC15DAFF9A00460C31 /* middle-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "middle-detail.png"; sourceTree = "<group>"; };
-		D79833AD15DAFF9A00460C31 /* middle-detail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "middle-detail@2x.png"; sourceTree = "<group>"; };
-		D79833AE15DAFF9A00460C31 /* top-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-detail.png"; sourceTree = "<group>"; };
-		D79833AF15DAFF9A00460C31 /* top-detail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-detail@2x.png"; sourceTree = "<group>"; };
 		D79833B015DAFF9A00460C31 /* UAProductDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UAProductDetail.xib; sourceTree = "<group>"; };
 		D79833B115DAFF9A00460C31 /* UAStoreFront.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UAStoreFront.xib; sourceTree = "<group>"; };
 		D79833B215DAFF9A00460C31 /* UAStoreFrontLocalization.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UAStoreFrontLocalization.bundle; sourceTree = "<group>"; };
@@ -1387,12 +1359,6 @@
 		D798337A15DAFF9A00460C31 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D798337B15DAFF9A00460C31 /* bottom-detail.png */,
-				D798337C15DAFF9A00460C31 /* bottom-detail@2x.png */,
-				D798337D15DAFF9A00460C31 /* middle-detail.png */,
-				D798337E15DAFF9A00460C31 /* middle-detail@2x.png */,
-				D798337F15DAFF9A00460C31 /* top-detail.png */,
-				D798338015DAFF9A00460C31 /* top-detail@2x.png */,
 				D798338115DAFF9A00460C31 /* UALocationSettingsViewController.xib */,
 				D798338215DAFF9A00460C31 /* UAMapPresentationViewController.xib */,
 				D798338315DAFF9A00460C31 /* UAPushLocalization.bundle */,
@@ -1480,14 +1446,6 @@
 		D79833A715DAFF9A00460C31 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D79833A815DAFF9A00460C31 /* accessory.png */,
-				D79833A915DAFF9A00460C31 /* accessory@2x.png */,
-				D79833AA15DAFF9A00460C31 /* detail-bottom.png */,
-				D79833AB15DAFF9A00460C31 /* detail-bottom@2x.png */,
-				D79833AC15DAFF9A00460C31 /* middle-detail.png */,
-				D79833AD15DAFF9A00460C31 /* middle-detail@2x.png */,
-				D79833AE15DAFF9A00460C31 /* top-detail.png */,
-				D79833AF15DAFF9A00460C31 /* top-detail@2x.png */,
 				D79833B015DAFF9A00460C31 /* UAProductDetail.xib */,
 				D79833B115DAFF9A00460C31 /* UAStoreFront.xib */,
 				D79833B215DAFF9A00460C31 /* UAStoreFrontLocalization.bundle */,
@@ -1994,12 +1952,6 @@
 				D79833F515DAFF9A00460C31 /* uncheck@2x.png in Resources */,
 				D79833F615DAFF9A00460C31 /* up.png in Resources */,
 				D79833F715DAFF9A00460C31 /* up@2x.png in Resources */,
-				D798340415DAFF9A00460C31 /* bottom-detail.png in Resources */,
-				D798340515DAFF9A00460C31 /* bottom-detail@2x.png in Resources */,
-				D798340615DAFF9A00460C31 /* middle-detail.png in Resources */,
-				D798340715DAFF9A00460C31 /* middle-detail@2x.png in Resources */,
-				D798340815DAFF9A00460C31 /* top-detail.png in Resources */,
-				D798340915DAFF9A00460C31 /* top-detail@2x.png in Resources */,
 				D798340A15DAFF9A00460C31 /* UALocationSettingsViewController.xib in Resources */,
 				D798340B15DAFF9A00460C31 /* UAMapPresentationViewController.xib in Resources */,
 				D798340C15DAFF9A00460C31 /* UAPushLocalization.bundle in Resources */,
@@ -2012,14 +1964,6 @@
 				D798341315DAFF9A00460C31 /* UAPushSettingsView.xib in Resources */,
 				D798341E15DAFF9A00460C31 /* UAProductDetailiPad.xib in Resources */,
 				D798341F15DAFF9A00460C31 /* UAStoreFrontiPad.xib in Resources */,
-				D798342015DAFF9A00460C31 /* accessory.png in Resources */,
-				D798342115DAFF9A00460C31 /* accessory@2x.png in Resources */,
-				D798342215DAFF9A00460C31 /* detail-bottom.png in Resources */,
-				D798342315DAFF9A00460C31 /* detail-bottom@2x.png in Resources */,
-				D798342415DAFF9A00460C31 /* middle-detail.png in Resources */,
-				D798342515DAFF9A00460C31 /* middle-detail@2x.png in Resources */,
-				D798342615DAFF9A00460C31 /* top-detail.png in Resources */,
-				D798342715DAFF9A00460C31 /* top-detail@2x.png in Resources */,
 				D798342815DAFF9A00460C31 /* UAProductDetail.xib in Resources */,
 				D798342915DAFF9A00460C31 /* UAStoreFront.xib in Resources */,
 				D798342A15DAFF9A00460C31 /* UAStoreFrontLocalization.bundle in Resources */,

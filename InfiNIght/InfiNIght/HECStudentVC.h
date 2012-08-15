@@ -23,6 +23,7 @@
 }
 
 @property (weak, nonatomic) id <studentRegistrationWasSuccessful> delegate;
+@property (strong, nonatomic) IBOutlet UIButton *registerBtn;
 @property (strong, nonatomic) IBOutlet UIImageView *backArrow;
 - (IBAction)submit:(id)sender;
 
