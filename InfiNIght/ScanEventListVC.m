@@ -25,6 +25,7 @@
     self.tableview.dataSource = self;
     
     [self getEvents];
+    NSLog(@"new events : %@", newEvents);
 }
 
 - (void)viewDidUnload
@@ -34,33 +35,38 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 
+{
+    
+    return @"Évènements";
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [newEvents count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return [newEvents count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"here");
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = [[newEvents objectAtIndex:indexPath.section] valueForKey:@"event_title"];
-    NSLog(@"%@", cell.textLabel.text);
+    cell.textLabel.text = [[newEvents objectAtIndex:indexPath.row] valueForKey:@"event_title"];
+    cell.detailTextLabel.textColor = [UIColor blackColor];
+    cell.detailTextLabel.text = [[newEvents objectAtIndex:indexPath.row] valueForKey:@"event_date_string"];
     
     return cell;
 }
@@ -69,7 +75,7 @@
 {
     ScanQRVC *scan = [[ScanQRVC alloc] initWithNibName:@"ScanQRVC" bundle:[NSBundle mainBundle]];
     
-    scan.eventInfo = [newEvents objectAtIndex:indexPath.section];
+    scan.eventInfo = [newEvents objectAtIndex:indexPath.row];
     
     [self presentModalViewController:scan animated:YES];
     
@@ -119,7 +125,7 @@
         [newEvents addObject:dic];
     }
     
- //   NSLog(@"%@", newEvents);
+    NSLog(@"%@", newEvents);
 //    NSLog(@"count: %d", [newEvents count]);
     
     [self.tableview reloadData];

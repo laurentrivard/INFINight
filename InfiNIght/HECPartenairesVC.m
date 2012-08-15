@@ -65,32 +65,32 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-    }
-    // Configure the cell...
-    cell.textLabel.text = [[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"name"];
-    cell.imageView.image = [UIImage imageNamed:[[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"pic"]]; 
 //    static NSString *CellIdentifier = @"Cell";
-//    HECEventCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 //    
 //    if(cell == nil) {
-//        NSArray *bundleObj = [[NSBundle mainBundle] loadNibNamed:@"HECEventCell" owner:nil options:nil];
-//        for(id current in bundleObj) {
-//            if([current isKindOfClass:[HECEventCell class]]) {
-//                cell = (HECEventCell *) current;
-//            }
-//        }
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//
 //    }
-//    [cell.activityInd removeFromSuperview];
-//    
-//    cell.eventTitle.text = [[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"name"];
-//    cell.eventImage.image = [UIImage imageNamed:[[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"pic"]];
+//    // Configure the cell...
+//    cell.textLabel.text = [[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"name"];
+//    cell.imageView.image = [UIImage imageNamed:[[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"pic"]]; 
+    static NSString *CellIdentifier = @"Cell";
+    HECEventCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if(cell == nil) {
+        NSArray *bundleObj = [[NSBundle mainBundle] loadNibNamed:@"HECEventCell" owner:nil options:nil];
+        for(id current in bundleObj) {
+            if([current isKindOfClass:[HECEventCell class]]) {
+                cell = (HECEventCell *) current;
+            }
+        }
+    }
+    [cell.activityInd removeFromSuperview];
+    
+    cell.eventTitle.text = [[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"name"];
+    cell.eventImage.image = [UIImage imageNamed:[[[_sponsors objectForKey:@"Partenaires"] objectAtIndex:indexPath.row] objectForKey:@"pic"]];
 
     
     return cell;

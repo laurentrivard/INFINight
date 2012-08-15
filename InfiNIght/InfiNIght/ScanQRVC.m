@@ -17,6 +17,7 @@
 
 @implementation ScanQRVC
 @synthesize titleField = _titleField;
+@synthesize schoolField = _schoolField;
 @synthesize nameLbl = _nameLbl;
 @synthesize groupLbl = _groupLbl;
 @synthesize successImage = _successImage;
@@ -66,6 +67,7 @@
     
     self.nameLbl.text = name;
     self.groupLbl.text = group;
+    self.schoolField.text = school;
     
     [self updateUser];
     
@@ -138,6 +140,7 @@
     [self setNameLbl:nil];
     [self setSuccessImage:nil];
     [self setTitleField:nil];
+    [self setSchoolField:nil];
     [super viewDidUnload];
 }
 -(IBAction)cancel:(id)sender {

@@ -26,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *successImage;
 @property (strong, nonatomic) NSArray *eventInfo;
 @property (strong, nonatomic) IBOutlet UILabel *titleField;
+@property (strong, nonatomic) IBOutlet UILabel *schoolField;
 
 - (IBAction)launchScanner:(id)sender;
 -(IBAction)cancel:(id)sender;
