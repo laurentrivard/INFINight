@@ -23,7 +23,14 @@
 {
     [super viewDidLoad];
 
-    [self crossReferenceGroups];
+   // [self crossReferenceGroups];
+    
+    groups = [[NSArray alloc] initWithObjects:  @"1", @"2", @"3", @"4", @"5",
+                                                @"6", @"7", @"8", @"9", @"10",
+                                                @"11", @"12", @"13", @"14", @"15",
+                                                @"16", @"21", @"22", @"23", nil];
+    
+    
     _credTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 90, 300, 100) style:UITableViewStyleGrouped];
     [self.view addSubview:_credTableView];
     _credTableView.delegate = self;
@@ -33,7 +40,7 @@
     
     //picker view for schools
     picker = [[UIPickerView alloc] init];
-    picker.frame = CGRectMake(0, 150, 320, 150);
+    picker.frame = CGRectMake(0, 150, 320, 162);
     picker.backgroundColor = [UIColor blackColor];
     picker.delegate = self;
     picker.dataSource = self;
@@ -92,7 +99,6 @@
             [_groupeTF becomeFirstResponder];
             break;
         case 1:
-//            [[NSUserDefaults standardUserDefaults] setObject:_groupeTF.text forKey:@"group"];
            [self check];
             break;
         default:
@@ -135,7 +141,7 @@
     if([[params objectAtIndex:0] isEqualToString:@""] /*|| [[params objectAtIndex:1] isEqualToString:@""] */) {
         return  NO;
     }
-    if(_matriculeTF.text.length != 9)
+    if(_matriculeTF.text.length != 8)
         return NO;
     
     [[NSUserDefaults standardUserDefaults] setObject:_matriculeTF.text forKey:@"matricule"];
@@ -257,47 +263,47 @@
 //    
 //}
 
-- (void) crossReferenceGroups {
-    
-    
-    MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-	hud.labelText = @"Validation...";
-    hud.dimBackground = YES;
-    
-    
-    NSURL *url = [NSURL URLWithString:@"http://50.116.56.171"];
-    
-    
-    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:url];
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    
-    
-    
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"/api/get/get_group_rankings.php" parameters:params];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [self parseJSON:JSON];
-        [hud hide:YES];
-    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
-        NSLog(@"Failed: %@",[error localizedDescription]);
-        [hud hide:YES];
-    }];
-    [operation start];
-    
-}
+//- (void) crossReferenceGroups {
+//    
+//    
+//    MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//	hud.labelText = @"Validation...";
+//    hud.dimBackground = YES;
+//    
+//    
+//    NSURL *url = [NSURL URLWithString:@"http://50.116.56.171"];
+//    
+//    
+//    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:url];
+//    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+//    
+//    
+//    
+//    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"/api/get/get_group_rankings.php" parameters:params];
+//    
+//    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+//        [self parseJSON:JSON];
+//        [hud hide:YES];
+//    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
+//        NSLog(@"Failed: %@",[error localizedDescription]);
+//        [hud hide:YES];
+//    }];
+//    [operation start];
+//    
+//}
 
--(void) parseJSON: (id) JSON {
-    
-    groups = [[NSMutableArray alloc] init];
-    
-    for(NSDictionary *dic in JSON) {
-        [groups addObject:[dic objectForKey:@"group"]];
-    }
-    
- //   [self checkGroups:groups];
-    [picker reloadComponent:0];
-    
-}
+//-(void) parseJSON: (id) JSON {
+//    
+//    groups = [[NSMutableArray alloc] init];
+//    
+//    for(NSDictionary *dic in JSON) {
+//        [groups addObject:[dic objectForKey:@"group"]];
+//    }
+//    
+// //   [self checkGroups:groups];
+//    [picker reloadComponent:0];
+//    
+//}
 
 -(void) saveInfoToUserDefaults {
     [[NSUserDefaults standardUserDefaults] setObject:_matriculeTF.text forKey:@"matricule"];
@@ -319,6 +325,7 @@
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return [groups objectAtIndex:row];
+   
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     [[NSUserDefaults standardUserDefaults] setObject:[groups objectAtIndex:row] forKey:@"groupe"];

@@ -18,7 +18,7 @@
     NSArray *_cellTitles;
     UITextField *_matriculeTF;
     UITextField *_groupeTF;
-    NSMutableArray *groups;
+    NSArray *groups;
     UIPickerView *picker;
 }
 

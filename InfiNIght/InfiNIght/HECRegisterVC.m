@@ -34,7 +34,7 @@
     
     //picker view for schools
     UIPickerView *picker = [[UIPickerView alloc] init];
-    picker.frame = CGRectMake(0, 200, 320, 150);
+    picker.frame = CGRectMake(0, 200, 320, 162);
     picker.backgroundColor = [UIColor blackColor];
     picker.delegate = self;
     picker.dataSource = self;
