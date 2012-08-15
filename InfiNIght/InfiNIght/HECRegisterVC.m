@@ -41,7 +41,7 @@
     picker.showsSelectionIndicator = YES;
     [self.view addSubview:picker];
         
-    _cellTitles= [[NSArray alloc] initWithObjects:@"Prénom", @"Nom de Famille", @"Année", nil];
+    _cellTitles= [[NSArray alloc] initWithObjects:@"Prénom", @"Nom de Famille", @"Promotion", nil];
     _credTableView.backgroundColor = [UIColor clearColor];
     _credTableView.delegate = self;
     _credTableView.dataSource = self;

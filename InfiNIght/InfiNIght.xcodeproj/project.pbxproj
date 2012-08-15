@@ -89,7 +89,6 @@
 		D791453115B5D6BC00C261B2 /* HECMemberDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D791452F15B5D6BC00C261B2 /* HECMemberDetailVC.m */; };
 		D791453215B5D6BC00C261B2 /* HECMemberDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D791453015B5D6BC00C261B2 /* HECMemberDetailVC.xib */; };
 		D791453615B5DAA300C261B2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D791453515B5DAA300C261B2 /* MessageUI.framework */; };
-		D791453B15B5DE7100C261B2 /* HECAdminVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D791453915B5DE7100C261B2 /* HECAdminVC.xib */; };
 		D791454615B5EB3700C261B2 /* HECPartyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D791454415B5EB3600C261B2 /* HECPartyDetailVC.m */; };
 		D791454715B5EB3700C261B2 /* HECPartyDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D791454515B5EB3600C261B2 /* HECPartyDetailVC.xib */; };
 		D791456615B60F8E00C261B2 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D791455215B60F8E00C261B2 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -396,7 +395,6 @@
 		D791452F15B5D6BC00C261B2 /* HECMemberDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HECMemberDetailVC.m; path = ../HECMemberDetailVC.m; sourceTree = "<group>"; };
 		D791453015B5D6BC00C261B2 /* HECMemberDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HECMemberDetailVC.xib; path = ../HECMemberDetailVC.xib; sourceTree = "<group>"; };
 		D791453515B5DAA300C261B2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		D791453915B5DE7100C261B2 /* HECAdminVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HECAdminVC.xib; sourceTree = "<group>"; };
 		D791454315B5EB3600C261B2 /* HECPartyDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECPartyDetailVC.h; sourceTree = "<group>"; };
 		D791454415B5EB3600C261B2 /* HECPartyDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HECPartyDetailVC.m; sourceTree = "<group>"; };
 		D791454515B5EB3600C261B2 /* HECPartyDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HECPartyDetailVC.xib; sourceTree = "<group>"; };
@@ -1697,7 +1695,6 @@
 			children = (
 				D7C56EC815AF1E9600160C99 /* MembersVC.h */,
 				D7C56EC915AF1E9700160C99 /* MembersVC.m */,
-				D791453915B5DE7100C261B2 /* HECAdminVC.xib */,
 				D791452E15B5D6BC00C261B2 /* HECMemberDetailVC.h */,
 				D791452F15B5D6BC00C261B2 /* HECMemberDetailVC.m */,
 				D791453015B5D6BC00C261B2 /* HECMemberDetailVC.xib */,
@@ -1872,7 +1869,6 @@
 				D7B50F7C15B32E4600135A98 /* release_notes.txt in Resources */,
 				D7F15A0515B33C930013D4E8 /* membersInfo.plist in Resources */,
 				D791453215B5D6BC00C261B2 /* HECMemberDetailVC.xib in Resources */,
-				D791453B15B5DE7100C261B2 /* HECAdminVC.xib in Resources */,
 				D791454715B5EB3700C261B2 /* HECPartyDetailVC.xib in Resources */,
 				D735420015B7426400011349 /* getEvents.rtf in Resources */,
 				D735420215B761B100011349 /* handleMessage.rtf in Resources */,
