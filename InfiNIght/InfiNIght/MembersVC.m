@@ -41,31 +41,31 @@
     
     
 	// Do any additional setup after loading the view.
-    UIImageView *frank = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"FrankProfilePic.png"]];
+    UIImageView *frank = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"frankTab.png"]];
     frank.frame = CGRectMake(8, 8, 148, 200);
     
     UIImageView *karl = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"KarlProfilePic.png"]];
     karl.frame = CGRectMake(164, 8, 148, 200);
     
-    UIImageView *annie = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AnnieProfilePic.png"]];
+    UIImageView *annie = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"annieTab.png"]];
     annie.frame = CGRectMake(8, 216, 148, 200);
     
-    UIImageView *stephanie = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"StephanieProfilePic.png"]];
+    UIImageView *stephanie = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stephTab.png"]];
     stephanie.frame = CGRectMake(164, 216, 148, 200);
     
-    UIImageView *nicolas = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NicolasProfilePic.png"]];
+    UIImageView *nicolas = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nickTab.png"]];
     nicolas.frame = CGRectMake(8, 424, 148, 200);
     
-    UIImageView *genevieve = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"GenevieveProfilePic.png"]];
+    UIImageView *genevieve = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"genevieveTab.png"]];
     genevieve.frame = CGRectMake(164, 424, 148, 200);
     
-    UIImageView *catherine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CatherineProfilePic.png"]];
+    UIImageView *catherine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cathTab.png"]];
     catherine.frame = CGRectMake(8, 632, 148, 200);
     
-    UIImageView *gabrielle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"GabrielleProfilePic.png"]];
+    UIImageView *gabrielle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gabTab.png"]];
     gabrielle.frame = CGRectMake(164, 632, 148, 200);
     
-    UIImageView *samuel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SamuelProfilePic.png"]];
+    UIImageView *samuel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"samTab.png"]];
     samuel.frame = CGRectMake(8, 840, 148, 200);
     
     UIImageView *admin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Admin.png"]];
