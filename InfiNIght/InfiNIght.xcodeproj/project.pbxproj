@@ -11,8 +11,6 @@
 		D70CD18415B790490017AC5F /* HECAddEventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D70CD18215B790490017AC5F /* HECAddEventVC.xib */; };
 		D712C92E15D5D6C100BEA642 /* GenevieveProfilePic.png in Resources */ = {isa = PBXBuildFile; fileRef = D712C92C15D5D6C100BEA642 /* GenevieveProfilePic.png */; };
 		D712C92F15D5D6C100BEA642 /* GenevieveProfilePic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D712C92D15D5D6C100BEA642 /* GenevieveProfilePic@2x.png */; };
-		D712C93315D608BF00BEA642 /* genevievePic.png in Resources */ = {isa = PBXBuildFile; fileRef = D712C93115D608BF00BEA642 /* genevievePic.png */; };
-		D712C93415D608BF00BEA642 /* genevievePic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D712C93215D608BF00BEA642 /* genevievePic@2x.png */; };
 		D712C93B15D6C21200BEA642 /* HECEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D712C93A15D6C21000BEA642 /* HECEventCell.m */; };
 		D712C93D15D6C23600BEA642 /* HECEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D712C93C15D6C23400BEA642 /* HECEventCell.xib */; };
 		D7170FD315DB113700C2CEA1 /* redbull.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FD215DB113700C2CEA1 /* redbull.png */; };
@@ -235,6 +233,9 @@
 		D7C56E6515AE025600160C99 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C56E6415AE025600160C99 /* libiconv.dylib */; };
 		D7C56EB015AE184600160C99 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C56E9515AE184600160C99 /* MBProgressHUD.m */; };
 		D7C56ECA15AF1E9800160C99 /* MembersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C56EC915AF1E9700160C99 /* MembersVC.m */; };
+		D7C59C3B15DCA32C000C3FE3 /* TESTPROFILEDETAIL.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C59C3A15DCA32C000C3FE3 /* TESTPROFILEDETAIL.png */; };
+		D7C59C3E15DCB064000C3FE3 /* AnnieLeclerc.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C59C3C15DCB064000C3FE3 /* AnnieLeclerc.png */; };
+		D7C59C3F15DCB064000C3FE3 /* AnnieLeclerc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C59C3D15DCB064000C3FE3 /* AnnieLeclerc@2x.png */; };
 		D7C74D3D15D6CFCE0079C534 /* COM_HEC_1_TOP@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C74D3B15D6CFCE0079C534 /* COM_HEC_1_TOP@2x.png */; };
 		D7C74D4415D6D1140079C534 /* COM_HEC_1_TOP.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C74D4315D6D1140079C534 /* COM_HEC_1_TOP.png */; };
 		D7C74D4B15D8491B0079C534 /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C74D4915D8491B0079C534 /* qrCode@2x.png */; };
@@ -300,8 +301,6 @@
 		D70CD18215B790490017AC5F /* HECAddEventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HECAddEventVC.xib; path = ../HECAddEventVC.xib; sourceTree = "<group>"; };
 		D712C92C15D5D6C100BEA642 /* GenevieveProfilePic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GenevieveProfilePic.png; sourceTree = "<group>"; };
 		D712C92D15D5D6C100BEA642 /* GenevieveProfilePic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GenevieveProfilePic@2x.png"; sourceTree = "<group>"; };
-		D712C93115D608BF00BEA642 /* genevievePic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = genevievePic.png; sourceTree = "<group>"; };
-		D712C93215D608BF00BEA642 /* genevievePic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "genevievePic@2x.png"; sourceTree = "<group>"; };
 		D712C93915D6C21000BEA642 /* HECEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECEventCell.h; sourceTree = "<group>"; };
 		D712C93A15D6C21000BEA642 /* HECEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HECEventCell.m; sourceTree = "<group>"; };
 		D712C93C15D6C23400BEA642 /* HECEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HECEventCell.xib; sourceTree = "<group>"; };
@@ -701,6 +700,9 @@
 		D7C56E9515AE184600160C99 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "jdg-MBProgressHUD-3d5c3cc/MBProgressHUD.m"; sourceTree = "<group>"; };
 		D7C56EC815AF1E9600160C99 /* MembersVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersVC.h; sourceTree = "<group>"; };
 		D7C56EC915AF1E9700160C99 /* MembersVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersVC.m; sourceTree = "<group>"; };
+		D7C59C3A15DCA32C000C3FE3 /* TESTPROFILEDETAIL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TESTPROFILEDETAIL.png; sourceTree = "<group>"; };
+		D7C59C3C15DCB064000C3FE3 /* AnnieLeclerc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AnnieLeclerc.png; sourceTree = "<group>"; };
+		D7C59C3D15DCB064000C3FE3 /* AnnieLeclerc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AnnieLeclerc@2x.png"; sourceTree = "<group>"; };
 		D7C74D3B15D6CFCE0079C534 /* COM_HEC_1_TOP@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "COM_HEC_1_TOP@2x.png"; sourceTree = "<group>"; };
 		D7C74D4315D6D1140079C534 /* COM_HEC_1_TOP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = COM_HEC_1_TOP.png; sourceTree = "<group>"; };
 		D7C74D4915D8491B0079C534 /* qrCode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@2x.png"; sourceTree = "<group>"; };
@@ -758,8 +760,8 @@
 		D712C93015D607D900BEA642 /* Detail Pic */ = {
 			isa = PBXGroup;
 			children = (
-				D712C93115D608BF00BEA642 /* genevievePic.png */,
-				D712C93215D608BF00BEA642 /* genevievePic@2x.png */,
+				D7C59C3C15DCB064000C3FE3 /* AnnieLeclerc.png */,
+				D7C59C3D15DCB064000C3FE3 /* AnnieLeclerc@2x.png */,
 			);
 			name = "Detail Pic";
 			sourceTree = "<group>";
@@ -841,6 +843,7 @@
 		D7768FF315ACA953001763E1 = {
 			isa = PBXGroup;
 			children = (
+				D7C59C3A15DCA32C000C3FE3 /* TESTPROFILEDETAIL.png */,
 				D79832BB15DAE87200460C31 /* AirshipConfig.plist */,
 				D79832D515DAFF9900460C31 /* Airship */,
 				D78705B715D98F290047ACFE /* Partenaires Images */,
@@ -1918,8 +1921,6 @@
 				D79D40B215D3089D00923CFB /* HECBarLoginVC.xib in Resources */,
 				D712C92E15D5D6C100BEA642 /* GenevieveProfilePic.png in Resources */,
 				D712C92F15D5D6C100BEA642 /* GenevieveProfilePic@2x.png in Resources */,
-				D712C93315D608BF00BEA642 /* genevievePic.png in Resources */,
-				D712C93415D608BF00BEA642 /* genevievePic@2x.png in Resources */,
 				D712C93D15D6C23600BEA642 /* HECEventCell.xib in Resources */,
 				D7C74D3D15D6CFCE0079C534 /* COM_HEC_1_TOP@2x.png in Resources */,
 				D7C74D4415D6D1140079C534 /* COM_HEC_1_TOP.png in Resources */,
@@ -1989,6 +1990,9 @@
 				D7170FE115DB14B800C2CEA1 /* bnc.png in Resources */,
 				D7170FE315DB150F00C2CEA1 /* ey.png in Resources */,
 				D7170FE515DB154400C2CEA1 /* desjardins.png in Resources */,
+				D7C59C3B15DCA32C000C3FE3 /* TESTPROFILEDETAIL.png in Resources */,
+				D7C59C3E15DCB064000C3FE3 /* AnnieLeclerc.png in Resources */,
+				D7C59C3F15DCB064000C3FE3 /* AnnieLeclerc@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

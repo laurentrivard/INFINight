@@ -11,52 +11,64 @@
 			<string>Président</string>
 			<key>age</key>
 			<string>21 ans</string>
-			<key>school</key>
-			<string>HEC</string>
-			<key>job</key>
-			<string>chilling</string>
-			<key>paragraph</key>
-			<string>fjaksldfjalksdfjalksfjaslkjs</string>
+			<key>drink</key>
+			<string>JaggerBomb</string>
+			<key>dj</key>
+			<string>Gareth Emery</string>
+			<key>partyDestination</key>
+			<string>Mykonos, Grèce</string>
 			<key>email</key>
-			<string></string>
+			<string>francois-joseph.sciortino@hec.ca</string>
 			<key>detailPic</key>
-			<string></string>
+			<string>FrankSciortino.png</string>
+			<key>surnom</key>
+			<string>François-Joseph</string>
+			<key>moment</key>
+			<string>IBM 2011</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Karl</string>
+			<string>Karl Vaillancourt</string>
 			<key>position</key>
-			<string>VP Interne/Externe</string>
+			<string>Trésorier</string>
 			<key>age</key>
 			<string>21 ans</string>
-			<key>school</key>
-			<string>HEC: Finit son BAA en avril 2013. DESS en comptabilité pour obtention du titre CA jusqu&apos;en septembre 2014.</string>
-			<key>job</key>
-			<string>Stagiaire chez Ersnt &amp; Young</string>
-			<key>paragraph</key>
-			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
+			<key>drink</key>
+			<string>Liquid Cocain</string>
+			<key>dj</key>
+			<string>Sebastian Ingrosso</string>
+			<key>partyDestination</key>
+			<string>Vienne, Autriche</string>
 			<key>email</key>
-			<string></string>
+			<string>karl.vaillancourt@hec.ca</string>
 			<key>detailPic</key>
 			<string></string>
+			<key>surnom</key>
+			<string>Mr. WorldWide</string>
+			<key>moment</key>
+			<string>JDC 2012</string>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Annie Leclerc</string>
 			<key>position</key>
-			<string>VP Interne/Externe</string>
+			<string>VP Interne</string>
 			<key>age</key>
 			<string>21 ans</string>
-			<key>school</key>
-			<string>HEC: Finit son BAA en avril 2013. DESS en comptabilité pour obtention du titre CA jusqu&apos;en septembre 2014.</string>
-			<key>job</key>
-			<string>Stagiaire chez Ersnt &amp; Young</string>
-			<key>paragraph</key>
-			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
+			<key>drink</key>
+			<string>Martini Litchi</string>
+			<key>dj</key>
+			<string>Steve Aoki</string>
+			<key>partyDestination</key>
+			<string>South Beach, USA</string>
 			<key>email</key>
 			<string>annie.leclerc@hec.ca</string>
 			<key>detailPic</key>
-			<string></string>
+			<string>AnnieLeclerc.png</string>
+			<key>surnom</key>
+			<string>Announe</string>
+			<key>moment</key>
+			<string>Intégrer les bébés 4</string>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -64,107 +76,131 @@
 			<key>position</key>
 			<string>VP Bal</string>
 			<key>age</key>
-			<string>21 ans</string>
-			<key>school</key>
-			<string>HEC: Finit son BAA en avril 2013. DESS en comptabilité pour obtention du titre CA jusqu&apos;en septembre 2014.</string>
-			<key>job</key>
-			<string>Stagiaire chez Ersnt &amp; Young</string>
-			<key>paragraph</key>
-			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
+			<string>23 ans</string>
+			<key>drink</key>
+			<string>Abricot Brandy Sour</string>
+			<key>dj</key>
+			<string>Armin Van Buuren</string>
+			<key>partyDestination</key>
+			<string>Miami, USA</string>
 			<key>email</key>
-			<string></string>
+			<string>stephanie.gravelbedard@hec.ca</string>
 			<key>detailPic</key>
 			<string></string>
+			<key>surnom</key>
+			<string>Scotchtape</string>
+			<key>moment</key>
+			<string>Fête des enfants 2011</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Nicolas Ryan</string>
+			<string>Nick Ryan</string>
 			<key>position</key>
-			<string>VP Communications</string>
+			<string>VP aux Communications</string>
 			<key>age</key>
-			<string>21 ans</string>
-			<key>school</key>
-			<string>HEC: Finit son BAA en avril 2013. DESS en comptabilité pour obtention du titre CA jusqu&apos;en septembre 2014.</string>
-			<key>job</key>
-			<string>Stagiaire chez Ersnt &amp; Young</string>
-			<key>paragraph</key>
-			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
+			<string>Vénérable</string>
+			<key>drink</key>
+			<string>Labatt 50</string>
+			<key>dj</key>
+			<string>MC Mario</string>
+			<key>partyDestination</key>
+			<string>Bangkok, Thaïlande</string>
 			<key>email</key>
-			<string></string>
+			<string>nicolas.ryan@hec.ca</string>
 			<key>detailPic</key>
-			<string></string>
+			<string>NickRyan.png</string>
+			<key>surnom</key>
+			<string>Papi</string>
+			<key>moment</key>
+			<string>Gagner le GRA</string>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Geneviève Higgins-Desbiens</string>
 			<key>position</key>
-			<string>VP Commandites</string>
+			<string>VP aux Commandites</string>
 			<key>age</key>
 			<string>21 ans</string>
-			<key>school</key>
-			<string>HEC: Je finirai ma double spécialisation en finance et marketing au printemps 2013. </string>
-			<key>job</key>
-			<string>Stagiaire marketing de la Fondation HEC Montréal</string>
-			<key>paragraph</key>
-			<string>Bonbons, Disney, talons hauts, paillettes, brownies... Voilà un portrait très fidèle de ma personne. Un combo haut en couleurs et en sucre? Ben oui!</string>
+			<key>drink</key>
+			<string>Sex on the Beach</string>
+			<key>dj</key>
+			<string>U&amp;B</string>
+			<key>partyDestination</key>
+			<string>Ischia, Italie</string>
 			<key>email</key>
 			<string>genevieve.higgins-desbiens@hec.ca</string>
 			<key>detailPic</key>
-			<string>genevievePic.png</string>
+			<string>Genevieve.png</string>
+			<key>surnom</key>
+			<string>Lady Point G</string>
+			<key>moment</key>
+			<string>Victoire d&apos;intégratrice de l&apos;année</string>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Catherine S. Beaucage</string>
 			<key>position</key>
-			<string>VP Relations Publiques</string>
+			<string>VP aux Relations Publiques</string>
 			<key>age</key>
 			<string>21 ans</string>
-			<key>school</key>
-			<string>HEC: Finit son BAA en avril 2013. DESS en comptabilité pour obtention du titre CA jusqu&apos;en septembre 2014.</string>
-			<key>job</key>
-			<string>Stagiaire chez Ersnt &amp; Young</string>
-			<key>paragraph</key>
-			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
+			<key>drink</key>
+			<string>Gin 7up</string>
+			<key>dj</key>
+			<string>Moby</string>
+			<key>Genevieve</key>
+			<string>Barcelona, Espagne</string>
 			<key>email</key>
-			<string></string>
+			<string>Catherine-s.beaucage@hec.ca</string>
 			<key>detailPic</key>
-			<string></string>
+			<string>CathBeaucage.png</string>
+			<key>surnom</key>
+			<string>Kitty Cat</string>
+			<key>moment</key>
+			<string>La plage 2012</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Gabrielle B. Harris</string>
+			<string>Gab B. Harris</string>
 			<key>position</key>
-			<string>VP Défilé / Bagues-Album</string>
+			<string>VP Bague-Album</string>
 			<key>age</key>
 			<string>21 ans</string>
-			<key>school</key>
-			<string>HEC: Finit son BAA en avril 2013. DESS en comptabilité pour obtention du titre CA jusqu&apos;en septembre 2014.</string>
-			<key>job</key>
-			<string>Stagiaire chez Ersnt &amp; Young</string>
-			<key>paragraph</key>
-			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
+			<key>drink</key>
+			<string>Appletini</string>
+			<key>dj</key>
+			<string>Alesso</string>
+			<key>partyDestination</key>
+			<string>Hvar, Croatie</string>
 			<key>email</key>
-			<string></string>
+			<string>gabrielle.bergeron-harris@hec.ca</string>
 			<key>detailPic</key>
 			<string></string>
+			<key>surnom</key>
+			<string>G</string>
+			<key>moment</key>
+			<string>Fantôme intégrations 2011</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Samuel Cormier</string>
+			<string>Sam Cormier</string>
 			<key>position</key>
 			<string>VP Évènements</string>
 			<key>age</key>
-			<string>21 ans</string>
-			<key>school</key>
-			<string>HEC: Finit son BAA en avril 2013. DESS en comptabilité pour obtention du titre CA jusqu&apos;en septembre 2014.</string>
-			<key>job</key>
-			<string>Stagiaire chez Ersnt &amp; Young</string>
-			<key>paragraph</key>
-			<string>J&apos;aime faire le party, danser sur les bars avec mes poulettes, je ris toujours, et j&apos;aime faire n&apos;importe quoi: surf, camping, un roadtrip, du rafting...</string>
+			<string>22 ans</string>
+			<key>drink</key>
+			<string>Skittle Bomb</string>
+			<key>dj</key>
+			<string>Boys Noize</string>
+			<key>partyDestination</key>
+			<string>Brisbane, Australie</string>
 			<key>email</key>
-			<string></string>
+			<string>Samuel.cormier@hec.ca</string>
 			<key>detailPic</key>
-			<string></string>
+			<string>SamCormier.png</string>
+			<key>surnom</key>
+			<string>Pidgeotto</string>
+			<key>moment</key>
+			<string>Charm night 2011</string>
 		</dict>
 	</array>
 </dict>
