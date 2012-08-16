@@ -210,7 +210,7 @@
         NSString *responseStr = [NSString stringWithUTF8String:[responseObject bytes]];
 
         NSLog(@"reponse object: %@", responseStr);
-        if([responseStr isEqualToString:@"Login OK"]) {
+        if([responseStr isEqualToString:@"1"]) {
             NSLog(@"YES");
             NSLog(@"Success on creating account");
             [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"first_time"];
