@@ -46,16 +46,17 @@
 
 //
     
-    NSLog(@"member info : %@", _memberInfo);
-     _moment = [_memberInfo valueForKey:@"moment"];
-     _partyDestination = [_memberInfo valueForKey:@"partyDestination"];
+//    NSLog(@"member info : %@", _memberInfo);
+//     _moment = [_memberInfo valueForKey:@"moment"];
+//     _partyDestination = [_memberInfo valueForKey:@"partyDestination"];
 
     
     //sets where the labels and image are. if retina display, everything is doubled
     int yImage = 55;
     int yFirstLabel = 230;
     int yLabelHeight = 30;
-    int yLabelSpacing = 43;
+    int yLabelSpacing = 43;     //  profileDetail3
+//    int yLabelSpacing = 40;
     
     if([self iPhoneRetina]) {
         yImage = yImage * 2;
@@ -69,7 +70,7 @@
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 535);
     self.scrollView.delegate = self;
     UIImageView *background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 535)];
-    background.image = [UIImage imageNamed:@"ProfileDetail2.png"];
+    background.image = [UIImage imageNamed:@"ProfileDetail4.png"];
     [self.scrollView addSubview:background];
     self.scrollView.userInteractionEnabled = YES;
     self.scrollView.bounces = YES;
