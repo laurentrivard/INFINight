@@ -12,15 +12,15 @@
 
 @interface HECMemberDetailVC : UIViewController <MFMailComposeViewControllerDelegate, UIScrollViewDelegate>
 @property (strong, nonatomic) NSDictionary  *memberInfo;
-@property (strong, nonatomic)  UILabel      *name;
-@property (strong, nonatomic)  UILabel      *position;
-@property (strong, nonatomic)  UILabel      *age;
-@property (strong, nonatomic)  UILabel      *drink;
-@property (strong, nonatomic)  UILabel      *dj;
-@property (strong, nonatomic)  UILabel      *partyDestination;
-@property (strong, nonatomic)  UILabel      *moment;
-@property (strong, nonatomic)  UILabel      *surnom;
-@property (strong, nonatomic)  UIImageView  *imageView;
+@property (strong, nonatomic) IBOutlet UILabel      *name;
+@property (strong, nonatomic) IBOutlet UILabel      *position;
+@property (strong, nonatomic) IBOutlet UILabel      *age;
+@property (strong, nonatomic) IBOutlet UILabel      *drink;
+@property (strong, nonatomic) IBOutlet UILabel      *dj;
+@property (strong, nonatomic) IBOutlet UILabel      *partyDestination;
+@property (strong, nonatomic) IBOutlet UILabel      *moment;
+@property (strong, nonatomic) IBOutlet UILabel      *surnom;
+@property (strong, nonatomic) IBOutlet UIImageView  *imageView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)composeMail:(id)sender;

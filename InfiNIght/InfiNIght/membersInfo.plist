@@ -42,7 +42,7 @@
 			<key>email</key>
 			<string>karl.vaillancourt@hec.ca</string>
 			<key>detailPic</key>
-			<string></string>
+			<string>KarlVail.png</string>
 			<key>surnom</key>
 			<string>Mr. WorldWide</string>
 			<key>moment</key>
@@ -86,7 +86,7 @@
 			<key>email</key>
 			<string>stephanie.gravelbedard@hec.ca</string>
 			<key>detailPic</key>
-			<string></string>
+			<string>StephGravel.png</string>
 			<key>surnom</key>
 			<string>Scotchtape</string>
 			<key>moment</key>
@@ -174,7 +174,7 @@
 			<key>email</key>
 			<string>gabrielle.bergeron-harris@hec.ca</string>
 			<key>detailPic</key>
-			<string></string>
+			<string>GabHarris.png</string>
 			<key>surnom</key>
 			<string>G</string>
 			<key>moment</key>

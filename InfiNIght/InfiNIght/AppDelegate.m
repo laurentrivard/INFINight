@@ -75,6 +75,8 @@
 	}
     
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [[UAPush shared] resetBadge];
+
 
     return YES;
 }

@@ -44,7 +44,7 @@
     UIImageView *frank = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"frankTab.png"]];
     frank.frame = CGRectMake(8, 8, 148, 200);
     
-    UIImageView *karl = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"KarlProfilePic.png"]];
+    UIImageView *karl = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"karlTab.png"]];
     karl.frame = CGRectMake(164, 8, 148, 200);
     
     UIImageView *annie = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"annieTab.png"]];
@@ -68,7 +68,7 @@
     UIImageView *samuel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"samTab.png"]];
     samuel.frame = CGRectMake(8, 840, 148, 200);
     
-    UIImageView *admin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Admin.png"]];
+    UIImageView *admin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"adminTab.png"]];
     admin.frame = CGRectMake(164, 840, 148, 200);
     
     frank.tag = 0;
