@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol studentRegistrationWasSuccessful <NSObject>
--(void) studentRegistrationWasSuccessful: (NSString *) success;
-@end
+//@protocol studentRegistrationWasSuccessful <NSObject>
+//-(void) studentRegistrationWasSuccessful: (NSString *) success;
+//@end
 
 
 @interface HECStudentVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
@@ -22,7 +22,7 @@
     UIPickerView *picker;
 }
 
-@property (weak, nonatomic) id <studentRegistrationWasSuccessful> delegate;
+//@property (weak, nonatomic) id <studentRegistrationWasSuccessful> delegate;
 @property (strong, nonatomic) IBOutlet UIButton *registerBtn;
 @property (strong, nonatomic) IBOutlet UIImageView *backArrow;
 - (IBAction)submit:(id)sender;

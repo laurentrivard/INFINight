@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "TestFlight.h"
 #import "CoreData/CoreData.h"
-#import "HECActivites.h"
 #import "AFNetworking.h"
 #import "UAirship.h"
 #import "UAPush.h"
@@ -22,7 +21,6 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
-@synthesize act=_act;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

@@ -10,9 +10,9 @@
 			<key>position</key>
 			<string>Président</string>
 			<key>age</key>
-			<string>21 ans</string>
+			<string>22 ans</string>
 			<key>drink</key>
-			<string>JaggerBomb</string>
+			<string>Jägerbomb</string>
 			<key>dj</key>
 			<string>Gareth Emery</string>
 			<key>partyDestination</key>
@@ -34,7 +34,7 @@
 			<key>age</key>
 			<string>21 ans</string>
 			<key>drink</key>
-			<string>Liquid Cocain</string>
+			<string>Liquid Cocaine</string>
 			<key>dj</key>
 			<string>Sebastian Ingrosso</string>
 			<key>partyDestination</key>
@@ -56,7 +56,7 @@
 			<key>age</key>
 			<string>21 ans</string>
 			<key>drink</key>
-			<string>Martini Litchi</string>
+			<string>Lychee Martini</string>
 			<key>dj</key>
 			<string>Steve Aoki</string>
 			<key>partyDestination</key>
@@ -134,7 +134,7 @@
 			<key>surnom</key>
 			<string>Lady Point G</string>
 			<key>moment</key>
-			<string>Victoire d&apos;intégratrice de l&apos;année</string>
+			<string>Intégratrice de l&apos;année</string>
 		</dict>
 		<dict>
 			<key>name</key>

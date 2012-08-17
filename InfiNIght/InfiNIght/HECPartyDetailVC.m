@@ -81,7 +81,7 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.imagePhoto addGestureRecognizer:singleTap];
     
-    self.dateLbl = [[UILabel alloc] initWithFrame:CGRectMake(140, 20, 170, 50)];
+    self.dateLbl = [[UILabel alloc] initWithFrame:CGRectMake(140, 18, 170, 50)];
     self.dateLbl.text = [self.eventInfo objectForKey:@"event_date_string"];
     self.dateLbl.textAlignment = UITextAlignmentLeft;
     self.dateLbl.backgroundColor = [UIColor clearColor];
@@ -104,8 +104,8 @@
     
     
     self.locationLbl = [[UILabel alloc] initWithFrame:CGRectMake(140, 90, 160, 50)];
-//    self.locationLbl.text = [self.eventInfo objectForKey:@"event_location"];
-    self.locationLbl.text = @"Bar Officiel - Commission des liqueurs";
+    self.locationLbl.text = [self.eventInfo objectForKey:@"event_location"];
+//    self.locationLbl.text = @"Bar Officiel - Commission des liqueurs";
     self.locationLbl.numberOfLines = 0;
    self.locationLbl.lineBreakMode = UILineBreakModeWordWrap;
     self.locationLbl.textAlignment = UITextAlignmentLeft;
@@ -179,10 +179,7 @@
             [actInd stopAnimating];
             [actInd removeFromSuperview];
         }];
-    
-    
     [op start];
-
 }
 
 @end

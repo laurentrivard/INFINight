@@ -58,11 +58,11 @@
     int yLabelSpacing = 43;     //  profileDetail3
 //    int yLabelSpacing = 40;
     
-    if([self iPhoneRetina]) {
-        yImage = yImage * 2;
-        yFirstLabel = yFirstLabel * 2;
-        yLabelHeight = yLabelHeight * 2;
-    }
+//    if([self iPhoneRetina]) {
+//        yImage = yImage * 2;
+//        yFirstLabel = yFirstLabel * 2;
+//        yLabelHeight = yLabelHeight * 2;
+//    }
 
     
     
@@ -85,7 +85,7 @@
     if ([[_memberInfo valueForKey:@"name"] isEqualToString:@"Geneviève Higgins-Desbiens"])
         _name.font = [UIFont fontWithName:@"Papyrus" size:23.0f];
     else
-    _name.font = [UIFont fontWithName:@"Helvetica" size:24.0f];
+    _name.font = [UIFont fontWithName:@"Papyrus" size:24.0f];
     _name.text = [_memberInfo valueForKey:@"name"];
     
     
@@ -106,7 +106,7 @@
     _position.backgroundColor = [UIColor clearColor];
     _position .textColor = [UIColor whiteColor];
     _position.font = [UIFont fontWithName:@"Helvetica" size:16.0f];
-    _position.text =[NSString stringWithFormat:@"Position : %@", [_memberInfo valueForKey:@"position"]];
+    _position.text =[NSString stringWithFormat:@"Poste : %@", [_memberInfo valueForKey:@"position"]];
     
     _drink = [[UILabel alloc] initWithFrame:CGRectMake(15, yFirstLabel +  3 * yLabelSpacing, self.scrollView.frame.size.width, yLabelHeight)];
     _drink.backgroundColor = [UIColor clearColor];
@@ -137,7 +137,7 @@
     else if ([[_memberInfo valueForKey:@"name"] isEqualToString:@"Gab B. Harris"])
         _moment.font = [UIFont fontWithName:@"Helvetica" size:13.0f];
     else if ([[_memberInfo valueForKey:@"name"] isEqualToString:@"Geneviève Higgins-Desbiens"])
-        _moment.font = [UIFont fontWithName:@"Helvetica" size:12.0f];
+        _moment.font = [UIFont fontWithName:@"Helvetica" size:14.5f];
     else
         _moment.font = [UIFont fontWithName:@"Helvetica" size:16.0f];
 

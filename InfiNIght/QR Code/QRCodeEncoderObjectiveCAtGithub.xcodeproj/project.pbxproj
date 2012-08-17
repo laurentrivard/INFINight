@@ -10,10 +10,6 @@
 		9621844415431DBA00447877 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9621844315431DBA00447877 /* UIKit.framework */; };
 		9621844515431DBA00447877 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9672D35A13BD662F0002B0E2 /* Foundation.framework */; };
 		9621844715431DBA00447877 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9621844615431DBA00447877 /* CoreGraphics.framework */; };
-		9621844D15431DBA00447877 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9621844B15431DBA00447877 /* InfoPlist.strings */; };
-		9621844F15431DBA00447877 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9621844E15431DBA00447877 /* main.mm */; };
-		9621845315431DBA00447877 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9621845215431DBA00447877 /* AppDelegate.mm */; };
-		9621845915431DBA00447877 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9621845715431DBA00447877 /* ViewController.xib */; };
 		9621845E15431F2800447877 /* libqrencoder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9672D35713BD662F0002B0E2 /* libqrencoder.a */; };
 		9633A02613CD1236000D8C1D /* QRCodeEncoderDemoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9633A02413CD1236000D8C1D /* QRCodeEncoderDemoViewController.h */; };
 		9633A02713CD1236000D8C1D /* QRCodeEncoderDemoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9633A02513CD1236000D8C1D /* QRCodeEncoderDemoViewController.mm */; };
@@ -41,13 +37,6 @@
 		9621844115431DBA00447877 /* QRCodeEncoderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeEncoderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9621844315431DBA00447877 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9621844615431DBA00447877 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9621844A15431DBA00447877 /* QRCodeEncoderDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QRCodeEncoderDemo-Info.plist"; sourceTree = "<group>"; };
-		9621844C15431DBA00447877 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9621844E15431DBA00447877 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		9621845015431DBA00447877 /* QRCodeEncoderDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QRCodeEncoderDemo-Prefix.pch"; sourceTree = "<group>"; };
-		9621845115431DBA00447877 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9621845215431DBA00447877 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		9621845815431DBA00447877 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		9633A02413CD1236000D8C1D /* QRCodeEncoderDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeEncoderDemoViewController.h; sourceTree = "<group>"; };
 		9633A02513CD1236000D8C1D /* QRCodeEncoderDemoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = QRCodeEncoderDemoViewController.mm; sourceTree = "<group>"; };
 		9672D35713BD662F0002B0E2 /* libqrencoder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libqrencoder.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,33 +74,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9621844815431DBA00447877 /* QRCodeEncoderDemo */ = {
-			isa = PBXGroup;
-			children = (
-				9621845115431DBA00447877 /* AppDelegate.h */,
-				9621845215431DBA00447877 /* AppDelegate.mm */,
-				9621845715431DBA00447877 /* ViewController.xib */,
-				9621844915431DBA00447877 /* Supporting Files */,
-			);
-			path = QRCodeEncoderDemo;
-			sourceTree = "<group>";
-		};
-		9621844915431DBA00447877 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9621844A15431DBA00447877 /* QRCodeEncoderDemo-Info.plist */,
-				9621844B15431DBA00447877 /* InfoPlist.strings */,
-				9621844E15431DBA00447877 /* main.mm */,
-				9621845015431DBA00447877 /* QRCodeEncoderDemo-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		9672D34C13BD662F0002B0E2 = {
 			isa = PBXGroup;
 			children = (
 				9672D35C13BD662F0002B0E2 /* QRCodeEncoderObjectiveCAtGithub */,
-				9621844815431DBA00447877 /* QRCodeEncoderDemo */,
 				9672D35913BD662F0002B0E2 /* Frameworks */,
 				9672D35813BD662F0002B0E2 /* Products */,
 			);
@@ -245,8 +211,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9621844D15431DBA00447877 /* InfoPlist.strings in Resources */,
-				9621845915431DBA00447877 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +221,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9621844F15431DBA00447877 /* main.mm in Sources */,
-				9621845315431DBA00447877 /* AppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,25 +244,6 @@
 			targetProxy = 9621845F15431F2E00447877 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		9621844B15431DBA00447877 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9621844C15431DBA00447877 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9621845715431DBA00447877 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9621845815431DBA00447877 /* en */,
-			);
-			name = ViewController.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9621845A15431DBA00447877 /* Debug */ = {

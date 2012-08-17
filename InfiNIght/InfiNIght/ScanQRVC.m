@@ -31,6 +31,9 @@
     self.titleField.text = [self.eventInfo valueForKey:@"event_title"];
     
 }
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+}
 
 - (void) imagePickerController: (UIImagePickerController*) reader
  didFinishPickingMediaWithInfo: (NSDictionary*) info

@@ -211,6 +211,10 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     NSString *uuid = [AppDelegate device_id];
     NSLog(@"uuid: %@", uuid);
+    if(![currentDefaults objectForKey:@"device_token"]) {
+        NSLog(@"iphone sim");
+        [self generateRandomToken];
+    }
     [params setObject:[currentDefaults objectForKey:@"name"] forKey:@"name"];
     [params setObject:@"join" forKey:@"cmd"];
     [params setObject:[currentDefaults objectForKey:@"matricule"] forKey:@"matricule"];
@@ -218,13 +222,16 @@
     [params setObject:[currentDefaults objectForKey:@"year"] forKey:@"grad_year"];
     [params setObject:[currentDefaults objectForKey:@"school"] forKey:@"school"];
     [params setObject:uuid forKey:@"udid"];
-#if TARGET_IPHONE_SIMULATOR
-    [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];   //test for simulator
-#else
-    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
-#endif
-
+    
+   
+//#if TARGET_IPHONE_SIMULATOR
+//    [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];   //test for simulator
+//#else
     NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
+
+    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
+//#endif
+
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api/api.php" parameters:params];
     
@@ -240,8 +247,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         //call function for HECActivities to fetch events
-        [self.delegate studentRegistrationWasSuccessful:@"success"];
-        NSLog(@"DELEGATE FUNCTION WAS CALLED");
+ //       [self.delegate studentRegistrationWasSuccessful:@"success"];
+ //       NSLog(@"DELEGATE FUNCTION WAS CALLED");
         
         [self dismissModalViewControllerAnimated:YES];
         
@@ -256,62 +263,19 @@
     
     [operation start];
 }
-//-(void) checkGroups: (NSMutableArray *) groups {
-//    for(NSString *group in groups) {
-//        NSLog(@"self.grouptf : %@", _groupeTF.text);
-//        NSLog(@"group :%@", group);
-//        if([group isEqualToString:_groupeTF.text]) {
-//            [self saveInfoToUserDefaults];
-//            [self addUserToDatabase];
-//            return;
-//        }
-//    }
-//    UIAlertView *groupAlert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Veuillez entrer un groupe valide" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//    [groupAlert show];
-//    
-//}
-
-//- (void) crossReferenceGroups {
-//    
-//    
-//    MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//	hud.labelText = @"Validation...";
-//    hud.dimBackground = YES;
-//    
-//    
-//    NSURL *url = [NSURL URLWithString:@"http://50.116.56.171"];
-//    
-//    
-//    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:url];
-//    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-//    
-//    
-//    
-//    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"/api/get/get_group_rankings.php" parameters:params];
-//    
-//    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-//        [self parseJSON:JSON];
-//        [hud hide:YES];
-//    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
-//        NSLog(@"Failed: %@",[error localizedDescription]);
-//        [hud hide:YES];
-//    }];
-//    [operation start];
-//    
-//}
-
-//-(void) parseJSON: (id) JSON {
-//    
-//    groups = [[NSMutableArray alloc] init];
-//    
-//    for(NSDictionary *dic in JSON) {
-//        [groups addObject:[dic objectForKey:@"group"]];
-//    }
-//    
-// //   [self checkGroups:groups];
-//    [picker reloadComponent:0];
-//    
-//}
+-(void) generateRandomToken {
+    int tokenLength = 64;
+    
+    NSString *possibleChar = @"1234567890abcdefABCDEF";
+    NSMutableString *subToken = [NSMutableString stringWithCapacity:tokenLength];
+    
+    for(int i =0; i <tokenLength; i++) {
+        [subToken appendFormat:@"%C", [possibleChar characterAtIndex:arc4random() % [possibleChar length]]];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:subToken forKey:@"device_token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
 
 -(void) saveInfoToUserDefaults {
     [[NSUserDefaults standardUserDefaults] setObject:_matriculeTF.text forKey:@"matricule"];
