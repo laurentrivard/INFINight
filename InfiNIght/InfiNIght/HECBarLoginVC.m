@@ -263,7 +263,7 @@
     NSString *uuid = [AppDelegate device_id];
     NSLog(@"uuid: %@", uuid);
     [params setObject:[currentDefaults objectForKey:@"name"] forKey:@"name"];
-    [params setObject:@"join_scanners" forKey:@"cmd"];
+    [params setObject:@"join_scanner" forKey:@"cmd"];
     [params setObject:now forKey:@"date"];
     [params setObject:uuid forKey:@"udid"];
 #if TARGET_IPHONE_SIMULATOR
