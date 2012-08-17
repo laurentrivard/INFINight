@@ -14,9 +14,10 @@
 
 @property (strong, nonatomic) NSDictionary *eventInfo;
 @property (strong, nonatomic) IBOutlet UILabel *titleLbl;
-@property (strong, nonatomic) IBOutlet UILabel *dateLbl;
-@property (strong, nonatomic) IBOutlet UILabel *locationLbl;
-@property (strong, nonatomic) IBOutlet UITextView *descriptionTF;
-@property (strong, nonatomic) IBOutlet UIImageView *imagePhoto;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *actInd;
+@property (strong, nonatomic)  UILabel *dateLbl;
+@property (strong, nonatomic)  UILabel *locationLbl;
+@property (strong, nonatomic)  UITextView *descriptionTF;
+@property (strong, nonatomic)  UIImageView *imagePhoto;
+@property (strong, nonatomic)  UIActivityIndicatorView *actInd;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @end

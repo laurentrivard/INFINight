@@ -66,6 +66,7 @@
 		D735420015B7426400011349 /* getEvents.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D73541FF15B7426400011349 /* getEvents.rtf */; };
 		D735420215B761B100011349 /* handleMessage.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D735420115B761B100011349 /* handleMessage.rtf */; };
 		D73F530C15DDA49F006E387D /* middle-detail.png in Resources */ = {isa = PBXBuildFile; fileRef = D73F530B15DDA49F006E387D /* middle-detail.png */; };
+		D73F530E15DDBBF1006E387D /* EventDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = D73F530D15DDBBF1006E387D /* EventDetail.png */; };
 		D74BA2CA15B88DC3005FAF8C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74BA2C915B88DC3005FAF8C /* CoreData.framework */; };
 		D74BA2CD15B89098005FAF8C /* Events.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D74BA2CB15B89097005FAF8C /* Events.xcdatamodeld */; };
 		D74BA2D915B8AF2F005FAF8C /* Events.m in Sources */ = {isa = PBXBuildFile; fileRef = D74BA2D815B8AF2F005FAF8C /* Events.m */; };
@@ -92,8 +93,6 @@
 		D781CF2815C70ADB008A9370 /* ScanQRVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D781CF2615C70ADB008A9370 /* ScanQRVC.xib */; };
 		D781CF2A15C71D1F008A9370 /* infinight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D781CF2915C71D1E008A9370 /* infinight@2x.png */; };
 		D781CF2E15C71D76008A9370 /* infinight.png in Resources */ = {isa = PBXBuildFile; fileRef = D781CF2D15C71D76008A9370 /* infinight.png */; };
-		D78BA09E15D078C400FA29DE /* EventDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = D78BA09C15D078C400FA29DE /* EventDetail.png */; };
-		D78BA09F15D078C400FA29DE /* EventDetail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D78BA09D15D078C400FA29DE /* EventDetail@2x.png */; };
 		D78BA0AB15D1A41900FA29DE /* ScanEventListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78BA0A915D1A41900FA29DE /* ScanEventListVC.m */; };
 		D78BA0AC15D1A41900FA29DE /* ScanEventListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78BA0AA15D1A41900FA29DE /* ScanEventListVC.xib */; };
 		D78EFEDD15BB1EE600FA7C90 /* HECAddEventTimeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78EFEDB15BB1EE500FA7C90 /* HECAddEventTimeVC.m */; };
@@ -373,6 +372,7 @@
 		D73541FF15B7426400011349 /* getEvents.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = getEvents.rtf; sourceTree = "<group>"; };
 		D735420115B761B100011349 /* handleMessage.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = handleMessage.rtf; sourceTree = "<group>"; };
 		D73F530B15DDA49F006E387D /* middle-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "middle-detail.png"; sourceTree = "<group>"; };
+		D73F530D15DDBBF1006E387D /* EventDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventDetail.png; sourceTree = "<group>"; };
 		D74BA2C915B88DC3005FAF8C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D74BA2CC15B89098005FAF8C /* Events.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Events.xcdatamodel; sourceTree = "<group>"; };
 		D74BA2D715B8AF2F005FAF8C /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
@@ -409,8 +409,6 @@
 		D781CF2615C70ADB008A9370 /* ScanQRVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanQRVC.xib; sourceTree = "<group>"; };
 		D781CF2915C71D1E008A9370 /* infinight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "infinight@2x.png"; sourceTree = "<group>"; };
 		D781CF2D15C71D76008A9370 /* infinight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infinight.png; sourceTree = "<group>"; };
-		D78BA09C15D078C400FA29DE /* EventDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventDetail.png; sourceTree = "<group>"; };
-		D78BA09D15D078C400FA29DE /* EventDetail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EventDetail@2x.png"; sourceTree = "<group>"; };
 		D78BA0A815D1A41800FA29DE /* ScanEventListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanEventListVC.h; path = ../ScanEventListVC.h; sourceTree = "<group>"; };
 		D78BA0A915D1A41900FA29DE /* ScanEventListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanEventListVC.m; path = ../ScanEventListVC.m; sourceTree = "<group>"; };
 		D78BA0AA15D1A41900FA29DE /* ScanEventListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScanEventListVC.xib; path = ../ScanEventListVC.xib; sourceTree = "<group>"; };
@@ -871,8 +869,6 @@
 			isa = PBXGroup;
 			children = (
 				D79D409E15D2B75E00923CFB /* Not Used */,
-				D78BA09C15D078C400FA29DE /* EventDetail.png */,
-				D78BA09D15D078C400FA29DE /* EventDetail@2x.png */,
 				D7CB9D9D15CB174400F243D9 /* HECEventImageDetailVC.h */,
 				D7CB9D9E15CB174400F243D9 /* HECEventImageDetailVC.m */,
 				D7CB9D9F15CB174400F243D9 /* HECEventImageDetailVC.xib */,
@@ -1625,6 +1621,7 @@
 		D79D409E15D2B75E00923CFB /* Not Used */ = {
 			isa = PBXGroup;
 			children = (
+				D73F530D15DDBBF1006E387D /* EventDetail.png */,
 				D70CD18015B790480017AC5F /* HECAddEventVC.h */,
 				D70CD18115B790490017AC5F /* HECAddEventVC.m */,
 				D70CD18215B790490017AC5F /* HECAddEventVC.xib */,
@@ -1941,8 +1938,6 @@
 				D781CF2E15C71D76008A9370 /* infinight.png in Resources */,
 				D7B69EF415CAD78E00D8DC64 /* HECStudentVC.xib in Resources */,
 				D7CB9DA115CB174400F243D9 /* HECEventImageDetailVC.xib in Resources */,
-				D78BA09E15D078C400FA29DE /* EventDetail.png in Resources */,
-				D78BA09F15D078C400FA29DE /* EventDetail@2x.png in Resources */,
 				D78BA0AC15D1A41900FA29DE /* ScanEventListVC.xib in Resources */,
 				D79D408E15D1B06B00923CFB /* Checkmark@2x.png in Resources */,
 				D79D408F15D1B06B00923CFB /* Checkmark.png in Resources */,
@@ -2065,6 +2060,7 @@
 				D7319B3E15DD93A5004BA590 /* karlTab.png in Resources */,
 				D7319B3F15DD93A5004BA590 /* karlTab@2x.png in Resources */,
 				D73F530C15DDA49F006E387D /* middle-detail.png in Resources */,
+				D73F530E15DDBBF1006E387D /* EventDetail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

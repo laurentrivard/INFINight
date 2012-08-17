@@ -39,6 +39,9 @@
     // Create Airship singleton that's used to talk to Urban Airship servers.
     // Please populate AirshipConfig.plist with your info from http://go.urbanairship.com
     [UAirship takeOff:takeOffOptions];
+    [[UAPush shared] setAutobadgeEnabled:YES];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [[UAPush shared] setBadgeNumber:0];
     
     if(!defaultValues) {
         defaultValues = [[NSMutableDictionary alloc] init ];
@@ -68,14 +71,13 @@
 		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
 		if (dictionary != nil)
 		{
-            [[UAPush shared] resetBadge];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+            [[UAPush shared] setBadgeNumber:0];
             NSLog(@"dictionnary thing");
 
 		}
 	}
-    
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    [[UAPush shared] resetBadge];
+
 
 
     return YES;
@@ -93,14 +95,12 @@
 {
 	NSLog(@"Received notification: %@", userInfo);
     [[UAPush shared] resetBadge];
-        NSLog(@"did become active");
-//	[self handleOpenOnPush];
 }
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
     [[UAPush shared] resetBadge];
     // Updates the device token and registers the token with UA
-    [[UAirship shared] registerDeviceToken:deviceToken];
+    [[UAPush shared] registerDeviceToken:deviceToken];
     
     
 	NSLog(@"My token is: %@", deviceToken);

@@ -437,7 +437,7 @@ IF_IOS4_OR_GREATER (
         
         [[UAPush shared] setQuietTimeFrom:fromDate to:toDate withTimeZone:[NSTimeZone localTimeZone]];
     } else {
-        [[UAPush shared] disableQuietTime];
+        [UAPush shared].quietTimeEnabled = NO;;
     }
     
 

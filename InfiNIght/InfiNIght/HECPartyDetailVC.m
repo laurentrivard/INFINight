@@ -23,6 +23,7 @@
 @synthesize descriptionTF;
 @synthesize imagePhoto;
 @synthesize actInd;
+@synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,29 +37,101 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
  //   NSLog(@"%@", self.eventInfo);
     
     self.title = [NSString stringWithFormat:@"%@", [self.eventInfo objectForKey:@"event_title"]];
-    self.titleLbl.text = [self.eventInfo objectForKey:@"event_title"];
-    self.descriptionTF.text = [self.eventInfo objectForKey:@"event_description"];
-    self.dateLbl.text = [self.eventInfo objectForKey:@"event_date_string"];
-    self.locationLbl.text = [self.eventInfo objectForKey:@"event_location"];
+ //   self.titleLbl.text = [self.eventInfo objectForKey:@"event_title"];
     
     [actInd startAnimating ];
     [self getImageWithFileName:[self.eventInfo objectForKey:@"image_title"]];
     
     self.imagePhoto.userInteractionEnabled = YES;
     
-    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"EventDetail.png"]];
-    
-    self.view.backgroundColor = background;
 
-    //self.view.backgroundColor = [UIImage imageNamed:@"EventDetail.png"];
     
 
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-        [self.imagePhoto addGestureRecognizer:singleTap];
+    
+    scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 370);
+    scrollView.userInteractionEnabled = YES;
+    scrollView.bounces = YES;
+    scrollView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:scrollView];
+    
+    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"EventDetail.png"]];
+    [bg setFrame:CGRectMake(0, 0, self.view.frame.size.width, scrollView.frame.size.height)];
+    
+    self.imagePhoto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"infinight.png"]];
+    [self.imagePhoto setFrame:CGRectMake(7.5f, 7.5f, 120, 160)];
+    
+    self.descriptionTF = [[UITextView alloc] initWithFrame:CGRectMake(7.5f, 177.5, scrollView.frame.size.width - 15, 1000)];
+    self.descriptionTF.text = [self.eventInfo objectForKey:@"event_description"];
+    self.descriptionTF.textColor = [UIColor whiteColor];
+    self.descriptionTF.backgroundColor = [UIColor blueColor];
+    self.descriptionTF.editable = NO;
+    self.descriptionTF.userInteractionEnabled = NO;
+    self.descriptionTF.textColor = [UIColor whiteColor];
+    
+
+    
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self.imagePhoto addGestureRecognizer:singleTap];
+    
+    self.dateLbl = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 30, 185, 30)];
+    self.dateLbl.text = [self.eventInfo objectForKey:@"event_date_string"];
+    self.dateLbl.textAlignment = UITextAlignmentCenter;
+    self.dateLbl.backgroundColor = [UIColor clearColor];
+    self.dateLbl.textColor = [UIColor whiteColor];
+    self.dateLbl.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+    
+    UILabel *where = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 90, 185, 20)];
+    where.text = @"Lieu";
+    where.textAlignment = UITextAlignmentCenter;
+    where.backgroundColor = [UIColor clearColor];
+    where.textColor = [UIColor whiteColor];
+    where.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+    
+    UILabel *when = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 15, 185, 20)];
+    when.text = @"Date";
+    when.textAlignment = UITextAlignmentCenter;
+    when.backgroundColor = [UIColor clearColor];
+    when.textColor = [UIColor whiteColor];
+    when.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+    
+    
+    self.locationLbl = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 110, 185, 30)];
+    self.locationLbl.text = [self.eventInfo objectForKey:@"event_location"];
+    self.locationLbl.textAlignment = UITextAlignmentCenter;
+    self.locationLbl.backgroundColor = [UIColor clearColor];
+    self.locationLbl.textColor = [UIColor whiteColor];
+    self.locationLbl.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+
+    
+                       
+    [scrollView addSubview:bg];
+    [scrollView addSubview: self.descriptionTF];
+    [scrollView addSubview:self.imagePhoto];
+    [scrollView addSubview:where];
+    [scrollView addSubview:when];
+    [scrollView addSubview:self.dateLbl];
+    [scrollView addSubview:self.locationLbl];
+    
+    
+    //resizing the textview
+    CGRect frame = self.descriptionTF.frame;
+    frame.size.height = self.descriptionTF.contentSize.height;
+    self.descriptionTF.frame = frame;
+    
+    NSLog(@"size of scrollview before : %f", scrollView.frame.size.height);
+    CGRect scrollViewFrame = scrollView.frame;
+    scrollViewFrame.size.height = self.descriptionTF.frame.size.height + self.descriptionTF.frame.origin.y;
+    NSLog(@"SIZE : %f", scrollViewFrame.size.height);
+    if(scrollViewFrame.size.height > 460) {
+        scrollView.contentSize = CGSizeMake(scrollViewFrame.size.width, scrollViewFrame.size.height);
+        NSLog(@"changed the size of scroll view");
+    }
+    
+    NSLog(@"height of scroll view: %f", scrollView.frame.size.height);
 }
 -(void) handleSingleTap: (UIGestureRecognizer *) gesture {
     HECEventImageDetailVC *eventImage = [[HECEventImageDetailVC alloc] initWithNibName:@"HECEventImageDetailVC" bundle:[NSBundle mainBundle]];
@@ -74,6 +147,7 @@
     [self setDescriptionTF:nil];
     [self setImagePhoto:nil];
     [self setActInd:nil];
+    [self setScrollView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
