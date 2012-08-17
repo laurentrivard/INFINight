@@ -40,8 +40,9 @@
     // Please populate AirshipConfig.plist with your info from http://go.urbanairship.com
     [UAirship takeOff:takeOffOptions];
     [[UAPush shared] setAutobadgeEnabled:YES];
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    [[UAPush shared] setBadgeNumber:0];
+  //  [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    //[[UAPush shared] setBadgeNumber:0];
+    [[UAPush shared] resetBadge];
     
     if(!defaultValues) {
         defaultValues = [[NSMutableDictionary alloc] init ];
@@ -72,33 +73,31 @@
 		if (dictionary != nil)
 		{
             [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-            [[UAPush shared] setBadgeNumber:0];
+          //  [[UAPush shared] setBadgeNumber:0];
             NSLog(@"dictionnary thing");
 
 		}
 	}
 
-
-
     return YES;
-}
--(void) handleOpenOnPush {
-    [self.act refreshActivities];
-    NSLog(@"refresh got called ...");
 }
 
 
 -(void) applicationDidBecomeActive:(UIApplication *)application {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [[UAPush shared] resetBadge];
 }
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
 {
-	NSLog(@"Received notification: %@", userInfo);
+	UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"kfdsj" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    [view show];
+    [[UAPush shared] handleNotification:userInfo applicationState:application.applicationState];
+
     [[UAPush shared] resetBadge];
 }
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
-    [[UAPush shared] resetBadge];
+    UALOG(@"APN device token: %@", deviceToken);
     // Updates the device token and registers the token with UA
     [[UAPush shared] registerDeviceToken:deviceToken];
     
@@ -114,31 +113,7 @@
     
 
 }
-//-(void) updateToken: (NSString *) token {
-//    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://10.11.1.59:8888"];
-//    
-//    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
-//    [httpClient defaultValueForHeader:@"Accept"];
-//    
-//    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];    
-//    [params setObject:@"update" forKey:@"cmd"];
-//    [params setObject:token forKey:@"token"];
-//    
-//    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api.php" parameters:params];
-//    
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-//    
-//    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
-//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {        
-//        NSLog(@"token was updated");
-//        
-//    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"error: %@", [operation error]);
-//
-//    }];
-//    
-//    [operation start];
-//}
+
 + (NSString *) device_id {
     
     NSString* uuid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uuid"];
@@ -167,8 +142,7 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    [[UAPush shared] resetBadge];
-        NSLog(@"will resign active");
+
 
 }
 
@@ -273,6 +247,6 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     
-}   
+}
 
 @end

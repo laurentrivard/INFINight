@@ -82,21 +82,21 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.imagePhoto addGestureRecognizer:singleTap];
     
-    self.dateLbl = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 30, 185, 30)];
+    self.dateLbl = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 40, 185, 30)];
     self.dateLbl.text = [self.eventInfo objectForKey:@"event_date_string"];
     self.dateLbl.textAlignment = UITextAlignmentCenter;
     self.dateLbl.backgroundColor = [UIColor clearColor];
     self.dateLbl.textColor = [UIColor whiteColor];
     self.dateLbl.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     
-    UILabel *where = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 90, 185, 20)];
+    UILabel *where = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 95, 185, 20)];
     where.text = @"Lieu";
     where.textAlignment = UITextAlignmentCenter;
     where.backgroundColor = [UIColor clearColor];
     where.textColor = [UIColor whiteColor];
     where.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     
-    UILabel *when = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 15, 185, 20)];
+    UILabel *when = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 25, 185, 20)];
     when.text = @"Date";
     when.textAlignment = UITextAlignmentCenter;
     when.backgroundColor = [UIColor clearColor];
