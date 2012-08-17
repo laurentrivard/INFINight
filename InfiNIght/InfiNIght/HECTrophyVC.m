@@ -41,7 +41,7 @@
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationItem.title = @"Classement";
-
+    
     
     [self getRankings];
 }
@@ -70,14 +70,14 @@
     static NSString *CellIdentifier = @"Cell";
     GroupCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-  NSArray *myCustomCell = [[NSBundle mainBundle] loadNibNamed:@"GroupCell" owner:nil options:nil];
+    NSArray *myCustomCell = [[NSBundle mainBundle] loadNibNamed:@"GroupCell" owner:nil options:nil];
     if(cell == nil) {
         
         for(id currentObj in myCustomCell) {
             if([currentObj isKindOfClass:[GroupCell class]])
                 cell = (GroupCell *) currentObj;
         }
-     
+        
     }
     
     int previousPos = [[[groupPoints objectAtIndex:indexPath.row] valueForKey:@"previous_position"] intValue];
@@ -96,7 +96,7 @@
     else
         cell.arrowIV.image = [UIImage imageNamed:@"doubleArrow.gif"];
     
-
+    
     return cell;
 }
 
@@ -125,7 +125,7 @@
         [self parseJSON:JSON];
         [hub hide:YES];
     } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
-        NSLog(@"Failed: %@",[error localizedDescription]);   
+        NSLog(@"Failed: %@",[error localizedDescription]);
         UIAlertView *failed = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Une erreur est survenue. Essayez de nouveau" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [failed show];
         [hub hide:YES];
@@ -140,11 +140,11 @@
     [groupPoints removeAllObjects];
     
     for(NSDictionary *dic in JSON) {
-        [groupPoints addObject:dic];        
+        [groupPoints addObject:dic];
     }
     
     [self.tableView reloadData];
-        
+    
 }
 
 @end

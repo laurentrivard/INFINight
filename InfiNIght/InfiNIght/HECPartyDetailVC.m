@@ -62,14 +62,19 @@
     
     self.imagePhoto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"infinight.png"]];
     [self.imagePhoto setFrame:CGRectMake(7.5f, 7.5f, 120, 160)];
+    self.imagePhoto.userInteractionEnabled = YES;
+    self.imagePhoto.contentMode = UIViewContentModeScaleAspectFit;
+
+
     
     self.descriptionTF = [[UITextView alloc] initWithFrame:CGRectMake(7.5f, 177.5, scrollView.frame.size.width - 15, 1000)];
     self.descriptionTF.text = [self.eventInfo objectForKey:@"event_description"];
     self.descriptionTF.textColor = [UIColor whiteColor];
-    self.descriptionTF.backgroundColor = [UIColor blueColor];
+    self.descriptionTF.backgroundColor = [UIColor clearColor];
     self.descriptionTF.editable = NO;
     self.descriptionTF.userInteractionEnabled = NO;
     self.descriptionTF.textColor = [UIColor whiteColor];
+    self.descriptionTF.font = [UIFont fontWithName:@"Helvetica" size:16.0f];
     
 
     
@@ -122,16 +127,12 @@
     frame.size.height = self.descriptionTF.contentSize.height;
     self.descriptionTF.frame = frame;
     
-    NSLog(@"size of scrollview before : %f", scrollView.frame.size.height);
     CGRect scrollViewFrame = scrollView.frame;
     scrollViewFrame.size.height = self.descriptionTF.frame.size.height + self.descriptionTF.frame.origin.y;
-    NSLog(@"SIZE : %f", scrollViewFrame.size.height);
     if(scrollViewFrame.size.height > 460) {
         scrollView.contentSize = CGSizeMake(scrollViewFrame.size.width, scrollViewFrame.size.height);
-        NSLog(@"changed the size of scroll view");
     }
     
-    NSLog(@"height of scroll view: %f", scrollView.frame.size.height);
 }
 -(void) handleSingleTap: (UIGestureRecognizer *) gesture {
     HECEventImageDetailVC *eventImage = [[HECEventImageDetailVC alloc] initWithNibName:@"HECEventImageDetailVC" bundle:[NSBundle mainBundle]];

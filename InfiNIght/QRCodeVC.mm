@@ -40,9 +40,9 @@
     
     //nav bar
     [self.navigationController setNavigationBarHidden:YES];
-//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
-//    self.navigationItem.title = @"Code QR";
-//    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    //    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
+    //    self.navigationItem.title = @"Code QR";
+    //    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     [self generateQRCode];
 }
@@ -61,8 +61,16 @@
     //the qrcode is square. now we make it 250 pixels wide
     int qrcodeImageDimension = 310;
     
+    
+    NSString *school = [defaults stringForKey:@"school"];
+    
+    if([school isEqualToString:@"HEC Montréal"])
+        school = @"HEC Montreal";
+    else if ([school isEqualToString:@"Université de Montréal"])
+        school = @"Universite de Montreal";
+    
     //the string can be very long
-    NSString* codeString = [NSString stringWithFormat: @"%@#%@#%@#%@", [defaults stringForKey:@"name"], [defaults stringForKey:@"device_token"], [defaults stringForKey:@"groupe"],[defaults stringForKey:@"school"]];
+    NSString* codeString = [NSString stringWithFormat: @"%@#%@#%@#%@", [defaults stringForKey:@"name"], [defaults stringForKey:@"device_token"], [defaults stringForKey:@"groupe"],school];
     
     NSLog(@"code string: %@", codeString);
     
@@ -75,20 +83,20 @@
     
     //set the image as the QR Code
     QRCode.image = qrcodeImage;
-
+    
 }
 - (IBAction)join:(id)sender {
     NSLog(@"join tapped");
     
     NSURL *url = [NSURL URLWithString:@"http://50.116.56.171/api/get/get_events"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
- //   [request setValue:[NSString stringWithFormat:@"application/json"] forHTTPHeaderField:@"Accept"];
-
+    //   [request setValue:[NSString stringWithFormat:@"application/json"] forHTTPHeaderField:@"Accept"];
+    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"Public Timeline: %@", JSON);
-    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
-        NSLog(@"Failed: %@",[error localizedDescription]);        
-    }];
+                                         NSLog(@"Public Timeline: %@", JSON);
+                                         } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
+                                         NSLog(@"Failed: %@",[error localizedDescription]);
+                                         }];
     [operation start];
 }
 @end

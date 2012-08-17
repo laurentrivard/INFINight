@@ -10,6 +10,7 @@
 #import "HECRegisterCell.h"
 #import "MBProgressHUD.h"
 #import "AFNetworking.h"
+#import "AppDelegate.h"
 
 @interface HECBarLoginVC ()
 
@@ -176,7 +177,7 @@
 
     NSLog(@"addUserToDatabase");
     MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-	hud.labelText = @"Création du compte";
+	hud.labelText = @"Authorization...";
     hud.dimBackground = YES;
         
     
@@ -211,13 +212,15 @@
 
         NSLog(@"reponse object: %@", responseStr);
         if([responseStr isEqualToString:@"1"]) {
-            NSLog(@"YES");
-            NSLog(@"Success on creating account");
-            [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"first_time"];
-            [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"canScan"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+//            NSLog(@"YES");
+//            NSLog(@"Success on creating account");
+//            [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"first_time"];
+//            [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"canScan"];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+//            
+//            [self dismissModalViewControllerAnimated:YES];
             
-            [self dismissModalViewControllerAnimated:YES];
+            [self addScannerToDatabase];
         }
         else {
             UIAlertView *nope = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Nom d'utilisateur/mot de passe invalide" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -234,4 +237,80 @@
     
     [operation start];
 }
+
+
+
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+- (void) addScannerToDatabase {
+    NSLog(@"addScannerToDatabase");
+    MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+	hud.labelText = @"Création du compte";
+    hud.dimBackground = YES;
+    
+    NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+    
+    
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"http://50.116.56.171"];
+    
+    AFHTTPClient *httpClient =[[AFHTTPClient alloc] initWithBaseURL:baseUrl];
+    [httpClient defaultValueForHeader:@"Accept"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSDate *now = [NSDate date];
+    NSString *uuid = [AppDelegate device_id];
+    NSLog(@"uuid: %@", uuid);
+    [params setObject:[currentDefaults objectForKey:@"name"] forKey:@"name"];
+    [params setObject:@"join_scanners" forKey:@"cmd"];
+    [params setObject:now forKey:@"date"];
+    [params setObject:uuid forKey:@"udid"];
+#if TARGET_IPHONE_SIMULATOR
+    [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];   //test for simulator
+#else
+    [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
+#endif
+    
+    NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api/api.php" parameters:params];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"YES");
+            NSLog(@"Success on creating account");
+            [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"first_time"];
+            [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"canScan"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self dismissModalViewControllerAnimated:YES];
+
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error: %@", [operation error]);
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Une erreur est survenue." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        
+        [alert show];
+        [hud hide: YES];
+    }];
+    
+    [operation start];
+}
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
 @end
