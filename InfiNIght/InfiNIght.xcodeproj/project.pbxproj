@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D70CD18315B790490017AC5F /* HECAddEventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D70CD18115B790490017AC5F /* HECAddEventVC.m */; };
-		D70CD18415B790490017AC5F /* HECAddEventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D70CD18215B790490017AC5F /* HECAddEventVC.xib */; };
 		D712C93B15D6C21200BEA642 /* HECEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D712C93A15D6C21000BEA642 /* HECEventCell.m */; };
 		D712C93D15D6C23600BEA642 /* HECEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D712C93C15D6C23400BEA642 /* HECEventCell.xib */; };
 		D7170FD315DB113700C2CEA1 /* redbull.png in Resources */ = {isa = PBXBuildFile; fileRef = D7170FD215DB113700C2CEA1 /* redbull.png */; };
@@ -64,6 +62,8 @@
 		D7319B3B15DD8E74004BA590 /* cathTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7319B3915DD8E74004BA590 /* cathTab@2x.png */; };
 		D7319B3E15DD93A5004BA590 /* karlTab.png in Resources */ = {isa = PBXBuildFile; fileRef = D7319B3C15DD93A5004BA590 /* karlTab.png */; };
 		D7319B3F15DD93A5004BA590 /* karlTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7319B3D15DD93A5004BA590 /* karlTab@2x.png */; };
+		D73E6F9215DE93AA00C5DE87 /* ProfileDetail4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D73E6F9115DE93AA00C5DE87 /* ProfileDetail4@2x.png */; };
+		D73E6F9415DE94ED00C5DE87 /* EventDetail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D73E6F9315DE94ED00C5DE87 /* EventDetail@2x.png */; };
 		D73F530C15DDA49F006E387D /* middle-detail.png in Resources */ = {isa = PBXBuildFile; fileRef = D73F530B15DDA49F006E387D /* middle-detail.png */; };
 		D73F530E15DDBBF1006E387D /* EventDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = D73F530D15DDBBF1006E387D /* EventDetail.png */; };
 		D74BA2CA15B88DC3005FAF8C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74BA2C915B88DC3005FAF8C /* CoreData.framework */; };
@@ -94,8 +94,6 @@
 		D781CF2E15C71D76008A9370 /* infinight.png in Resources */ = {isa = PBXBuildFile; fileRef = D781CF2D15C71D76008A9370 /* infinight.png */; };
 		D78BA0AB15D1A41900FA29DE /* ScanEventListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78BA0A915D1A41900FA29DE /* ScanEventListVC.m */; };
 		D78BA0AC15D1A41900FA29DE /* ScanEventListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78BA0AA15D1A41900FA29DE /* ScanEventListVC.xib */; };
-		D78EFEDD15BB1EE600FA7C90 /* HECAddEventTimeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78EFEDB15BB1EE500FA7C90 /* HECAddEventTimeVC.m */; };
-		D78EFEDE15BB1EE600FA7C90 /* HECAddEventTimeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78EFEDC15BB1EE600FA7C90 /* HECAddEventTimeVC.xib */; };
 		D78EFEFE15BDB86B00FA7C90 /* GroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D78EFEFD15BDB86A00FA7C90 /* GroupCell.m */; };
 		D78EFF0015BDB8A000FA7C90 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78EFEFF15BDB8A000FA7C90 /* GroupCell.xib */; };
 		D791453115B5D6BC00C261B2 /* HECMemberDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D791452F15B5D6BC00C261B2 /* HECMemberDetailVC.m */; };
@@ -307,9 +305,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D70CD18015B790480017AC5F /* HECAddEventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HECAddEventVC.h; path = ../HECAddEventVC.h; sourceTree = "<group>"; };
-		D70CD18115B790490017AC5F /* HECAddEventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HECAddEventVC.m; path = ../HECAddEventVC.m; sourceTree = "<group>"; };
-		D70CD18215B790490017AC5F /* HECAddEventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HECAddEventVC.xib; path = ../HECAddEventVC.xib; sourceTree = "<group>"; };
 		D712C93915D6C21000BEA642 /* HECEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECEventCell.h; sourceTree = "<group>"; };
 		D712C93A15D6C21000BEA642 /* HECEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HECEventCell.m; sourceTree = "<group>"; };
 		D712C93C15D6C23400BEA642 /* HECEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HECEventCell.xib; sourceTree = "<group>"; };
@@ -368,6 +363,8 @@
 		D7319B3915DD8E74004BA590 /* cathTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cathTab@2x.png"; sourceTree = "<group>"; };
 		D7319B3C15DD93A5004BA590 /* karlTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = karlTab.png; sourceTree = "<group>"; };
 		D7319B3D15DD93A5004BA590 /* karlTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "karlTab@2x.png"; sourceTree = "<group>"; };
+		D73E6F9115DE93AA00C5DE87 /* ProfileDetail4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ProfileDetail4@2x.png"; sourceTree = "<group>"; };
+		D73E6F9315DE94ED00C5DE87 /* EventDetail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EventDetail@2x.png"; sourceTree = "<group>"; };
 		D73F530B15DDA49F006E387D /* middle-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "middle-detail.png"; sourceTree = "<group>"; };
 		D73F530D15DDBBF1006E387D /* EventDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventDetail.png; sourceTree = "<group>"; };
 		D74BA2C915B88DC3005FAF8C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -409,9 +406,6 @@
 		D78BA0A815D1A41800FA29DE /* ScanEventListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanEventListVC.h; path = ../ScanEventListVC.h; sourceTree = "<group>"; };
 		D78BA0A915D1A41900FA29DE /* ScanEventListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanEventListVC.m; path = ../ScanEventListVC.m; sourceTree = "<group>"; };
 		D78BA0AA15D1A41900FA29DE /* ScanEventListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScanEventListVC.xib; path = ../ScanEventListVC.xib; sourceTree = "<group>"; };
-		D78EFEDA15BB1EE500FA7C90 /* HECAddEventTimeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECAddEventTimeVC.h; sourceTree = "<group>"; };
-		D78EFEDB15BB1EE500FA7C90 /* HECAddEventTimeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HECAddEventTimeVC.m; sourceTree = "<group>"; };
-		D78EFEDC15BB1EE600FA7C90 /* HECAddEventTimeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HECAddEventTimeVC.xib; sourceTree = "<group>"; };
 		D78EFEFC15BDB86A00FA7C90 /* GroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupCell.h; sourceTree = "<group>"; };
 		D78EFEFD15BDB86A00FA7C90 /* GroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupCell.m; sourceTree = "<group>"; };
 		D78EFEFF15BDB8A000FA7C90 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
@@ -835,6 +829,7 @@
 			isa = PBXGroup;
 			children = (
 				D7319B0B15DD749E004BA590 /* ProfileDetail4.png */,
+				D73E6F9115DE93AA00C5DE87 /* ProfileDetail4@2x.png */,
 			);
 			name = Background;
 			sourceTree = "<group>";
@@ -864,7 +859,8 @@
 		D753CB3315ACB87100F6B2FC /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				D79D409E15D2B75E00923CFB /* Not Used */,
+				D73F530D15DDBBF1006E387D /* EventDetail.png */,
+				D73E6F9315DE94ED00C5DE87 /* EventDetail@2x.png */,
 				D7CB9D9D15CB174400F243D9 /* HECEventImageDetailVC.h */,
 				D7CB9D9E15CB174400F243D9 /* HECEventImageDetailVC.m */,
 				D7CB9D9F15CB174400F243D9 /* HECEventImageDetailVC.xib */,
@@ -1613,20 +1609,6 @@
 			name = "Scan Images";
 			sourceTree = "<group>";
 		};
-		D79D409E15D2B75E00923CFB /* Not Used */ = {
-			isa = PBXGroup;
-			children = (
-				D73F530D15DDBBF1006E387D /* EventDetail.png */,
-				D70CD18015B790480017AC5F /* HECAddEventVC.h */,
-				D70CD18115B790490017AC5F /* HECAddEventVC.m */,
-				D70CD18215B790490017AC5F /* HECAddEventVC.xib */,
-				D78EFEDA15BB1EE500FA7C90 /* HECAddEventTimeVC.h */,
-				D78EFEDB15BB1EE500FA7C90 /* HECAddEventTimeVC.m */,
-				D78EFEDC15BB1EE600FA7C90 /* HECAddEventTimeVC.xib */,
-			);
-			name = "Not Used";
-			sourceTree = "<group>";
-		};
 		D7B50F7D15B32E4A00135A98 /* TestFlight */ = {
 			isa = PBXGroup;
 			children = (
@@ -1922,8 +1904,6 @@
 				D7F15A0515B33C930013D4E8 /* membersInfo.plist in Resources */,
 				D791453215B5D6BC00C261B2 /* HECMemberDetailVC.xib in Resources */,
 				D791454715B5EB3700C261B2 /* HECPartyDetailVC.xib in Resources */,
-				D70CD18415B790490017AC5F /* HECAddEventVC.xib in Resources */,
-				D78EFEDE15BB1EE600FA7C90 /* HECAddEventTimeVC.xib in Resources */,
 				D78EFF0015BDB8A000FA7C90 /* GroupCell.xib in Resources */,
 				D781CF2815C70ADB008A9370 /* ScanQRVC.xib in Resources */,
 				D781CF2A15C71D1F008A9370 /* infinight@2x.png in Resources */,
@@ -2053,6 +2033,8 @@
 				D7319B3F15DD93A5004BA590 /* karlTab@2x.png in Resources */,
 				D73F530C15DDA49F006E387D /* middle-detail.png in Resources */,
 				D73F530E15DDBBF1006E387D /* EventDetail.png in Resources */,
+				D73E6F9215DE93AA00C5DE87 /* ProfileDetail4@2x.png in Resources */,
+				D73E6F9415DE94ED00C5DE87 /* EventDetail@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2083,10 +2065,8 @@
 				D791456D15B60F8E00C261B2 /* AFURLConnectionOperation.m in Sources */,
 				D791456E15B60F8E00C261B2 /* AFXMLRequestOperation.m in Sources */,
 				D791456F15B60F8E00C261B2 /* UIImageView+AFNetworking.m in Sources */,
-				D70CD18315B790490017AC5F /* HECAddEventVC.m in Sources */,
 				D74BA2CD15B89098005FAF8C /* Events.xcdatamodeld in Sources */,
 				D74BA2D915B8AF2F005FAF8C /* Events.m in Sources */,
-				D78EFEDD15BB1EE600FA7C90 /* HECAddEventTimeVC.m in Sources */,
 				D78EFEFE15BDB86B00FA7C90 /* GroupCell.m in Sources */,
 				D781CF2715C70ADB008A9370 /* ScanQRVC.m in Sources */,
 				D7B69EF315CAD78E00D8DC64 /* HECStudentVC.m in Sources */,

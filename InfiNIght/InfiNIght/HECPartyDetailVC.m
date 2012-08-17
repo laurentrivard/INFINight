@@ -40,7 +40,6 @@
  //   NSLog(@"%@", self.eventInfo);
     
     self.title = [NSString stringWithFormat:@"%@", [self.eventInfo objectForKey:@"event_title"]];
- //   self.titleLbl.text = [self.eventInfo objectForKey:@"event_title"];
     
     [actInd startAnimating ];
     [self getImageWithFileName:[self.eventInfo objectForKey:@"image_title"]];
@@ -82,14 +81,14 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.imagePhoto addGestureRecognizer:singleTap];
     
-    self.dateLbl = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 40, 185, 30)];
+    self.dateLbl = [[UILabel alloc] initWithFrame:CGRectMake(140, 20, 170, 50)];
     self.dateLbl.text = [self.eventInfo objectForKey:@"event_date_string"];
-    self.dateLbl.textAlignment = UITextAlignmentCenter;
+    self.dateLbl.textAlignment = UITextAlignmentLeft;
     self.dateLbl.backgroundColor = [UIColor clearColor];
     self.dateLbl.textColor = [UIColor whiteColor];
     self.dateLbl.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     
-    UILabel *where = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 95, 185, 20)];
+    UILabel *where = [[UILabel alloc] initWithFrame:CGRectMake(135, 95, 185, 20)];
     where.text = @"Lieu";
     where.textAlignment = UITextAlignmentCenter;
     where.backgroundColor = [UIColor clearColor];
@@ -97,16 +96,19 @@
     where.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     
     UILabel *when = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 25, 185, 20)];
-    when.text = @"Date";
-    when.textAlignment = UITextAlignmentCenter;
+    when.text = @"Quand?";
+//    when.textAlignment = UITextAlignmentCenter;
     when.backgroundColor = [UIColor clearColor];
     when.textColor = [UIColor whiteColor];
     when.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     
     
-    self.locationLbl = [[UILabel alloc] initWithFrame:CGRectMake(132.5f, 110, 185, 30)];
-    self.locationLbl.text = [self.eventInfo objectForKey:@"event_location"];
-    self.locationLbl.textAlignment = UITextAlignmentCenter;
+    self.locationLbl = [[UILabel alloc] initWithFrame:CGRectMake(140, 90, 160, 50)];
+//    self.locationLbl.text = [self.eventInfo objectForKey:@"event_location"];
+    self.locationLbl.text = @"Bar Officiel - Commission des liqueurs";
+    self.locationLbl.numberOfLines = 0;
+   self.locationLbl.lineBreakMode = UILineBreakModeWordWrap;
+    self.locationLbl.textAlignment = UITextAlignmentLeft;
     self.locationLbl.backgroundColor = [UIColor clearColor];
     self.locationLbl.textColor = [UIColor whiteColor];
     self.locationLbl.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
@@ -116,8 +118,8 @@
     [scrollView addSubview:bg];
     [scrollView addSubview: self.descriptionTF];
     [scrollView addSubview:self.imagePhoto];
-    [scrollView addSubview:where];
-    [scrollView addSubview:when];
+//    [scrollView addSubview:where];
+//    [scrollView addSubview:when];
     [scrollView addSubview:self.dateLbl];
     [scrollView addSubview:self.locationLbl];
     
