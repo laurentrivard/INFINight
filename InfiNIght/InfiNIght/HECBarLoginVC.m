@@ -11,6 +11,7 @@
 #import "MBProgressHUD.h"
 #import "AFNetworking.h"
 #import "AppDelegate.h"
+#import "MacAddressHelper.h"
 
 @interface HECBarLoginVC ()
 
@@ -175,7 +176,7 @@
 }
 -(void) checkCreds {
 
-    NSLog(@"addUserToDatabase");
+    NSLog(@"checking creds");
     MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	hud.labelText = @"Authorization...";
     hud.dimBackground = YES;
@@ -262,15 +263,21 @@
     NSDate *now = [NSDate date];
     NSString *uuid = [AppDelegate device_id];
     NSLog(@"uuid: %@", uuid);
+    
+    if(![currentDefaults objectForKey:@"device_token"]) {
+        NSLog(@"didn't register for push");
+        [self generateRandomToken];
+    }
+    
     [params setObject:[currentDefaults objectForKey:@"name"] forKey:@"name"];
     [params setObject:@"join_scanner" forKey:@"cmd"];
     [params setObject:now forKey:@"date"];
     [params setObject:uuid forKey:@"udid"];
-#if TARGET_IPHONE_SIMULATOR
-    [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];   //test for simulator
-#else
+//#if TARGET_IPHONE_SIMULATOR
+//    [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];   //test for simulator
+//#else
     [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
-#endif
+//#endif
     
     NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
     
@@ -299,18 +306,23 @@
     
     [operation start];
 }
+-(void) generateRandomToken {
+    int tokenLength = 64;
+    
+    NSString *mac = [MacAddressHelper getMacAddress];
+    
+    int toGo = tokenLength - [mac length];
+    
+    
+    for(int i =0; i <toGo; i++) {
+        mac = [mac stringByAppendingString:@"a"];
+    }
+    
+    NSLog(@"new token count: %d", [mac length]);
+    
+    [[NSUserDefaults standardUserDefaults] setObject:mac forKey:@"device_token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
 
-
-
-
-
-
-
-
-
-
-///////////////////////////////////////////////
-///////////////////////////////////////////////
-///////////////////////////////////////////////
-///////////////////////////////////////////////
 @end

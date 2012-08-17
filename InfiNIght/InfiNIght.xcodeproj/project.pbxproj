@@ -65,6 +65,7 @@
 		D73E6FA215DE9B5A00C5DE87 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D73E6FA115DE9B5A00C5DE87 /* Default.png */; };
 		D73E6FA415DE9B5F00C5DE87 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D73E6FA315DE9B5F00C5DE87 /* Default@2x.png */; };
 		D73E6FA615DEB4DC00C5DE87 /* AEHEC.png in Resources */ = {isa = PBXBuildFile; fileRef = D73E6FA515DEB4DC00C5DE87 /* AEHEC.png */; };
+		D73E6FE215DEE7D300C5DE87 /* MacAddressHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D73E6FE115DEE7D300C5DE87 /* MacAddressHelper.m */; };
 		D73F530C15DDA49F006E387D /* middle-detail.png in Resources */ = {isa = PBXBuildFile; fileRef = D73F530B15DDA49F006E387D /* middle-detail.png */; };
 		D73F530E15DDBBF1006E387D /* EventDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = D73F530D15DDBBF1006E387D /* EventDetail.png */; };
 		D74BA2CA15B88DC3005FAF8C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74BA2C915B88DC3005FAF8C /* CoreData.framework */; };
@@ -367,6 +368,8 @@
 		D73E6FA115DE9B5A00C5DE87 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D73E6FA315DE9B5F00C5DE87 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D73E6FA515DEB4DC00C5DE87 /* AEHEC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AEHEC.png; sourceTree = "<group>"; };
+		D73E6FE015DEE7D300C5DE87 /* MacAddressHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacAddressHelper.h; sourceTree = "<group>"; };
+		D73E6FE115DEE7D300C5DE87 /* MacAddressHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacAddressHelper.m; sourceTree = "<group>"; };
 		D73F530B15DDA49F006E387D /* middle-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "middle-detail.png"; sourceTree = "<group>"; };
 		D73F530D15DDBBF1006E387D /* EventDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventDetail.png; sourceTree = "<group>"; };
 		D74BA2C915B88DC3005FAF8C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -978,6 +981,8 @@
 				D776901115ACA954001763E1 /* AppDelegate.h */,
 				D776901215ACA954001763E1 /* AppDelegate.m */,
 				D72D7BF215D8BF39000272E0 /* MainStoryboard.storyboard */,
+				D73E6FE015DEE7D300C5DE87 /* MacAddressHelper.h */,
+				D73E6FE115DEE7D300C5DE87 /* MacAddressHelper.m */,
 				D753CB3215ACB86200F6B2FC /* Tabs */,
 				D791453F15B5E6DB00C261B2 /* Partenaires */,
 				D753CB3D15ACB98F00F6B2FC /* Register */,
@@ -2130,6 +2135,7 @@
 				D798343415DAFF9A00460C31 /* UASubscriptionUI.m in Sources */,
 				D798343515DAFF9A00460C31 /* UASubscriptionUIUtil.m in Sources */,
 				D723128315DDEA320042F123 /* QRCodeVC.mm in Sources */,
+				D73E6FE215DEE7D300C5DE87 /* MacAddressHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2230,7 +2236,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = InfiNight;
-				PROVISIONING_PROFILE = "26CBF469-AC83-4B76-8504-5B85A4DB2D72";
+				PROVISIONING_PROFILE = "C034AE5E-9C2C-4087-828A-F0BBE670F50A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

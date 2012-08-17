@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "MacAddressHelper.h"
 
 @interface HECStudentVC ()
 
@@ -212,7 +213,7 @@
     NSString *uuid = [AppDelegate device_id];
     NSLog(@"uuid: %@", uuid);
     if(![currentDefaults objectForKey:@"device_token"]) {
-        NSLog(@"iphone sim");
+        NSLog(@"didn't register for push");
         [self generateRandomToken];
     }
     [params setObject:[currentDefaults objectForKey:@"name"] forKey:@"name"];
@@ -246,9 +247,6 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"firstTimeEvents"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-        //call function for HECActivities to fetch events
- //       [self.delegate studentRegistrationWasSuccessful:@"success"];
- //       NSLog(@"DELEGATE FUNCTION WAS CALLED");
         
         [self dismissModalViewControllerAnimated:YES];
         
@@ -266,13 +264,18 @@
 -(void) generateRandomToken {
     int tokenLength = 64;
     
-    NSString *possibleChar = @"1234567890abcdefABCDEF";
-    NSMutableString *subToken = [NSMutableString stringWithCapacity:tokenLength];
+    NSString *mac = [MacAddressHelper getMacAddress];
     
-    for(int i =0; i <tokenLength; i++) {
-        [subToken appendFormat:@"%C", [possibleChar characterAtIndex:arc4random() % [possibleChar length]]];
+    int toGo = tokenLength - [mac length];
+    
+    
+    for(int i =0; i <toGo; i++) {
+       mac = [mac stringByAppendingString:@"a"];
     }
-    [[NSUserDefaults standardUserDefaults] setObject:subToken forKey:@"device_token"];
+    
+    NSLog(@"new token count: %d", [mac length]);
+    
+    [[NSUserDefaults standardUserDefaults] setObject:mac forKey:@"device_token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
 }

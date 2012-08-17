@@ -4,6 +4,7 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 #import "HECBarLoginVC.h"
+#import "MacAddressHelper.h"
 
 @interface HECRegisterVC ()
 
@@ -225,6 +226,10 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     NSString *uuid = [AppDelegate device_id];
     NSLog(@"uuid: %@", uuid);
+    if(![currentDefaults objectForKey:@"device_token"]) {
+        NSLog(@"didn't register for push");
+        [self generateRandomToken];
+    }
     
     
     [params setObject:@"join" forKey:@"cmd"];
@@ -236,12 +241,13 @@
     [params setObject:uuid forKey:@"udid"];
     NSLog(@"token :%@", [currentDefaults stringForKey:@"device_token"]);
 
-#if TARGET_IPHONE_SIMULATOR
-    [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];
-#else
+//#if TARGET_IPHONE_SIMULATOR
+//    [params setObject:@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" forKey:@"token"];
+//#else
+    
     [params setObject:[currentDefaults objectForKey:@"device_token"] forKey:@"token"];
 
-#endif
+//#endif
 
     
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"/api/api.php" parameters:params];
@@ -288,6 +294,23 @@
     [[NSUserDefaults standardUserDefaults] setObject:[mtlSchools objectAtIndex:row] forKey:@"school"];
     NSLog(@"%@", [mtlSchools objectAtIndex:row]);
 }
-
+-(void) generateRandomToken {
+    int tokenLength = 64;
+    
+    NSString *mac = [MacAddressHelper getMacAddress];
+    
+    int toGo = tokenLength - [mac length];
+    
+    
+    for(int i =0; i <toGo; i++) {
+        mac = [mac stringByAppendingString:@"a"];
+    }
+    
+    NSLog(@"new token count: %d", [mac length]);
+    
+    [[NSUserDefaults standardUserDefaults] setObject:mac forKey:@"device_token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
 
 @end
